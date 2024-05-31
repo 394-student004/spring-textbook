@@ -1,3 +1,3 @@
-INSERT INTO account(id, name, grade, department, email, address, password) VALUES(1, '•ĞR', 1, 'ZŠw•”', 'aa@aaa', 'ƒh[ƒ~[ƒCƒ“', '111');
+INSERT INTO account(id, name, grade, department, email, address, password) VALUES(1, 'ç‰‡å±±', 1, 'ã€‡å­¦éƒ¨', 'aa@aaa', 'ãƒ‰ãƒ¼ãƒŸãƒ¼ã‚¤ãƒ³', '111');
 
-INSERT INTO item(id, name, lecture, professor, price) VALUES(1, 'ZZŠw“ü–å', 'ZZŠw', 'A’|', 1000);
+INSERT INTO item(id, name, lecture, professor, price) VALUES(1, 'ã€‡ã€‡å­¦å…¥é–€', 'ã€‡ã€‡å­¦', 'æ¤ç«¹', 1000);
