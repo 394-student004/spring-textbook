@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Account;
-import com.example.demo.entity.Item;
+import com.example.demo.repository.AccountRepository;
 
 @Controller
 public class AccountController {
@@ -49,8 +49,8 @@ public class AccountController {
 		Account account = accountList.get(0);
 
 		// セッション管理されたアカウント情報にIDと名前をセット
-		account.setId();
-		account.setName();
+		//		account.setId();
+		//		account.setName();
 
 		// 「/function」機能一覧画面へのリダイレクト
 		return "redirect:/function";
@@ -115,7 +115,7 @@ public class AccountController {
 			model.addAttribute("password", password);
 			return "accountForm";
 		}
-		Account account = new Account(name, grade, department, email, address, password);
+		//		Account account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
 		return "";
 	}
@@ -130,27 +130,31 @@ public class AccountController {
 	@GetMapping("/account/{id}/edit")
 	public String edit(@PathVariable("id") Integer id, Model model) {
 
-		Item item = itemRepository.findById(id).get();
-		model.addAttribute("item", item);
+		Account account = accountRepository.findById(id).get();
+		model.addAttribute("account", account);
 		return "";
 	}
 
 	// 会員情報変更内容入力
-	@PostMapping("/items/{id}/edit")
+	@PostMapping("/account/{id}/edit")
 	public String update(
 			@PathVariable("id") Integer id,
-			@RequestParam(value = "categoryId", defaultValue = "") Integer categoryId,
-			@RequestParam(value = "name", defaultValue = "") String name,
-			@RequestParam(value = "price", defaultValue = "") Integer price,
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "grade", defaultValue = "") Integer grade,
+			@RequestParam(name = "department", defaultValue = "") String department,
+			@RequestParam(name = "email", defaultValue = "") String email,
+			@RequestParam(name = "address", defaultValue = "") String address,
+			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
 
-		Item item = new Item(id, categoryId, name, price);
-		itemRepository.save(item);
+		//		Account account = new Account(name, grade, department, email, address, password);
+		accountRepository.save(account);
 		return "";
 	}
 
 	// 会員情報変更内容画面表示
-	/*	@GetMapping("/") {
+	/*	@GetMapping("/")
+	 	public String aaa() {
 	  return "redirect:/";
 	  }
 	*/
