@@ -79,5 +79,9 @@ public class OrderController {
 	}
 
 	// 購入履歴を表示
+	@GetMapping("/")
+	public String aaa() {
+		return "";
+	}
 
 }
