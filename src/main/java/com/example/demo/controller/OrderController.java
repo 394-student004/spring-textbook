@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Account;
+import com.example.demo.entity.Item;
+import com.example.demo.entity.Order;
 import com.example.demo.entity.OrderDetail;
 import com.example.demo.model.Cart;
 import com.example.demo.repository.AccountRepository;
@@ -38,7 +41,7 @@ public class OrderController {
 	public String index(Model model) {
 
 		// ログインしている顧客IDで顧客テーブルを検索		
-		Account account = accountRepository.findById().get();
+		Account account = accountRepository.findById(account.getId()).get();
 		model.addAttribute("account", account);
 
 		// 注文確認画面に遷移
