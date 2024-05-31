@@ -16,8 +16,8 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "member_id")
-	private int memberId;
+	@Column(name = "account_id")
+	private int accountId;
 	@Column(name = "ordered_on")
 	private LocalDate orderedOn;
 	@Column(name = "total_price")
@@ -26,8 +26,8 @@ public class Order {
 	//コンストラクタ
 	Order(){}
 	
-	Order(int memberId, LocalDate orderedOn, int totalPrice){
-		this.memberId = memberId;
+	Order(int accountId, LocalDate orderedOn, int totalPrice){
+		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 		this.totalPrice = totalPrice;
 	}
@@ -37,8 +37,8 @@ public class Order {
 		return id;
 	}
 
-	public int getMemberId() {
-		return memberId;
+	public int getAccountId() {
+		return accountId;
 	}
 
 	public LocalDate getOrderedOn() {

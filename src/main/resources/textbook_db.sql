@@ -30,7 +30,7 @@ CREATE TABLE item
 CREATE TABLE orders
 (
    id SERIAL PRIMARY KEY,
-   member_id INTEGER,
+   account_id INTEGER,
    ordered_on DATE,
    total_price INTEGER
    
@@ -40,6 +40,6 @@ CREATE TABLE order_details
 (
    id SERIAL PRIMARY KEY,
    order_id INTEGER,
-   textbook_id INTEGER,
+   item_id INTEGER,
    quantity INTEGER
 );
