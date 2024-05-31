@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.entity.Account;
 import com.example.demo.entity.Item;
-import com.example.demo.model.Account;
 
 @Controller
 public class AccountController {
@@ -21,7 +21,7 @@ public class AccountController {
 	Account account;
 
 	@Autowired
-	AccountRepository customerRepository;
+	AccountRepository accountRepository;
 
 	// ログイン画面表示
 	@GetMapping({ "/", "/logout" })
@@ -40,8 +40,8 @@ public class AccountController {
 			model.addAttribute("message", "入力してください");
 			return "login";
 		}
-		List<Account> customerList = accountRepository.findByEmailAndPassword(email, password);
-		if (customerList == null || customerList.size() == 0) {
+		List<Account> accountList = accountRepository.findByEmailAndPassword(email, password);
+		if (accountList.size() == 0) {
 			// 存在しなかった場合
 			model.addAttribute("message", "メールアドレスとパスワードが一致しませんでした");
 			return "login";
@@ -95,8 +95,8 @@ public class AccountController {
 		}
 
 		// メールアドレス存在チェック
-		List<Customer> customerList = customerRepository.findByEmail(email);
-		if (customerList != null && customerList.size() > 0) {
+		List<Account> accountList = accountRepository.findByEmail(email);
+		if (accountList.size() > 0) {
 			// 登録済みのメールアドレスが存在した場合
 			errorList.add("登録済みのメールアドレスです");
 		}
@@ -115,23 +115,24 @@ public class AccountController {
 			model.addAttribute("password", password);
 			return "accountForm";
 		}
-		Customer customer = new Customer(name, address, tel, email, password);
-		customerRepository.save(customer);
-
+		Account account = new Account(name, grade, department, email, address, password);
+		accountRepository.save(account);
 		return "";
 	}
-	// 新規会員登録確認画面表示
 
-	// 新規登録処理
-	//	return "redirect:/";
-
+	// 新規会員登録内容画面表示
+	/*	@GetMapping("/")
+	  	public String aaa() {
+	 	return "redirect:/";
+	 	}
+	*/
 	// 会員情報変更画面表示
-	@GetMapping("/items/{id}/edit")
+	@GetMapping("/account/{id}/edit")
 	public String edit(@PathVariable("id") Integer id, Model model) {
 
 		Item item = itemRepository.findById(id).get();
 		model.addAttribute("item", item);
-		return "editItem";
+		return "";
 	}
 
 	// 会員情報変更内容入力
@@ -145,11 +146,13 @@ public class AccountController {
 
 		Item item = new Item(id, categoryId, name, price);
 		itemRepository.save(item);
-		return "redirect:/items";
+		return "";
 	}
 
-	// 会員情報変更内容確認画面表示
-
-	// 会員情報変更処理
+	// 会員情報変更内容画面表示
+	/*	@GetMapping("/") {
+	  return "redirect:/";
+	  }
+	*/
 
 }
