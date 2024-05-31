@@ -23,11 +23,11 @@ public class ItemController {
 	ItemRepository itemRepository;
 
 	// 機能一覧画面表示
-	/*	@GetMapping("/")
-		public String aaa() {
+	@GetMapping("/")
+	public String aaa() {
 		return "";
-		}
-	*/
+	}
+
 	// 教科書一覧画面表示、検索
 	@GetMapping("/items")
 	public String index(
@@ -40,7 +40,7 @@ public class ItemController {
 		List<Item> itemList = null;
 		if (keyword.length() > 0 && maxPrice != null) {
 			// 商品名かつ価格検索
-			//			itemList = itemRepository.findByNameContainingAndPriceLessThanEqual(keyword, maxPrice);
+			itemList = itemRepository.findByNameContainingAndPriceLessThanEqual(keyword, maxPrice);
 		} else if (keyword.length() > 0) {
 			// itemsテーブルを商品名で部分一致検索
 			itemList = itemRepository.findByNameContaining(keyword);

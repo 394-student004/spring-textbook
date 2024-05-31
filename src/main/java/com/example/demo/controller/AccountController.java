@@ -49,8 +49,8 @@ public class AccountController {
 		Account account = accountList.get(0);
 
 		// セッション管理されたアカウント情報にIDと名前をセット
-		//		account.setId();
-		//		account.setName();
+		account.setId();
+		account.setName();
 
 		// 「/function」機能一覧画面へのリダイレクト
 		return "redirect:/function";
@@ -115,17 +115,17 @@ public class AccountController {
 			model.addAttribute("password", password);
 			return "accountForm";
 		}
-		//		Account account = new Account(name, grade, department, email, address, password);
+		Account account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
 		return "";
 	}
 
 	// 新規会員登録内容画面表示
-	/*	@GetMapping("/")
-	  	public String aaa() {
-	 	return "redirect:/";
-	 	}
-	*/
+	@GetMapping("/")
+	public String aaa() {
+		return "redirect:/";
+	}
+
 	// 会員情報変更画面表示
 	@GetMapping("/account/{id}/edit")
 	public String edit(@PathVariable("id") Integer id, Model model) {
@@ -147,16 +147,15 @@ public class AccountController {
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
 
-		//		Account account = new Account(name, grade, department, email, address, password);
+		Account account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
 		return "";
 	}
 
 	// 会員情報変更内容画面表示
-	/*	@GetMapping("/")
-	 	public String aaa() {
-	  return "redirect:/";
-	  }
-	*/
+	@GetMapping("/")
+	public String aaa() {
+		return "redirect:/";
+	}
 
 }
