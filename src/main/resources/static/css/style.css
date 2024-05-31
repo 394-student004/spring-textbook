@@ -1,0 +1,57 @@
+@charset "utf-8";
+body {
+    background-color: white;
+    text-align: center;
+    min-width: 900px;
+}
+
+header {
+    background-color: rgb(31, 70, 31);
+    color:aliceblue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+header a {
+    color:white;
+}
+
+header h1 {
+    font-size: 20pt;
+    margin: 10px auto;
+}
+
+main {
+    background-color: white;
+    min-height: 50px;
+    padding: 20px;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid rgb(124, 122, 122)
+}
+
+table {
+    margin: 5px auto;
+    min-width: 800px;
+}
+
+table th {
+    background: rgb(44, 129, 66);
+    color: white;
+}
+
+button {
+    margin: 2px;
+    padding: 5px 20px;
+    background-color: rgb(137, 138, 136);
+    color: beige;
+    border:none;
+    width: 150px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(99, 98, 98);
+}
