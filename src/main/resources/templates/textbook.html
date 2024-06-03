@@ -7,16 +7,18 @@
 </head>
 <body>
     <header>
-        <h1><a href="">教科書販売サイト</a></h1>
+        <h1><a href="/function">教科書販売サイト</a></h1>
         <p>片山大樹さんがログイン中</p>
     </header>
     <main>
     <h1>教科書一覧</h1>
-    <input type="text" placeholder="教科書名"> 
-    <input type="text" placeholder="講師名"> 
-    <input type="text" placeholder="講義名"> 
+    <form action="/items">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="教科書名"> 
+    <input type="text" name="professor" th:value="${professor}" placeholder="講師名"> 
+    <input type="text" name="lecture" th:value="${lecture}" placeholder="講義名"> 
     <button>検索</button><br>
-    <a href="">カートの中身を見る</a>
+    </form>
+    <a href="/cart">カートの中身を見る</a>
     <table border="1">
         <tr>
             <th>教科書名</th>
@@ -32,7 +34,9 @@
             <td>心理学Ⅱ</td>
             <td>7000</td>
             <td>
+				<form th:action="@{/cart/add}" method="post">
                 <button>カートに追加</button>
+                </form>
             </td>
         </tr>
     </table>
