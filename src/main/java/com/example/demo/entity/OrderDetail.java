@@ -20,25 +20,31 @@ public class OrderDetail {
 	private int itemId; //教科書ID
 	private int quantity; //数量
 	//コンストラクタ
-	public OrderDetail(){}
-	public OrderDetail(int id, int orderId, int itemId, int quantity){
-		this.id = id;
+
+	public OrderDetail() {
+	}
+
+	public OrderDetail(int orderId, int itemId, int quantity) {
 		this.orderId = orderId;
 		this.itemId = itemId;
 		this.quantity = quantity;
 	}
+
 	//アクセッサ
 	public int getId() {
 		return id;
 	}
+
 	public int getOrderId() {
 		return orderId;
 	}
+
 	public int getItemId() {
 		return itemId;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}
-	
+
 }

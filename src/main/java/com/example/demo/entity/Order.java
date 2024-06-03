@@ -16,22 +16,25 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "account_id") 
+	@Column(name = "account_id")
 	private int accountId; //会員ID
-	@Column(name = "ordered_on") 
+	@Column(name = "ordered_on")
 	private LocalDate orderedOn; //注文日
-	@Column(name = "total_price") 
+	@Column(name = "total_price")
 	private int totalPrice; //合計額
-	
+
 	//コンストラクタ
-	public Order(){}
-	
-	public Order(int accountId, LocalDate orderedOn, int totalPrice){
+	public Order() {
+		super();
+	}
+
+	public Order(int accountId, LocalDate orderedOn, int totalPrice) {
+		super();
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 		this.totalPrice = totalPrice;
 	}
-	
+
 	//アクセッサ
 	public int getId() {
 		return id;
@@ -48,5 +51,5 @@ public class Order {
 	public int getTotalPrice() {
 		return totalPrice;
 	}
-	
+
 }

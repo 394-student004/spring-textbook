@@ -21,6 +21,7 @@ import com.example.demo.repository.OrderRepository;
 
 @Controller
 public class OrderController {
+
 	@Autowired
 	Account account;
 
@@ -45,7 +46,7 @@ public class OrderController {
 		model.addAttribute("account", account);
 
 		// 注文確認画面に遷移
-		return "purchase";
+		return "orderConfirm";
 	}
 
 	// 注文処理
@@ -59,7 +60,7 @@ public class OrderController {
 		orderRepository.save(order);
 
 		// 注文詳細情報をDBに格納する
-		List<Item> itemList = cart.getItems();
+		List<Item> itemList = cart.getItemList();
 		List<OrderDetail> orderDetails = new ArrayList<>();
 		for (Item item : itemList) {
 			orderDetails.add(
@@ -75,7 +76,7 @@ public class OrderController {
 
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
-		return "purchaseFin";
+		return "ordered";
 	}
 
 	// 購入履歴を表示
