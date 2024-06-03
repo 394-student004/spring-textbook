@@ -26,11 +26,6 @@ public class Account {
 	public Account() {
 	}
 
-	public Account(Integer id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-
 	public Account(String name, int grade, String department, String email, String address, String password) {
 		this.name = name;
 		this.grade = grade;
