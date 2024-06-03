@@ -20,9 +20,9 @@ public class Cart {
 	}
 	
 	//合計金額取得用ゲッター
-	public int getTotalPrice() {
+	public Integer getTotalPrice() {
 		//合計金額
-		int total = 0;
+		Integer total = 0;
 		for (Item item : itemList) {
 			total += item.getPrice() * item.getQuantity();
 		}
@@ -49,7 +49,7 @@ public class Cart {
 		}
 	}
 	//削除
-	public void delete(int itemId) {
+	public void delete(Integer itemId) {
 		//現在のカートから同一IDの商品を探す
 		for(Item item : itemList) {
 			//対象の商品IDがあった場合削除

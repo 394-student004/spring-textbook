@@ -13,37 +13,37 @@ public class OrderDetail {
 	//フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@Column(name = "order_id")
-	private int orderId; //注文ID
+	private Integer orderId; //注文ID
 	@Column(name = "item_id")
-	private int itemId; //教科書ID
-	private int quantity; //数量
+	private Integer itemId; //教科書ID
+	private Integer quantity; //数量
 	//コンストラクタ
 
 	public OrderDetail() {
 	}
 
-	public OrderDetail(int orderId, int itemId, int quantity) {
+	public OrderDetail(Integer orderId, Integer itemId, Integer quantity) {
 		this.orderId = orderId;
 		this.itemId = itemId;
 		this.quantity = quantity;
 	}
 
 	//アクセッサ
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public int getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public int getItemId() {
+	public Integer getItemId() {
 		return itemId;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 

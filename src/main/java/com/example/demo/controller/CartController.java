@@ -29,7 +29,7 @@ public class CartController {
 	// 商品をカートに追加
 	@PostMapping("/cart/add")
 	public String addCart(
-			@RequestParam("itemId") int itemId,
+			@RequestParam("itemId") Integer itemId,
 			@RequestParam(name = "quantity", defaultValue = "1") Integer quantity) {
 
 		// 商品コードをキーに商品情報を取得する
@@ -44,7 +44,7 @@ public class CartController {
 
 	// 商品をカートから削除
 	@PostMapping("/cart/delete")
-	public String deleteCart(@RequestParam("itemId") int itemId) {
+	public String deleteCart(@RequestParam("itemId") Integer itemId) {
 
 		// カート情報から削除
 		cart.delete(itemId);
