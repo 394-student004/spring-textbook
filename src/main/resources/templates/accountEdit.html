@@ -12,22 +12,43 @@
     </header>
     <main>
     <h1>会員情報変更</h1>
-    <form>
-        <table>
+    <form th:action="'/account/'+${account.id}+'/edit'" method="post">
+        <table border="1">
             <tr>
                 <th>名前</th>
-                <td><input type="text"></td>
+                <td>
+					<input type="text" name="name" th:value="${account.name}">
+				</td>
             </tr>
+            <tr>
+                <th>学年</th>
+                <td>
+					<input type="text" name="grade" th:value="${account.grade}">
+				</td>
+            </tr>
+            <tr>
+                <th>学部</th>
+                <td>
+					<input type="text" name="department" th:value="${user.department}">
+				</td>
+            </tr>
+            <tr>
                 <th>メールアドレス</th>
-                <td><input type="text"></td>
+                <td>
+					<input type="text" name="email" th:value="${account.email}">
+				</td>
             </tr>
             <tr>
                 <th>住所</th>
-                <td><textarea></textarea></td>
+                <td>
+					<input type="text" name="address" th:value="${account.address}">
+				</td>
             </tr>
             <tr>
                 <th>パスワード</th>
-                <td><input type="text"></td>
+                <td>
+					<input type="text" name="password">
+				</td>
             </tr>
         </table>
         <button>変更</button>

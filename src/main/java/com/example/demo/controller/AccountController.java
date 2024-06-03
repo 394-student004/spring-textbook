@@ -125,7 +125,7 @@ public class AccountController {
 			model.addAttribute("email", email);
 			model.addAttribute("address", address);
 			model.addAttribute("password", password);
-			return "join";
+			return "login";
 		}
 		account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
