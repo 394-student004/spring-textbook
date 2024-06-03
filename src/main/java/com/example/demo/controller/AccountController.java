@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Account;
 import com.example.demo.repository.AccountRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class AccountController {
+
+	@Autowired
+	HttpSession session;
 
 	@Autowired
 	Account account;
@@ -24,8 +29,16 @@ public class AccountController {
 	AccountRepository accountRepository;
 
 	// ログイン画面表示
-	@GetMapping({ "/", "/logout" })
-	public String index() {
+	@GetMapping({ "/", "/login", "/logout" })
+	public String index(
+			@RequestParam(name = "error", defaultValue = "") String error,
+			Model model) {
+		// セッション情報を全てクリアする
+		session.invalidate();
+		// エラーパラメータのチェック
+		if (error.equals("notLoggedIn")) {
+			model.addAttribute("message", "ログインしてください");
+		}
 		return "login";
 	}
 
@@ -49,8 +62,8 @@ public class AccountController {
 		Account account = accountList.get(0);
 
 		// セッション管理されたアカウント情報にIDと名前をセット
-		account.setId();
-		account.setName();
+		account.setId(account.getId());
+		account.setName(account.getName());
 
 		// 「/function」機能一覧画面へのリダイレクト
 		return "redirect:/function";
@@ -63,7 +76,7 @@ public class AccountController {
 	}
 
 	// 新規会員登録情報入力
-	@PostMapping("/account")
+	@PostMapping("/account/add")
 	public String store(
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "grade", defaultValue = "") Integer grade,
@@ -121,14 +134,20 @@ public class AccountController {
 	}
 
 	// 新規会員登録内容画面表示
-	@GetMapping("/")
-	public String aaa() {
+	@GetMapping("/account/{id}/add/confirm")
+	public String confirm(
+			@PathVariable("id") Integer id,
+			Model model) {
+		Account account = accountRepository.findById(id).get();
+		model.addAttribute("account", account);
 		return "redirect:/";
 	}
 
 	// 会員情報変更画面表示
 	@GetMapping("/account/{id}/edit")
-	public String edit(@PathVariable("id") Integer id, Model model) {
+	public String edit(
+			@PathVariable("id") Integer id,
+			Model model) {
 
 		Account account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
@@ -153,8 +172,13 @@ public class AccountController {
 	}
 
 	// 会員情報変更内容画面表示
-	@GetMapping("/")
-	public String aaa() {
+	@GetMapping("/account/{id}/edit/confirm")
+	public String aaa(
+			@PathVariable("id") Integer id,
+			Model model) {
+
+		Account account = accountRepository.findById(id).get();
+		model.addAttribute("account", account);
 		return "redirect:/";
 	}
 

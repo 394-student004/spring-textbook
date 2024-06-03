@@ -79,8 +79,8 @@ public class OrderController {
 	}
 
 	// 購入履歴を表示
-	@GetMapping("/")
-	public String aaa() {
+	@GetMapping("/history")
+	public String history() {
 		return "";
 	}
 
