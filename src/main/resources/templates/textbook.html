@@ -15,19 +15,19 @@
 		<form action="/items" method="get">
 			<input type="text" name="keyword" th:value="${keyword}" placeholder="教科書名">
 			｜
-			<input type="text" name="professor" th:value="${professor}" placeholder="講師名">
-			｜
 			<input type="text" name="lecture" th:value="${lecture}" placeholder="講義名">
+			｜
+			<input type="text" name="professor" th:value="${professor}" placeholder="講師名">
 			<button>検索</button>
 
 			<table border="1">
 				<tr>
+					<th>教科書ID</th>
 					<th>教科書名</th>
-					<th>講師名</th>
 					<th>講義名</th>
+					<th>講師名</th>
 					<th>価格</th>
 					<th>購入</th>
-					<th></th>
 				</tr>
 				<tr th:each="item:${items}">
 					<td th:text="${item.id}"></td>
