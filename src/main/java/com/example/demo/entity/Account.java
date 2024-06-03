@@ -13,10 +13,10 @@ public class Account {
 	//フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id; //会員ID
+	private Integer id; //会員ID
 
 	private String name; //会員名
-	private int grade; //学年
+	private Integer grade; //学年
 	private String department; //学部
 	private String email; //メールアドレス
 	private String address; //住所
@@ -26,7 +26,7 @@ public class Account {
 	public Account() {
 	}
 
-	public Account(String name, int grade, String department, String email, String address, String password) {
+	public Account(String name, Integer grade, String department, String email, String address, String password) {
 		this.name = name;
 		this.grade = grade;
 		this.department = department;
@@ -40,7 +40,7 @@ public class Account {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -56,7 +56,7 @@ public class Account {
 		return grade;
 	}
 
-	public void setGrade(int grade) {
+	public void setGrade(Integer grade) {
 		this.grade = grade;
 	}
 

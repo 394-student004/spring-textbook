@@ -42,7 +42,7 @@ public class OrderController {
 	public String index(Model model) {
 
 		// ログインしている顧客IDで顧客テーブルを検索		
-		Account account = accountRepository.findById(account.getId()).get();
+		accountRepository.findById(account.getId()).get();
 		model.addAttribute("account", account);
 
 		// 注文確認画面に遷移

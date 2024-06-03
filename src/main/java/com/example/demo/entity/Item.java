@@ -13,52 +13,73 @@ public class Item {
 	//フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id; //教科書ID
+	private Integer id; //教科書ID
 	private String name; //教科書名
 	private String lecture; //講義名
 	private String professor; //教授名
-	private int price; //値段
+	private Integer price; //値段
 	@Transient
-	private int quantity;
-	
+	private Integer quantity;
+
 	//コンストラクタ
-	Item(){}
-	
-	Item(int id, String name, String lecture, String professor, int price){
+	public Item() {
+	}
+
+	public Item(Integer id, String name, String lecture, String professor, Integer price) {
 		this.id = id;
 		this.name = name;
 		this.lecture = lecture;
 		this.professor = professor;
 		this.price = price;
 	}
-	
+
 	//アクセッサ
-	public int getId() {
+	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getLecture() {
 		return lecture;
+	}
+
+	public void setLecture(String lecture) {
+		this.lecture = lecture;
 	}
 
 	public String getProfessor() {
 		return professor;
 	}
 
-	public int getPrice() {
+	public void setProfessor(String professor) {
+		this.professor = professor;
+	}
+
+	public Integer getPrice() {
 		return price;
 	}
-	
-	public int getQuantity() {
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public Integer getQuantity() {
 		return quantity;
 	}
-	
+
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	
+
 }
