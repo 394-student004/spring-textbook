@@ -7,7 +7,7 @@ INSERT INTO item(name, lecture, professor, price) VALUES('有能人材基礎~行
 INSERT INTO item(name, lecture, professor, price) VALUES('有能人材学発展~習慣が変われば人格が変わる~講演DVD付き特装版', '有能人材学', '茶谷アスカ', 20000);
 INSERT INTO item(name, lecture, professor, price) VALUES('有能人材学応用~人格が変われば運命が変わる~講演DVD付き特装版', '有能人材学', '茶谷アスカ', 1000);
 INSERT INTO item(name, lecture, professor, price) VALUES('レギュレーションＦ完全対策', '歴史学', '片山ヒロキ', 3000);
-INSERT INTO item(name, lecture, professor, price) VALUES('ネットスラング入門', '語学部', '植竹セイヤ', 2500);
-INSERT INTO item(name, lecture, professor, price) VALUES('猛虎弁2005年改訂版', '語学部', '植竹セイヤ', 3300);
-INSERT INTO item(name, lecture, professor, price) VALUES('ヤフコメから学ぶ世論', '政治学部', '片山ヒロキ', 1000);
+INSERT INTO item(name, lecture, professor, price) VALUES('インターネット用語集', '言語学', '植竹セイヤ', 2500);
+INSERT INTO item(name, lecture, professor, price) VALUES('方言研究学2005年改訂版', '言語学', '植竹セイヤ', 3300);
+INSERT INTO item(name, lecture, professor, price) VALUES('SNSから学ぶ現代世論の形成', '政治学', '片山ヒロキ', 1000);
 
