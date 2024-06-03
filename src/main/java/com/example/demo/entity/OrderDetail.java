@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "order_details")
@@ -19,11 +18,10 @@ public class OrderDetail {
 	private int orderId; //注文ID
 	@Column(name = "item_id")
 	private int itemId; //教科書ID
-	@Transient
 	private int quantity; //数量
 	//コンストラクタ
-	OrderDetail(){}
-	OrderDetail(int id, int orderId, int itemId, int quantity){
+	public OrderDetail(){}
+	public OrderDetail(int id, int orderId, int itemId, int quantity){
 		this.id = id;
 		this.orderId = orderId;
 		this.itemId = itemId;

@@ -24,9 +24,9 @@ public class Order {
 	private int totalPrice; //合計額
 	
 	//コンストラクタ
-	Order(){}
+	public Order(){}
 	
-	Order(int accountId, LocalDate orderedOn, int totalPrice){
+	public Order(int accountId, LocalDate orderedOn, int totalPrice){
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 		this.totalPrice = totalPrice;

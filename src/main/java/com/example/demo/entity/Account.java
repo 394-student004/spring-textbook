@@ -23,9 +23,9 @@ public class Account {
 	private String password; //パスワード
 	
 	//コンストラクタ
-	Account(){}
+	public Account(){}
 	
-	Account(String name, int grade, String department, String email, String address, String password){
+	public Account(String name, int grade, String department, String email, String address, String password){
 		this.name = name;
 		this.grade = grade;
 		this.department = department;
