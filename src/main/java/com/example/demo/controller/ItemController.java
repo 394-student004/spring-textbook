@@ -37,20 +37,19 @@ public class ItemController {
 			Model model) {
 
 		// 商品一覧情報の取得
-		/*		List<Item> itemList = null;
-				if (keyword.length() > 0 && maxPrice != null) {
+		List<Item> itemList = null;
+		/*		if (keyword.length() > 0 && maxPrice != null) {
 					// 商品名かつ価格検索
 					itemList = itemRepository.findByNameContainingAndPriceLessThanEqual(keyword, maxPrice);
-				} else if (keyword.length() > 0) {
-					// itemsテーブルを商品名で部分一致検索
-					itemList = itemRepository.findByNameContaining(keyword);
-				} else {
-					// 全商品一覧
-					itemList = itemRepository.findAll();
-				}
-				model.addAttribute("keyword", keyword);
-		*/ List<Item> itemList = null;
-		itemList = itemRepository.findAll();
+				} else
+				*/ if (keyword.length() > 0) {
+			// itemsテーブルを商品名で部分一致検索
+			itemList = itemRepository.findByNameContaining(keyword);
+		} else {
+			// 全商品一覧
+			itemList = itemRepository.findAll();
+		}
+		model.addAttribute("keyword", keyword);
 		model.addAttribute("items", itemList);
 		return "textbook";
 	}
