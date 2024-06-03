@@ -8,10 +8,7 @@
 </head>
 
 <body>
-	<header>
-		<h1><a href="/function">教科書販売サイト</a></h1>
-		<p>片山大樹さんがログイン中</p>
-	</header>
+	<header th:replace="header"></header>
 	<main>
 		<h1>会員情報変更確認</h1>
 		<p>以下の内容で変更しました</p>
@@ -40,7 +37,7 @@
 
 		</form>
 	</main>
-
+<footer th:replace="footer"></footer>
 </body>
 
 </html>
