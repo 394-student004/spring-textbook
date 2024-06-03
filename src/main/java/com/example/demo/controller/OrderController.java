@@ -45,7 +45,7 @@ public class OrderController {
 		model.addAttribute("account", account);
 
 		// 注文確認画面に遷移
-		return "orderConfirm";
+		return "purchase";
 	}
 
 	// 注文処理
@@ -75,13 +75,13 @@ public class OrderController {
 
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
-		return "ordered";
+		return "purchaseFin";
 	}
 
 	// 購入履歴を表示
 	@GetMapping("/history")
 	public String history() {
-		return "";
+		return "history";
 	}
 
 }

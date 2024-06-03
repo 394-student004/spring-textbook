@@ -23,7 +23,7 @@ public class ItemController {
 	// 機能一覧画面表示
 	@GetMapping("/function")
 	public String list() {
-		return "";
+		return "function";
 	}
 
 	// 教科書一覧画面表示、検索
@@ -49,7 +49,7 @@ public class ItemController {
 				}
 				model.addAttribute("keyword", keyword);
 				model.addAttribute("items", itemList);
-		*/ return "items";
+		*/ return "textbook";
 	}
 
 	@GetMapping("/items/{id}")

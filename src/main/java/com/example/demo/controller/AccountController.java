@@ -72,7 +72,7 @@ public class AccountController {
 	// 新規会員登録画面表示
 	@GetMapping("/account")
 	public String create() {
-		return "accountForm";
+		return "join";
 	}
 
 	// 新規会員登録情報入力
@@ -126,11 +126,11 @@ public class AccountController {
 			model.addAttribute("email", email);
 			model.addAttribute("address", address);
 			model.addAttribute("password", password);
-			return "accountForm";
+			return "join";
 		}
 		Account account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
-		return "";
+		return "loginConfirm";
 	}
 
 	// 新規会員登録内容画面表示
@@ -140,7 +140,7 @@ public class AccountController {
 			Model model) {
 		Account account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
-		return "redirect:/";
+		return "redirect:/login";
 	}
 
 	// 会員情報変更画面表示
@@ -151,7 +151,7 @@ public class AccountController {
 
 		Account account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
-		return "";
+		return "accountEdit";
 	}
 
 	// 会員情報変更内容入力
@@ -168,18 +168,18 @@ public class AccountController {
 
 		Account account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
-		return "";
+		return "accountConfirm";
 	}
 
 	// 会員情報変更内容画面表示
 	@GetMapping("/account/{id}/edit/confirm")
-	public String aaa(
+	public String update(
 			@PathVariable("id") Integer id,
 			Model model) {
 
 		Account account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
-		return "redirect:/";
+		return "redirect:/login";
 	}
 
 }
