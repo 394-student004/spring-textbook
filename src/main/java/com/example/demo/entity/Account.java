@@ -52,7 +52,7 @@ public class Account {
 		this.name = name;
 	}
 
-	public int getGrade() {
+	public Integer getGrade() {
 		return grade;
 	}
 
