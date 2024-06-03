@@ -13,20 +13,19 @@ public class Account {
 	//フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; //会員ID
 	
-	private String name;
-	private int grade;
-	private String department;
-	private String email;
-	private String address;
-	private String password;
+	private String name; //会員名
+	private int grade; //学年
+	private String department; //学部
+	private String email; //メールアドレス
+	private String address; //住所
+	private String password; //パスワード
 	
 	//コンストラクタ
 	Account(){}
 	
-	Account(int id, String name, int grade, String department, String email, String address, String password){
-		this.id = id;
+	Account(String name, int grade, String department, String email, String address, String password){
 		this.name = name;
 		this.grade = grade;
 		this.department = department;

@@ -16,12 +16,12 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "account_id")
-	private int accountId;
-	@Column(name = "ordered_on")
-	private LocalDate orderedOn;
-	@Column(name = "total_price")
-	private int totalPrice;
+	@Column(name = "account_id") 
+	private int accountId; //会員ID
+	@Column(name = "ordered_on") 
+	private LocalDate orderedOn; //注文日
+	@Column(name = "total_price") 
+	private int totalPrice; //合計額
 	
 	//コンストラクタ
 	Order(){}

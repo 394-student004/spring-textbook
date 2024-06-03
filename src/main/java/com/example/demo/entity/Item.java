@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "item")
@@ -12,11 +13,13 @@ public class Item {
 	//フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String lecture;
-	private String professor;
-	private int price;
+	private int id; //教科書ID
+	private String name; //教科書名
+	private String lecture; //講義名
+	private String professor; //教授名
+	private int price; //値段
+	@Transient
+	private int quantity;
 	
 	//コンストラクタ
 	Item(){}
@@ -50,6 +53,12 @@ public class Item {
 		return price;
 	}
 	
+	public int getQuantity() {
+		return quantity;
+	}
 	
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 	
 }

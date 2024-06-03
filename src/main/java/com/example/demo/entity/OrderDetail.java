@@ -16,11 +16,11 @@ public class OrderDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "order_id")
-	private int orderId;
+	private int orderId; //注文ID
 	@Column(name = "item_id")
-	private int itemId;
+	private int itemId; //教科書ID
 	@Transient
-	private int quantity;
+	private int quantity; //数量
 	//コンストラクタ
 	OrderDetail(){}
 	OrderDetail(int id, int orderId, int itemId, int quantity){
