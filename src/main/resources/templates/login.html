@@ -8,24 +8,24 @@
 <body>
     <main>
     <h1>ログイン</h1>
-    <form>
+    <form action="/function" method="get">
         <table>
             <tr>
                 <th>メールアドレス</th>
                 <td>
-                    <input type="text">
+                    <input type="text" name = "name" placeholder="メールアドレス">
                 </td>
             </tr>
             <tr>
                 <th>パスワード</th>
                 <td>
-                    <input type="text">
+                    <input type="text" name = "password" placeholder="パスワード">
                 </td>
                 </tr>
         </table>
     <button>ログイン</button>
     <p></p>
-    <a href="">新規会員登録はこちら</a>
+    <a href="/account">新規会員登録はこちら</a>
     </form>
 </main>
 </body>

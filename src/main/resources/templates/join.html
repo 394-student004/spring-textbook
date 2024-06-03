@@ -8,37 +8,39 @@
 <body>
     <main>
     <h1>新規会員登録</h1>
-    <form>
+    <form action="/login" method="post">
         <table>
             <tr>
                 <th>名前</th>
-                <td><input type="text"></td>
+                <td><input type="text" name="name" placeholder="名前"></td>
             </tr>
             <tr>
                 <th>学年</th>
                 <td>
-                    <select size="1" name="">
-                    <option value="" selected>1年生</option>
+                    <select size="1" name="grade">
+                    <option value="1" selected>1年生</option>
+                    <option value="2" >2年生</option>
+                    <option value="3" >3年生</option>
+                    <option value="4" >4年生</option>
                 </td>
             </tr>
             <tr>
                 <th>学部</th>
                 <td>
-                    <select size="1" name="">
-                    <option value="" selected>文学部</option>
+                    <input type="text" name="lecture" placeholder="学部名">
                 </td>
             </tr>
             <tr>
                 <th>メールアドレス</th>
-                <td><input type="text"></td>
+                <td><input type="text" name="email" placeholder="メールアドレス"></td>
             </tr>
             <tr>
                 <th>住所</th>
-                <td><textarea></textarea></td>
+                <td><textarea name="address" placeholder="住所"></textarea></td>
             </tr>
             <tr>
                 <th>パスワード</th>
-                <td><input type="text"></td>
+                <td><input type="text" name="password" placeholder="パスワード"></td>
             </tr>
         </table>
         <button>登録</button>
