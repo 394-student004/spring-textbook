@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Account;
+import com.example.demo.model.Login;
 import com.example.demo.repository.AccountRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -23,7 +24,10 @@ public class AccountController {
 	HttpSession session;
 
 	Account account = new Account();
-
+	
+	@Autowired
+	Login login;
+	
 	@Autowired
 	AccountRepository accountRepository;
 
@@ -61,8 +65,11 @@ public class AccountController {
 		account = accountList.get(0);
 
 		// セッション管理されたアカウント情報にIDと名前をセット
-		account.setId(account.getId());
-		account.setName(account.getName());
+		//account.setId(account.getId());
+		//account.setName(account.getName());
+		
+		
+		login.setName(account.getName());
 
 		// 「/function」機能一覧画面へのリダイレクト
 		return "redirect:/function";
