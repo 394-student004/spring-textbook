@@ -22,8 +22,7 @@ public class AccountController {
 	@Autowired
 	HttpSession session;
 
-	@Autowired
-	Account account;
+	Account account = new Account();
 
 	@Autowired
 	AccountRepository accountRepository;
@@ -59,7 +58,7 @@ public class AccountController {
 			model.addAttribute("message", "メールアドレスとパスワードが一致しませんでした");
 			return "login";
 		}
-		Account account = accountList.get(0);
+		account = accountList.get(0);
 
 		// セッション管理されたアカウント情報にIDと名前をセット
 		account.setId(account.getId());
@@ -128,7 +127,7 @@ public class AccountController {
 			model.addAttribute("password", password);
 			return "join";
 		}
-		Account account = new Account(name, grade, department, email, address, password);
+		account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
 		return "loginConfirm";
 	}
@@ -138,7 +137,7 @@ public class AccountController {
 	public String confirm(
 			@PathVariable("id") Integer id,
 			Model model) {
-		Account account = accountRepository.findById(id).get();
+		account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
 		return "redirect:/login";
 	}
@@ -149,7 +148,7 @@ public class AccountController {
 			@PathVariable("id") Integer id,
 			Model model) {
 
-		Account account = accountRepository.findById(id).get();
+		account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
 		return "accountEdit";
 	}
@@ -166,7 +165,7 @@ public class AccountController {
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
 
-		Account account = new Account(name, grade, department, email, address, password);
+		account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
 		return "accountConfirm";
 	}
@@ -177,7 +176,7 @@ public class AccountController {
 			@PathVariable("id") Integer id,
 			Model model) {
 
-		Account account = accountRepository.findById(id).get();
+		account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
 		return "redirect:/login";
 	}

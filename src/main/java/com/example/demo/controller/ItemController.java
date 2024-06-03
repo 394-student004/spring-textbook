@@ -14,8 +14,7 @@ import com.example.demo.repository.ItemRepository;
 @Controller
 public class ItemController {
 
-	@Autowired
-	Account account;
+	Account account = new Account();
 
 	@Autowired
 	ItemRepository itemRepository;

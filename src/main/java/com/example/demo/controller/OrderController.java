@@ -22,8 +22,7 @@ import com.example.demo.repository.OrderRepository;
 @Controller
 public class OrderController {
 
-	@Autowired
-	Account account;
+	Account account = new Account();
 
 	@Autowired
 	Cart cart;
