@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,8 +49,10 @@ public class ItemController {
 					itemList = itemRepository.findAll();
 				}
 				model.addAttribute("keyword", keyword);
-				model.addAttribute("items", itemList);
-		*/ return "textbook";
+		*/ List<Item> itemList = null;
+		itemList = itemRepository.findAll();
+		model.addAttribute("items", itemList);
+		return "textbook";
 	}
 
 	@GetMapping("/items/{id}")

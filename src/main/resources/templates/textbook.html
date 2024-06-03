@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>教科書一覧</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>教科書一覧</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body>
-   <header th:replace="header"></header>
-    <main>
-    <h1>教科書一覧</h1>
-    <form action="/items">
-    <input type="text" name="keyword" th:value="${keyword}" placeholder="教科書名"> 
-    <input type="text" name="professor" th:value="${professor}" placeholder="講師名"> 
-    <input type="text" name="lecture" th:value="${lecture}" placeholder="講義名"> 
-    <button>検索</button><br>
-    </form>
-    <a href="/cart">カートの中身を見る</a>
-    <table border="1">
-        <tr>
-            <th>教科書名</th>
-            <th>講師名</th>
-            <th>講義名</th>
-            <th>価格</th>
-            <th>購入</th>
-            
-        </tr>
-        <tr>
-            <td>心理学論</td>
-            <td>植竹星哉</td>
-            <td>心理学Ⅱ</td>
-            <td>7000</td>
-            <td>
-				<form th:action="@{/cart/add}" method="post">
-                <button>カートに追加</button>
-                </form>
-            </td>
-        </tr>
-    </table>
-</main>
-<footer th:replace="footer"></footer>
+	<header th:replace="header"></header>
+	<main>
+		<h1>教科書一覧</h1>
+		<a href="/cart">カートの中身を見る</a>
+		<form action="/items" method="get">
+			<input type="text" name="keyword" th:value="${keyword}" placeholder="教科書名">
+			｜
+			<input type="text" name="professor" th:value="${professor}" placeholder="講師名">
+			｜
+			<input type="text" name="lecture" th:value="${lecture}" placeholder="講義名">
+			<button>検索</button>
+
+			<table border="1">
+				<tr>
+					<th>教科書名</th>
+					<th>講師名</th>
+					<th>講義名</th>
+					<th>価格</th>
+					<th>購入</th>
+					<th></th>
+				</tr>
+				<tr th:each="item:${items}">
+					<td th:text="${item.id}"></td>
+					<td th:text="${item.name}"></td>
+					<td th:text="${item.lecture}"></td>
+					<td th:text="${item.professor}"></td>
+					<td th:text="${item.price}"></td>
+					<td>
+						<form action="/cart/add" method="post">
+							<input type="hidden" name="itemId" th:value="${item.id}">
+							<button>カートに追加</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+	</main>
+	<footer th:replace="footer"></footer>
 </body>
+
 </html>
