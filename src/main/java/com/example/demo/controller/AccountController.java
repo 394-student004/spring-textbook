@@ -62,7 +62,7 @@ public class AccountController {
 			model.addAttribute("message", "メールアドレスとパスワードが一致しませんでした");
 			return "login";
 		}
-		account = accountList.get(0);
+		Account account = accountList.get(0);
 
 		// セッション管理されたアカウント情報にIDと名前をセット
 		//account.setId(account.getId());
@@ -140,11 +140,9 @@ public class AccountController {
 	}
 
 	// 新規会員登録内容画面表示
-	@GetMapping("/account/{id}/add/confirm")
-	public String confirm(
-			@PathVariable("id") Integer id,
-			Model model) {
-		account = accountRepository.findById(id).get();
+	@GetMapping("/account/add/confirm")
+	public String confirm(Model model) {
+		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
 		return "login";
 	}
