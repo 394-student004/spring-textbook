@@ -119,9 +119,6 @@ public class AccountController {
 			// 登録済みのメールアドレスが存在した場合
 			errorList.add("登録済みのメールアドレスです");
 		}
-		if (password.length() == 0) {
-			errorList.add("パスワードは必須です");
-		}
 
 		// エラー発生時はお問い合わせフォームに戻す
 		if (errorList.size() > 0) {
@@ -134,19 +131,35 @@ public class AccountController {
 			model.addAttribute("password", password);
 			return "join";
 		}
+		model.addAttribute("name", name);
+		model.addAttribute("grade", grade);
+		model.addAttribute("department", department);
+		model.addAttribute("email", email);
+		model.addAttribute("address", address);
 		account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
 		return "loginConfirm";
 	}
 
 	// 新規会員登録内容画面表示
-	@GetMapping("/account/add/confirm")
-	public String confirm(Model model) {
-		account = accountRepository.findById(login.getId()).get();
-		model.addAttribute("account", account);
-		return "login";
-	}
-
+	/*	@GetMapping("/account/add/confirm")
+		public String confirm(
+				@RequestParam(name = "name", defaultValue = "") String name,
+				@RequestParam(name = "grade", defaultValue = "") Integer grade,
+				@RequestParam(name = "department", defaultValue = "") String department,
+				@RequestParam(name = "email", defaultValue = "") String email,
+				@RequestParam(name = "address", defaultValue = "") String address,
+				Model model) {
+			//		accountRepository.findById(account.getId()).get();
+			//		model.addAttribute("account", account);
+			model.addAttribute("name", name);
+			model.addAttribute("grade", grade);
+			model.addAttribute("department", department);
+			model.addAttribute("email", email);
+			model.addAttribute("address", address);
+			return "login";
+		}
+	*/
 	// 会員情報変更画面表示
 	@GetMapping("/account/{id}/edit")
 	public String edit(

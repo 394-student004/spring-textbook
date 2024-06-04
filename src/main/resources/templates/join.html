@@ -21,7 +21,7 @@
 					<th>学年</th>
 					<td>
 						<select size="1" name="grade">
-							<option value="1" selected>1年生</option>
+							<option value="1">1年生</option>
 							<option value="2">2年生</option>
 							<option value="3">3年生</option>
 							<option value="4">4年生</option>
@@ -30,7 +30,7 @@
 				<tr>
 					<th>学部</th>
 					<td>
-						<input type="text" name="department" placeholder="学部名">
+						<input type="text" name="department" placeholder="学部名" th:value="${department}">
 					</td>
 				</tr>
 				<tr>
@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<th>住所</th>
-					<td><textarea name="address" placeholder="住所" th:value="${address}"></textarea></td>
+					<td><input type="text" name="address" placeholder="住所" th:value="${address}"></td>
 				</tr>
 				<tr>
 					<th>パスワード</th>

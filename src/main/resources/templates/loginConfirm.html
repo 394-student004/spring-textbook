@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>会員登録完了</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>会員登録完了</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body>
-    <main>
-    <h1>会員登録完了</h1>
-    <p>以下の内容で登録しました</p>
-    <form action="/account/add/confirm" method="get">
-        <table border="1">
+	<main>
+		<h1>会員登録完了</h1>
+		<p>以下の内容で登録しました</p>
+		<table border="1">
 			<tr>
 				<th>名前</th>
 				<th>学年</th>
@@ -19,12 +20,16 @@
 				<th>住所</th>
 			</tr>
 			<tr>
-				<td th:text="${account.name}"></td>
-				<td th:text="${account.grade}"></td>
+				<td th:text="${name}"></td>
+				<td th:text="${grade}"></td>
+				<td th:text="${department}"></td>
+				<td th:text="${email}"></td>
+				<td th:text="${address}"></td>
 			</tr>
 		</table>
-		<button>ログインページに戻る</button>
-    </form>
-</main>
+		<button onclick="location.href='http://localhost:8080/'">ログインページへ</button>
+		</form>
+	</main>
 </body>
+
 </html>
