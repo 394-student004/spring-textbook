@@ -145,12 +145,12 @@ public class AccountController {
 	}
 
 	// 会員情報変更画面表示
-	@GetMapping("/account/{id}/edit")
+	@GetMapping("/account/edit")
 	public String edit(
 			@PathVariable("id") Integer id,
 			Model model) {
 
-		account = accountRepository.findById(id).get();
+		Account account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
 		return "accountEdit";
 	}
