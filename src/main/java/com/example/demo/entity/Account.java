@@ -34,8 +34,9 @@ public class Account {
 		this.address = address;
 		this.password = password;
 	}
-	
-	public Account(Integer id, String name, Integer grade, String department, String email, String address, String password) {
+
+	public Account(Integer id, String name, Integer grade, String department, String email, String address,
+			String password) {
 		this.id = id;
 		this.name = name;
 		this.grade = grade;
