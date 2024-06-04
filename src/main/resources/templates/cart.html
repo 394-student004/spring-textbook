@@ -8,7 +8,6 @@
 <body>
    <header th:replace="header"></header>
     <main>
-    <h1>カート画面</h1>
     <table border="1">
         <tr>
             <th>教科書名</th>
@@ -16,7 +15,7 @@
             <th>数量</th>
             <th>削除</th>
         </tr>
-        <tr>
+        <tr th:each="item:${@cart.itemList}">
             <td th:text="${item.name}"></td>
             <td th:text="${item.price}"></td>
             <td th:text="${item.quantity}"></td>
@@ -31,7 +30,7 @@
             <td align="right" colspan="5" th:text="'合計額：'+${@cart.totalPrice}"></td>
         </tr>
     </table>
-    <form action="/order" method="get">
+     <form action="/order" method="get">
     <button>注文する</button>
     </form>
 </main>
