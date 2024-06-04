@@ -1,9 +1,5 @@
 package com.example.demo.controller;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Account;
-import com.example.demo.entity.Item;
-import com.example.demo.entity.Order;
-import com.example.demo.entity.OrderDetail;
 import com.example.demo.model.Cart;
 import com.example.demo.model.Login;
 import com.example.demo.repository.AccountRepository;
@@ -56,32 +49,33 @@ public class OrderController {
 
 	// 注文処理
 	@PostMapping("/order")
-	public String order(Model model) {
+	public String order(
+			Model model) {
 		// 注文情報をDBに格納する
-		Order order = new Order(
-				account.getId(),
-				LocalDate.now(),
-				cart.getTotalPrice());
-		orderRepository.save(order);
-
-		// 注文詳細情報をDBに格納する
-		List<Item> itemList = cart.getItemList();
-		List<OrderDetail> orderDetails = new ArrayList<>();
-		for (Item item : itemList) {
-			orderDetails.add(
-					new OrderDetail(
-							order.getId(),
-							item.getId(),
-							item.getQuantity()));
-		}
-		orderDetailRepository.saveAll(orderDetails);
-
-		// セッションスコープのカート情報をクリアする
-		cart.clear();
-
-		// 画面返却用注文番号を設定する
-		model.addAttribute("orderNumber", order.getId());
-		return "ordered";
+		/*		Order order = new Order(
+						account.getId(),
+						LocalDate.now(),
+						cart.getTotalPrice());
+				orderRepository.save(order);
+		
+				// 注文詳細情報をDBに格納する
+				List<Item> itemList = cart.getItemList();
+				List<OrderDetail> orderDetails = new ArrayList<>();
+				for (Item item : itemList) {
+					orderDetails.add(
+							new OrderDetail(
+									order.getId(),
+									item.getId(),
+									item.getQuantity()));
+				}
+				orderDetailRepository.saveAll(orderDetails);
+		
+				// セッションスコープのカート情報をクリアする
+				cart.clear();
+		
+				// 画面返却用注文番号を設定する
+				model.addAttribute("orderNumber", order.getId());*/
+		return "purchaseFin";
 	}
 
 	// 購入履歴を表示
