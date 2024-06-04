@@ -9,7 +9,7 @@
     <header th:replace="header"></header>
     <main>
     <h1>会員情報変更</h1>
-    <form th:action="@{/account/{accountId}/edit(accountId=${account.id})}" method="post">
+    <form th:action="@{/account/{accountId}/edit(accountId=${login.id})}" method="get">
         <table border="1">
             <tr>
                 <th>名前</th>

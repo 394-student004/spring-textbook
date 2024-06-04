@@ -13,8 +13,7 @@
     <a href="/items">教科書一覧</a><br>
     <a href="/cart">カート画面表示</a><br>
     <a href="/history">購入履歴</a><br>
-    <a href="/account/{id}/edit">会員情報変更</a>
-    
+    <a href="@{/account/{accountId}/edit(accountId=${account.id})}">会員情報変更</a>
 </main>
 <footer th:replace="footer"></footer>
 </body>
