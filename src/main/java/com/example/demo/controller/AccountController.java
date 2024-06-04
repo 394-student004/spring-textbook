@@ -119,6 +119,9 @@ public class AccountController {
 			// 登録済みのメールアドレスが存在した場合
 			errorList.add("登録済みのメールアドレスです");
 		}
+		if (password.length() == 0) {
+			errorList.add("パスワードは必須です");
+		}
 
 		// エラー発生時はお問い合わせフォームに戻す
 		if (errorList.size() > 0) {
@@ -131,14 +134,17 @@ public class AccountController {
 			model.addAttribute("password", password);
 			return "join";
 		}
-		model.addAttribute("name", name);
-		model.addAttribute("grade", grade);
-		model.addAttribute("department", department);
-		model.addAttribute("email", email);
-		model.addAttribute("address", address);
 		account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
 		return "loginConfirm";
+	}
+
+	// 新規会員登録内容画面表示
+	@GetMapping("/account/add/confirm")
+	public String confirm(Model model) {
+		account = accountRepository.findById(login.getId()).get();
+		model.addAttribute("account", account);
+		return "login";
 	}
 
 	// 会員情報変更画面表示
@@ -153,8 +159,9 @@ public class AccountController {
 	}
 
 	// 会員情報変更内容入力
-	@PostMapping("/account/edit")
+	@PostMapping("/account/{id}/edit")
 	public String update(
+			@PathVariable("id") Integer id,
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "grade", defaultValue = "") Integer grade,
 			@RequestParam(name = "department", defaultValue = "") String department,
@@ -162,11 +169,6 @@ public class AccountController {
 			@RequestParam(name = "address", defaultValue = "") String address,
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
-		model.addAttribute("name", name);
-		model.addAttribute("grade", grade);
-		model.addAttribute("department", department);
-		model.addAttribute("email", email);
-		model.addAttribute("address", address);
 
 		account = new Account(name, grade, department, email, address, password);
 		accountRepository.save(account);
@@ -174,14 +176,14 @@ public class AccountController {
 	}
 
 	// 会員情報変更内容画面表示
-	/*	@GetMapping("/account/{id}/edit/confirm")
-		public String update(
-				@PathVariable("id") Integer id,
-				Model model) {
-	
-			account = accountRepository.findById(id).get();
-			model.addAttribute("account", account);
-			return "redirect:/login";
-		}
-	*/
+	@GetMapping("/account/{id}/edit/confirm")
+	public String update(
+			@PathVariable("id") Integer id,
+			Model model) {
+
+		account = accountRepository.findById(id).get();
+		model.addAttribute("account", account);
+		return "redirect:/login";
+	}
+
 }
