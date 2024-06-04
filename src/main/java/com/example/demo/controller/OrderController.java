@@ -42,11 +42,13 @@ public class OrderController {
 
 	// 注文内容確認とお客様情報画面を表示
 	@GetMapping("/order")
-	public String index(Model model) {
-
-		// ログインしている顧客IDで顧客テーブルを検索		
-		accountRepository.findById(account.getId()).get();
-		model.addAttribute("account", account);
+	public String index(
+			//			@RequestParam("id") Integer id,
+			Model model) {
+		// ログインしている顧客IDで顧客テーブルを検索	
+		//		account = accountRepository.findById(account.getId()).get();
+		//		accountRepository.findById(account.getId()).get();
+		//		model.addAttribute("account", account);
 
 		// 注文確認画面に遷移
 		return "purchase";
