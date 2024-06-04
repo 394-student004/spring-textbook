@@ -139,7 +139,7 @@ public class AccountController {
 	}
 
 	// 新規会員登録内容画面表示
-	@GetMapping("/account/add/confirm")
+	@GetMapping("/account/{id}/add/confirm")
 	public String confirm(
 			@PathVariable("id") Integer id,
 			Model model) {

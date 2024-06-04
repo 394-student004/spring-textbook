@@ -9,27 +9,27 @@
     <main>
     <h1>会員登録完了</h1>
     <p>以下の内容で登録しました</p>
-    <form action="@{/account/{accountId}/add/confirm}" method="get">
-        <table>
+    <form th:action="@{/account/{accountId}/add(accountId=${account.id})}/confirm" method="get">
+        <table bprder="1">
             <tr>
                 <th>名前</th>
-                <td th:text="${account.name}"></td>
+                <td th:value="${account.name}"></td>
             </tr>
             <tr>
                 <th>学年</th>
-                <td th:text="${account.grade}"></td>
+                <td th:value="${account.grade}"></td>
             </tr>
             <tr>
                 <th>学部</th>
-                <td th:text="${account.department}"></td>
+                <td th:value="${account.department}"></td>
             </tr>
             <tr>
                 <th>メールアドレス</th>
-                <td th:text="${account.email}"></td>
+                <td th:value="${account.email}"></td>
             </tr>
             <tr>
                 <th>住所</th>
-                <td th:text="${account.address}"></td>
+                <td th:value="${account.address}"></td>
             </tr>
         </table>
         <button>確認</button>
