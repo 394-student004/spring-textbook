@@ -12,7 +12,7 @@
 	<main>
 		<h1>会員情報変更確認</h1>
 		<p>以下の内容で変更しました</p>
-		<form th:action="@{/account/{accountId}/edit(accountId=${account.id})}" method="get">
+		<form action="@{/account/{accountId}/edit(accountId=${account.id})}" method="get">
 			<tr>
 				<th>お名前</th>
 				<td th:text="${account.name}"></td>

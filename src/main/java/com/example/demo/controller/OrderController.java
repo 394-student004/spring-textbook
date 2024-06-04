@@ -15,6 +15,7 @@ import com.example.demo.entity.Item;
 import com.example.demo.entity.Order;
 import com.example.demo.entity.OrderDetail;
 import com.example.demo.model.Cart;
+import com.example.demo.model.Login;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.OrderDetailRepository;
 import com.example.demo.repository.OrderRepository;
@@ -26,6 +27,9 @@ public class OrderController {
 
 	@Autowired
 	Cart cart;
+
+	@Autowired
+	Login login;
 
 	@Autowired
 	AccountRepository accountRepository;

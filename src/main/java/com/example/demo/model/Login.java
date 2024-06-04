@@ -8,12 +8,15 @@ import org.springframework.web.context.annotation.SessionScope;
 public class Login {
 	private String name;
 	private String email;
-	
-	public Login() {}
-	
-	public Login(String name, String email) {
+	private Integer id;
+
+	public Login() {
+	}
+
+	public Login(String name, String email, Integer id) {
 		this.name = name;
 		this.email = email;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -31,5 +34,13 @@ public class Login {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }
