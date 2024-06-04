@@ -154,7 +154,6 @@ public class AccountController {
 	// 会員情報変更内容入力
 	@PostMapping("/account/edit")
 	public String update(
-			@RequestParam(name = "id", defaultValue = "") Integer id,
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "grade", defaultValue = "") Integer grade,
 			@RequestParam(name = "department", defaultValue = "") String department,
