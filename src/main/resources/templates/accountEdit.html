@@ -9,7 +9,7 @@
     <header th:replace="header"></header>
     <main>
     <h1>会員情報変更</h1>
-    <form th:action="'/account/'+${account.id}+'/edit'" method="post">
+    <form th:action="@{/account/{accountId}/edit(accountId=${account.id})}" method="post">
         <table border="1">
             <tr>
                 <th>名前</th>
@@ -26,7 +26,7 @@
             <tr>
                 <th>学部</th>
                 <td>
-					<input type="text" name="department" th:value="${user.department}">
+					<input type="text" name="department" th:value="${account.department}">
 				</td>
             </tr>
             <tr>
