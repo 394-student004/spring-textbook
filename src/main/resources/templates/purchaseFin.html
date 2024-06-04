@@ -6,13 +6,13 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <header th:replace="header"></header>
+ <!--   <header th:replace="header"></header>-->
     <main>
     <h1>購入完了</h1>
     <h3>ご注文ありがとうございました。</h3>
 		お客様の注文番号は
 		<h3>
-			<span th:text="${orderNumber}" style="color: red"></span>
+	<!--		<span th:text="${orderNumber}" style="color: red"></span>-->
 		</h3>
 		になります。
     <!--p>お支払い金額：[[${orders.totalPrice}]]</p-->
@@ -21,6 +21,6 @@
     ※返品の場合、未開封7日以内で返品可能です。<br>
     ※送料は自己負担となります。</p>
 </main>
-<footer th:replace="footer"></footer>
+<!--<footer th:replace="footer"></footer>-->
 </body>
 </html>
