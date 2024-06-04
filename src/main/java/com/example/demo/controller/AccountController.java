@@ -139,13 +139,13 @@ public class AccountController {
 	}
 
 	// 新規会員登録内容画面表示
-	@GetMapping("/account/{id}/add/confirm")
+	@GetMapping("/account/add/confirm")
 	public String confirm(
 			@PathVariable("id") Integer id,
 			Model model) {
 		account = accountRepository.findById(id).get();
 		model.addAttribute("account", account);
-		return "redirect:/login";
+		return "login";
 	}
 
 	// 会員情報変更画面表示
