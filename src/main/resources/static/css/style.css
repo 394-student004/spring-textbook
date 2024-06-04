@@ -3,6 +3,7 @@ body {
     background-color: white;
     text-align: center;
     min-width: 900px;
+    font-family: "游明朝";
 }
 
 header {
@@ -45,7 +46,7 @@ table th {
 button {
     margin: 2px;
     padding: 5px 20px;
-    background-color: rgb(137, 138, 136);
+    background-color: rgb(112, 112, 112);
     color: beige;
     border:none;
     width: 150px;
@@ -53,5 +54,5 @@ button {
 }
 
 button:hover {
-    background-color: rgb(99, 98, 98);
+    background-color: rgb(78, 78, 78);
 }
