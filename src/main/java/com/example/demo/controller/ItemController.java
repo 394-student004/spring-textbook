@@ -38,30 +38,30 @@ public class ItemController {
 
 		// 教科書一覧情報の取得
 		List<Item> itemList = null;
-		if (keyword.length() > 0 && lecture != null && professor != null) {
+		if (keyword.length() > 0 && lecture.length() > 0 && professor.length() > 0) {
 			// 商品名かつ講義名かつ講師名検索
 			itemList = itemRepository.findByNameContainingAndLectureContainingAndProfessorContaining(keyword, lecture,
 					professor);
-		} else if (keyword.length() > 0 && lecture != null) {
+		} else if (keyword.length() > 0 && lecture.length() > 0) {
 			itemList = itemRepository.findByNameContainingAndLectureContaining(keyword, lecture);
-		} else if (keyword.length() > 0 && professor != null) {
+		} else if (keyword.length() > 0 && professor.length() > 0) {
 			itemList = itemRepository.findByNameContainingAndLectureContaining(keyword, professor);
-		} else if (lecture != null && professor != null) {
+		} else if (lecture.length() > 0 && professor.length() > 0) {
 			itemList = itemRepository.findByLectureContainingAndProfessorContaining(lecture, professor);
 		} else if (keyword.length() > 0) {
 			// itemsテーブルを教科書名で部分一致検索
 			itemList = itemRepository.findByNameContaining(keyword);
-		} else if (lecture != null) {
+		} else if (lecture.length() > 0) {
 			itemList = itemRepository.findByLectureContaining(lecture);
-		} else if (professor != null) {
+		} else if (professor.length() > 0) {
 			itemList = itemRepository.findByProfessorContaining(professor);
 		} else {
 			// 教科書一覧
 			itemList = itemRepository.findAll();
 		}
 		model.addAttribute("keyword", keyword);
-		model.addAttribute("keyword", lecture);
-		model.addAttribute("keyword", professor);
+		model.addAttribute("lecture", lecture);
+		model.addAttribute("professor", professor);
 		model.addAttribute("items", itemList);
 		return "textbook";
 	}
