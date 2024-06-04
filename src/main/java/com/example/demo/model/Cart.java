@@ -18,7 +18,7 @@ public class Cart {
 	public List<Item> getItemList() {
 		return itemList;
 	}
-	
+
 	//合計金額取得用ゲッター
 	public Integer getTotalPrice() {
 		//合計金額
@@ -28,37 +28,40 @@ public class Cart {
 		}
 		return total;
 	}
-	
+
 	//カート追加
 	public void add(Item newItem) {
 		Item existsItem = null;
 		//現在のカートの商品から同一IDの商品を探す
 		for (Item item : itemList) {
-			if(item.getId() == newItem.getId()) {
+			if (item.getId() == newItem.getId()) {
 				existsItem = item;
 				break;
 			}
 		}
+		//		itemList.get(0);
 		//カート内に商品なかった時に追加(if)
 		//存在した場合、個数の更新(else)
-		if(existsItem == null) {
+		if (existsItem == null) {
 			itemList.add(newItem);
-		}else {
+		} else {
 			existsItem.setQuantity(
-				existsItem.getQuantity() + newItem.getQuantity());
+					existsItem.getQuantity() + newItem.getQuantity());
 		}
 	}
+
 	//削除
 	public void delete(Integer itemId) {
 		//現在のカートから同一IDの商品を探す
-		for(Item item : itemList) {
+		for (Item item : itemList) {
 			//対象の商品IDがあった場合削除
-			if(item.getId() == itemId) {
+			if (item.getId() == itemId) {
 				itemList.remove(item);
 				break;
 			}
 		}
 	}
+
 	//カートの中身をクリア
 	public void clear() {
 		itemList = new ArrayList<>();

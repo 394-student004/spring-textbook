@@ -49,7 +49,7 @@ public class OrderController {
 		model.addAttribute("account", account);
 
 		// 注文確認画面に遷移
-		return "orderConfirm";
+		return "purchase";
 	}
 
 	// 注文処理
