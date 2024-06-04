@@ -24,10 +24,10 @@ public class AccountController {
 	HttpSession session;
 
 	Account account = new Account();
-	
+
 	@Autowired
 	Login login;
-	
+
 	@Autowired
 	AccountRepository accountRepository;
 
@@ -67,8 +67,7 @@ public class AccountController {
 		// セッション管理されたアカウント情報にIDと名前をセット
 		//account.setId(account.getId());
 		//account.setName(account.getName());
-		
-		
+
 		login.setName(account.getName());
 
 		// 「/function」機能一覧画面へのリダイレクト
