@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>購入確認</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>購入確認</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body>
 	<header th:replace="header"></header>
-    <main>
-    <h1>購入確認</h1>
-    <h3>以下の内容でよろしいでしょうか</h3>
-    <h3>ご注文内容</h3>
-    <table border="1">
-        <tr>
-            <th>教科書名</th>
-            <th>価格</th>
-            <th>数量</th>
-        </tr>
-            <tr th:each="item:${@cart.itemList}">
-            <td th:text="${item.name}"></td>
-            <td th:text="${item.price}"></td>
-            <td th:text="${item.quantity}"></td>
-        </tr>
-        <tr>
-            <td align="right" colspan="5" th:text="'合計額：'+${@cart.totalPrice}"></td>
-        </tr>
-    </table>
-    <h3>会員情報</h3>
-    
-    <table border="1">
-             <tr>
-                <th>名前</th>
-                <td> th:value="${account.name}"</td>
-            </tr>
-            <tr>
-                <th>学年</th>
-                <td> th:value="${account.grade}"</td>
-            </tr>
-            <tr>
-				<th>学部</th>
-                <td> th:value="${account.department}"</td>
-            </tr>
-            <tr>
-                <th>メールアドレス</th>
-                <td> th:value="${account.email}"</td>
-            </tr>
-            <tr>
-                <th>住所</th>
-                <td>th:value="${account.address}"</td>
-            </tr>
-        </table>
-        <form action="/order" method="post">
+	<main>
+		<h1>購入確認</h1>
+		<h3>以下の内容でよろしいでしょうか</h3>
+		<h3>ご注文内容</h3>
+		<table border="1">
+			<tr>
+				<th>教科書名</th>
+				<th>価格</th>
+				<th>数量</th>
+			</tr>
+			<tr th:each="item:${@cart.itemList}">
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.price}"></td>
+				<td th:text="${item.quantity}"></td>
+			</tr>
+			<tr>
+				<td align="right" colspan="5" th:text="'合計額：'+${@cart.totalPrice}"></td>
+			</tr>
+		</table>
+		<h3>会員情報</h3>
+		<form action="/order" method="post">
+			<table border="1">
+				<tr>
+					<th>名前</th>
+					<td th:text="${account.name}"></td>
+				</tr>
+				<tr>
+					<th>学年</th>
+					<td th:text="${account.grade}"></td>
+				</tr>
+				<tr>
+					<th>学部</th>
+					<td th:text="${account.department}"></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td th:text="${account.email}"></td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td th:text="${account.address}"></td>
+				</tr>
+			</table>
 			<button>注文を確定する</button>
-		</form> 
-</main>
-<footer th:replace="footer"></footer>
+		</form>
+	</main>
+	<footer th:replace="footer"></footer>
 </body>
+
 </html>
