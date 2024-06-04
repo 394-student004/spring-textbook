@@ -20,29 +20,29 @@
 			<input type="text" name="professor" th:value="${professor}" placeholder="講師名">
 			<button>検索</button>
 		</form>
-			<table border="1">
-				<tr>
-					<th>教科書ID</th>
-					<th>教科書名</th>
-					<th>講義名</th>
-					<th>講師名</th>
-					<th>価格</th>
-					<th>購入</th>
-				</tr>
-				<tr th:each="item:${items}">
-					<td th:text="${item.id}"></td>
-					<td th:text="${item.name}"></td>
-					<td th:text="${item.lecture}"></td>
-					<td th:text="${item.professor}"></td>
-					<td th:text="${item.price}"></td>
-					<td>
-						<form action="/cart/add" method="post">
-							<input type="hidden" name="itemId" th:value="${item.id}">
-							<button>カートに追加</button>
-						</form>
-					</td>
-				</tr>
-			</table>
+		<table border="1">
+			<tr>
+				<th>教科書ID</th>
+				<th>教科書名</th>
+				<th>講義名</th>
+				<th>講師名</th>
+				<th>価格</th>
+				<th>購入</th>
+			</tr>
+			<tr th:each="item:${items}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.lecture}"></td>
+				<td th:text="${item.professor}"></td>
+				<td th:text="${item.price}"></td>
+				<td>
+					<form action="/cart/add" method="post">
+						<input type="hidden" name="itemId" th:value="${item.id}">
+						<button>カートに追加</button>
+					</form>
+				</td>
+			</tr>
+		</table>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>

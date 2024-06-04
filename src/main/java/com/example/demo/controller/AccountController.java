@@ -153,8 +153,9 @@ public class AccountController {
 	}
 
 	// 会員情報変更内容入力
-	@PostMapping("/account/edit")
+	@PostMapping("/account/{id}/edit")
 	public String update(
+			@PathVariable("id") Integer id,
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "grade", defaultValue = "") Integer grade,
 			@RequestParam(name = "department", defaultValue = "") String department,
@@ -173,15 +174,4 @@ public class AccountController {
 		return "accountConfirm";
 	}
 
-	// 会員情報変更内容画面表示
-	/*	@GetMapping("/account/{id}/edit/confirm")
-		public String update(
-				@PathVariable("id") Integer id,
-				Model model) {
-	
-			account = accountRepository.findById(id).get();
-			model.addAttribute("account", account);
-			return "redirect:/login";
-		}
-	*/
 }
