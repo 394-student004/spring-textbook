@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -37,7 +36,7 @@ public class AccountController {
 			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
 		// セッション情報を全てクリアする
-		session.invalidate();
+		//		session.invalidate();
 		// エラーパラメータのチェック
 		if (error.equals("notLoggedIn")) {
 			model.addAttribute("message", "ログインしてください");
@@ -146,19 +145,16 @@ public class AccountController {
 
 	// 会員情報変更画面表示
 	@GetMapping("/account/edit")
-	public String edit(
-			@PathVariable("id") Integer id,
-			Model model) {
-
-		Account account = accountRepository.findById(id).get();
+	public String edit(Model model) {
+		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
 		return "accountEdit";
 	}
 
 	// 会員情報変更内容入力
-	@PostMapping("/account/{id}/edit")
+	@PostMapping("/account/edit")
 	public String update(
-			@PathVariable("id") Integer id,
+			@RequestParam(name = "id", defaultValue = "") Integer id,
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "grade", defaultValue = "") Integer grade,
 			@RequestParam(name = "department", defaultValue = "") String department,
@@ -167,7 +163,17 @@ public class AccountController {
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
 
+		Account editAccount = accountRepository.findById(login.getId()).get();
+		accountRepository.delete(editAccount);
+
+		model.addAttribute("name", name);
+		model.addAttribute("grade", grade);
+		model.addAttribute("department", department);
+		model.addAttribute("email", email);
+		model.addAttribute("address", address);
+
 		account = new Account(name, grade, department, email, address, password);
+		account.setId(login.getId());
 		accountRepository.save(account);
 		return "accountConfirm";
 	}
