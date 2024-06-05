@@ -22,7 +22,6 @@ public class CartController {
 	// カートの内容を表示
 	@GetMapping("/cart")
 	public String index() {
-		// cart.htmlの出力
 		return "cart";
 	}
 
@@ -32,23 +31,20 @@ public class CartController {
 			@RequestParam("itemId") Integer itemId,
 			@RequestParam(name = "quantity", defaultValue = "1") Integer quantity) {
 
-		// 商品コードをキーに商品情報を取得する
+		// 教科書IDで情報を取得
 		Item item = itemRepository.findById(itemId).get();
-		// 商品オブジェクトに個数をセット
+		// 個数をセット
 		item.setQuantity(quantity);
 		// カートに追加
 		cart.add(item);
-		// 「/cart」にリダイレクト
 		return "redirect:/cart";
 	}
 
 	// 商品をカートから削除
 	@PostMapping("/cart/delete")
 	public String deleteCart(@RequestParam("itemId") Integer itemId) {
-
-		// カート情報から削除
+		// カートから削除
 		cart.delete(itemId);
-		// 「/cart」にリダイレクト
 		return "redirect:/cart";
 	}
 

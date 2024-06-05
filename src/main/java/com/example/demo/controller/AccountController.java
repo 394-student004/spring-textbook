@@ -37,10 +37,6 @@ public class AccountController {
 			Model model) {
 		// セッション情報を全てクリアする
 		session.invalidate();
-		// エラーパラメータのチェック
-		if (error.equals("notLoggedIn")) {
-			model.addAttribute("message", "ログインしてください");
-		}
 		return "login";
 	}
 
@@ -50,19 +46,19 @@ public class AccountController {
 			@RequestParam(name = "email", defaultValue = "") String email,
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
-		// 名前が空の場合にエラーとする
+		// 名前が空の場合はエラー
 		if (email.length() == 0 || password.length() == 0) {
 			model.addAttribute("message", "入力してください");
 			return "login";
 		}
 		List<Account> accountList = accountRepository.findByEmailAndPassword(email, password);
 		if (accountList.size() == 0) {
-			// 存在しなかった場合
+			// DBと一致しなかった場合
 			model.addAttribute("message", "メールアドレスとパスワードが一致しませんでした");
 			return "login";
 		}
+		// ログイン成功処理
 		Account account = accountList.get(0);
-
 		login.setName(account.getName());
 		login.setId(account.getId());
 
@@ -115,7 +111,7 @@ public class AccountController {
 			errorList.add("登録済みのメールアドレスです");
 		}
 
-		// エラー発生時はお問い合わせフォームに戻す
+		// エラー時は新規登録画面に戻る
 		if (errorList.size() > 0) {
 			model.addAttribute("errorList", errorList);
 			model.addAttribute("name", name);
@@ -125,6 +121,7 @@ public class AccountController {
 			model.addAttribute("address", address);
 			return "join";
 		}
+		// 新規登録成功処理
 		model.addAttribute("name", name);
 		model.addAttribute("grade", grade);
 		model.addAttribute("department", department);
@@ -138,6 +135,7 @@ public class AccountController {
 	// 会員情報変更画面表示
 	@GetMapping("/account/edit")
 	public String edit(Model model) {
+		// ログインしているユーザーの情報を取得
 		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
 		return "accountEdit";
@@ -154,23 +152,26 @@ public class AccountController {
 			@RequestParam(name = "password", defaultValue = "") String password,
 			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
+		// エラーチェック
 		if (name.length() == 0 || grade == null || department.length() == 0 || email.length() == 0
 				|| address.length() == 0
 				|| password.length() == 0) {
 			model.addAttribute("error", "全ての項目を入力してください");
+			// ログインしているユーザーの情報を取得して変更画面に戻る
 			account = accountRepository.findById(login.getId()).get();
 			model.addAttribute("account", account);
 			return "accountEdit";
 		} else {
+			// ログインしているユーザーのIDの情報を削除する
 			Account editAccount = accountRepository.findById(login.getId()).get();
 			accountRepository.delete(editAccount);
-
+			// 確認画面に表示する用
 			model.addAttribute("name", name);
 			model.addAttribute("grade", grade);
 			model.addAttribute("department", department);
 			model.addAttribute("email", email);
 			model.addAttribute("address", address);
-
+			// 変更内容を登録
 			account = new Account(name, grade, department, email, address, password);
 			account.setId(login.getId());
 			accountRepository.save(account);

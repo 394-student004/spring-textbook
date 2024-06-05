@@ -25,9 +25,10 @@ public class Cart {
 		Integer total = 0;
 		for (Item item : itemList) {
 			total += item.getPrice() * item.getQuantity();
-			if (total < 5000) {
-				total += 550;
-			}
+		}
+		if (total < 5000) {
+			Integer fee = 550;
+			total += fee;
 		}
 		return total;
 	}
