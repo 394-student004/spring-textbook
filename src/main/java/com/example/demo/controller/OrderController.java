@@ -95,7 +95,7 @@ public class OrderController {
 	// 注文処理
 	@PostMapping("/order/credit")
 	public String credit(
-			@RequestParam(name = "card", defaultValue = "") Integer card,
+			@RequestParam(name = "card", defaultValue = "") String card,
 			@RequestParam(name = "date", defaultValue = "") Integer date,
 			@RequestParam(name = "code", defaultValue = "") Integer code,
 			@RequestParam(name = "error", defaultValue = "") String error,
