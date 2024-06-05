@@ -1,6 +1,6 @@
 @charset "utf-8";
 body {
-    background-color: white;
+   	background-color: white;
     text-align: center;
     min-width: 900px;
     font-family: "游明朝 Demibold";
@@ -12,6 +12,8 @@ header {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+
 
 header a {
     color:white;
@@ -56,3 +58,4 @@ button {
 button:hover {
     background-color: rgb(78, 78, 78);
 }
+
