@@ -61,6 +61,12 @@ button:hover {
 }
 */
 /*ここから片山の遊び場*/
+.link {
+	text-align: right;
+    padding: 0px 200px 0px 0px;
+}
+
+
 button {
     background-color: #4CAF50;
     border: #4CAF50;

@@ -8,7 +8,10 @@
 </head>
 
 <body>
-	<header th:replace="header"></header>
+	<header>
+		<h1>教科書販売サイト</h1>
+   <span th:text="${@login.name}+'さんがログイン中'"></span><br>
+	</header>
 	<main>
 		<h1>会員情報変更確認</h1>
 		<p>以下の内容で変更しました</p>
@@ -28,7 +31,7 @@
 				<td th:text="${address}"></td>
 			</tr>
 		</table>
-		<a href="/login">ログインページへ</a>
+		<a href="/login" >ログインページへ</a>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>
