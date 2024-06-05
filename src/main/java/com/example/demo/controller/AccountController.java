@@ -118,9 +118,6 @@ public class AccountController {
 			// 登録済みのメールアドレスが存在した場合
 			errorList.add("登録済みのメールアドレスです");
 		}
-		if (password.length() == 0) {
-			errorList.add("パスワードは必須です");
-		}
 
 		// エラー発生時はお問い合わせフォームに戻す
 		if (errorList.size() > 0) {
@@ -130,7 +127,6 @@ public class AccountController {
 			model.addAttribute("department", department);
 			model.addAttribute("email", email);
 			model.addAttribute("address", address);
-			model.addAttribute("password", password);
 			return "join";
 		}
 		model.addAttribute("name", name);
@@ -160,20 +156,29 @@ public class AccountController {
 			@RequestParam(name = "email", defaultValue = "") String email,
 			@RequestParam(name = "address", defaultValue = "") String address,
 			@RequestParam(name = "password", defaultValue = "") String password,
+			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
+		if (name.length() == 0 || grade == null || department.length() == 0 || email.length() == 0
+				|| address.length() == 0
+				|| password.length() == 0) {
+			model.addAttribute("error", "全ての項目を入力してください");
+			account = accountRepository.findById(login.getId()).get();
+			model.addAttribute("account", account);
+			return "accountEdit";
+		} else {
+			Account editAccount = accountRepository.findById(login.getId()).get();
+			accountRepository.delete(editAccount);
 
-		Account editAccount = accountRepository.findById(login.getId()).get();
-		accountRepository.delete(editAccount);
+			model.addAttribute("name", name);
+			model.addAttribute("grade", grade);
+			model.addAttribute("department", department);
+			model.addAttribute("email", email);
+			model.addAttribute("address", address);
 
-		model.addAttribute("name", name);
-		model.addAttribute("grade", grade);
-		model.addAttribute("department", department);
-		model.addAttribute("email", email);
-		model.addAttribute("address", address);
-
-		account = new Account(name, grade, department, email, address, password);
-		account.setId(login.getId());
-		accountRepository.save(account);
-		return "accountConfirm";
+			account = new Account(name, grade, department, email, address, password);
+			account.setId(login.getId());
+			accountRepository.save(account);
+			return "accountConfirm";
+		}
 	}
 }
