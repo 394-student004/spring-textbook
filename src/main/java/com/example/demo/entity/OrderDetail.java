@@ -14,6 +14,8 @@ public class OrderDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name = "account_id")
+	private Integer accountId; //会員ID　追加した
 	@Column(name = "order_id")
 	private Integer orderId; //注文ID
 	@Column(name = "item_id")
@@ -22,6 +24,13 @@ public class OrderDetail {
 	//コンストラクタ
 
 	public OrderDetail() {
+	}
+
+	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, Integer quantity) {
+		this.accountId = accountId;
+		this.orderId = orderId;
+		this.itemId = itemId;
+		this.quantity = quantity;
 	}
 
 	public OrderDetail(Integer orderId, Integer itemId, Integer quantity) {
@@ -33,6 +42,10 @@ public class OrderDetail {
 	//アクセッサ
 	public Integer getId() {
 		return id;
+	}
+
+	public Integer getAccountId() {
+		return accountId;
 	}
 
 	public Integer getOrderId() {

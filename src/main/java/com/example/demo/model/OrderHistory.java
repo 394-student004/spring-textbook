@@ -25,6 +25,13 @@ public class OrderHistory {
 
 	}
 
+	public OrderHistory(Integer accountId, LocalDate orderedOn, Integer totalPrice) {
+		this.accountId = accountId;
+		this.orderedOn = orderedOn;
+		this.totalPrice = totalPrice;
+
+	}
+
 	public Integer getOrderId() {
 		return orderId;
 	}

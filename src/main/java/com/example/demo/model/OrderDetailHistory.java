@@ -7,6 +7,7 @@ import org.springframework.web.context.annotation.SessionScope;
 @SessionScope
 public class OrderDetailHistory {
 
+	private Integer orderDetailId; //追加した
 	private Integer orderId;
 	private Integer itemId;
 	private Integer quantity;
@@ -14,10 +15,19 @@ public class OrderDetailHistory {
 	public OrderDetailHistory() {
 	}
 
-	public OrderDetailHistory(Integer orderId, Integer itemId, Integer quantity) {
+	public OrderDetailHistory(Integer orderDetailId, Integer orderId, Integer itemId, Integer quantity) {
+		this.orderDetailId = orderDetailId;
 		this.orderId = orderId;
 		this.itemId = itemId;
 		this.quantity = quantity;
+	}
+
+	public Integer getOrderDetailId() {
+		return orderDetailId;
+	}
+
+	public void setOrderDetailId(Integer orderDetailId) {
+		this.orderDetailId = orderDetailId;
 	}
 
 	public Integer getOrderId() {
