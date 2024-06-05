@@ -44,7 +44,7 @@ table th {
     background: rgb(44, 129, 66);
     color: white;
 }
-
+/*
 button {
     margin: 2px;
     padding: 5px 20px;
@@ -55,7 +55,26 @@ button {
     cursor: pointer;
 }
 
+
 button:hover {
     background-color: rgb(78, 78, 78);
 }
+*/
+/*ここから片山の遊び場*/
+button {
+    background-color: #4CAF50;
+    border: #4CAF50;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
+button:hover {
+    background-color: rgb(38, 130, 58);
+}
+/*ここまで片山の遊び場*/
