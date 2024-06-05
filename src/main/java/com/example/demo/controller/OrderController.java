@@ -56,7 +56,7 @@ public class OrderController {
 			Model model) {
 		// 注文情報をDBに格納する
 		Order order = new Order(
-				account.getId(),
+				login.getId(),
 				LocalDate.now(),
 				cart.getTotalPrice());
 		orderRepository.save(order);
