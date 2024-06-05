@@ -65,12 +65,12 @@ public class OrderController {
 			@RequestParam(name = "card", defaultValue = "") Integer card,
 			@RequestParam(name = "date", defaultValue = "") Integer date,
 			@RequestParam(name = "code", defaultValue = "") Integer code,
-			@RequestParam(name = "message2", defaultValue = "") String message2,
+			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
 		// エラーチェック
 		// 空欄の場合はエラー
 		if (card == null || code == null) {
-			model.addAttribute("message2", "入力してください");
+			model.addAttribute("error", "入力してください");
 			account = accountRepository.findById(login.getId()).get();
 			model.addAttribute("account", account);
 			return "credit";
@@ -90,7 +90,8 @@ public class OrderController {
 					new OrderDetail(
 							order.getId(),
 							item.getId(),
-							item.getQuantity()));
+							item.getQuantity(),
+							account.getId()));
 		}
 		orderDetailRepository.saveAll(orderDetails);
 
