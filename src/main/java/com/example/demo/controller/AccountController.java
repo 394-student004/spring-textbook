@@ -61,8 +61,6 @@ public class AccountController {
 		Account account = accountList.get(0);
 		login.setName(account.getName());
 		login.setId(account.getId());
-
-		// 「/function」機能一覧画面へのリダイレクト
 		return "redirect:/function";
 	}
 

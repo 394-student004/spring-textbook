@@ -44,21 +44,18 @@ public class OrderController {
 	// 注文内容確認とお客様情報画面を表示
 	@GetMapping("/order")
 	public String index(Model model) {
-		// ログインしている顧客IDで顧客テーブルを検索	
+		// ログインしている会員の情報を取得	
 		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
-
-		// 注文確認画面に遷移
 		return "purchase";
 	}
 
 	@GetMapping("/credit")
 	public String credit(Model model) {
-		// ログインしている顧客IDで顧客テーブルを検索	
+		// ログインしている会員の情報を取得	
 		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
 
-		// 注文確認画面に遷移
 		return "credit";
 	}
 
