@@ -12,20 +12,21 @@ import com.example.demo.entity.Item;
 @SessionScope
 public class Cart {
 	//フィールド
-	private List<Item> itemList = new ArrayList<>(); //商品リスト 
+	private List<Item> itemList = new ArrayList<>(); //教科書リスト 
 
-	//アクセッサ(商品リストゲッター)
+	//アクセッサ
 	public List<Item> getItemList() {
 		return itemList;
 	}
 
-	//合計金額取得用ゲッター
+	//合計金額取得用
 	public Integer getTotalPrice() {
 		//合計金額
 		Integer total = 0;
 		for (Item item : itemList) {
 			total += item.getPrice() * item.getQuantity();
 		}
+		// 送料追加計算
 		if (total < 5000) {
 			Integer fee = 550;
 			total += fee;
@@ -44,8 +45,8 @@ public class Cart {
 			}
 		}
 
-		//カート内に商品なかった時に追加(if)
-		//存在した場合、個数の更新(else)
+		//カート内に商品がなかった時は追加
+		//存在した場合は個数の追加
 		if (existsItem == null) {
 			itemList.add(newItem);
 		} else {
@@ -58,7 +59,7 @@ public class Cart {
 	public void delete(Integer itemId) {
 		//現在のカートから同一IDの商品を探す
 		for (Item item : itemList) {
-			//対象の商品IDがあった場合削除
+			//対象の商品IDがあった場合は削除
 			if (item.getId() == itemId) {
 				itemList.remove(item);
 				break;
