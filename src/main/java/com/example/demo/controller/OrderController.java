@@ -60,7 +60,6 @@ public class OrderController {
 				account.getId(),
 				LocalDate.now(),
 				cart.getTotalPrice());
-		order.setTotalPrice(cart.getTotalPrice());
 		orderRepository.save(order);
 
 		// 注文詳細情報をDBに格納する
