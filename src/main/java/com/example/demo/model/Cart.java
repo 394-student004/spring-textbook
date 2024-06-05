@@ -42,7 +42,7 @@ public class Cart {
 				break;
 			}
 		}
-		//		itemList.get(0);
+
 		//カート内に商品なかった時に追加(if)
 		//存在した場合、個数の更新(else)
 		if (existsItem == null) {
