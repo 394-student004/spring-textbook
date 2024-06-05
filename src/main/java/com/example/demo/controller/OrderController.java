@@ -17,8 +17,6 @@ import com.example.demo.entity.Order;
 import com.example.demo.entity.OrderDetail;
 import com.example.demo.model.Cart;
 import com.example.demo.model.Login;
-import com.example.demo.model.OrderDetailHistory;
-import com.example.demo.model.OrderHistory;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.OrderDetailRepository;
 import com.example.demo.repository.OrderRepository;
@@ -102,11 +100,13 @@ public class OrderController {
 	// 購入履歴を表示
 	@GetMapping("/history")
 	public String history(Model model) {
-		List<OrderHistory> histories = orderRepository.findByAccountIdOrderById(login.getId());
-		List<OrderDetailHistory> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
+		// 前：List<OrderHistory> histories = orderRepository.findByAccountIdOrderById(login.getId());
+		List<Order> histories = orderRepository.findByAccountIdOrderById(login.getId());
+
+		//List<OrderDetailHistory> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
 
 		model.addAttribute("histories", histories);
-		model.addAttribute("detailHistories", detailHistories);
+		//model.addAttribute("detailHistories", detailHistories);
 
 		return "history";
 	}

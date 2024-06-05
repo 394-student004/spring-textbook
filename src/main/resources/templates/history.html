@@ -9,15 +9,32 @@
     <header th:replace="header"></header>
     <main>
     <h1>購入履歴</h1>
-    <table border="1">
+    <table>
         <tr>
-            <th>購入履歴一覧</th>
-            <th>お届け状態</th>
+            <th colspan="2">お届け済み</th>
         </tr>
         <tr>
-            <td>心理学論</td>
-            <td>お届け済み</td>
+            <th>注文日：</th>
+            <td>2024.06.05</td>
         </tr>
+        <tr>
+            <th>注文番号：</th>
+            <td>123456789</td>
+        </tr>
+        <table>
+			<tr>
+				<th>教科書ID</th>
+				<th>数量</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+		</table>
+		<tr>
+		<th>支払金額：</th>
+		<td>&yen;7000</td>
+		</tr>
     </table>
 </main>
 <footer th:replace="footer"></footer>
