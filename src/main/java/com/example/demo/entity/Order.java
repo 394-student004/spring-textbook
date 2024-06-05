@@ -23,9 +23,6 @@ public class Order {
 	@Column(name = "total_price")
 	private Integer totalPrice; //合計額
 
-	private Integer card;
-	private Integer date;
-
 	//コンストラクタ
 	public Order() {
 		super();

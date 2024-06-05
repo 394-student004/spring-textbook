@@ -51,22 +51,20 @@
 					<th>住所</th>
 					<td th:text="${account.address}"></td>
 				</tr>
-				</table>
-				<table border="1">
-					<tr>
-						<th>カード番号</th>
-						<td input type="text" name="card" placeholder="16桁の数字で入力してください"></td>
-					</tr>
-					<tr>
-						<th>有効期限</th>
-						<td input type="number" name="date" placeholder="MM / YY (4桁の数字で入力)"></td>
-					</tr>
-					<tr>
-						<th>セキュリティコード</th>
-						<td input type="number" name="code" placeholder="3桁の数字で入力してください"></td>
-					</tr>
-				</table>
-				<button>注文を確定する</button>
+				<tr>
+					<th>カード番号</th>
+					<td><input type="number" placeholder="16桁の数字で入力してください"></td>
+				</tr>
+				<tr>
+					<th>有効期限</th>
+					<td><input type="number" placeholder="MM / YY (4桁の数字で入力)"></td>
+				</tr>
+				<tr>
+					<th>セキュリティコード</th>
+					<td><input type="number" placeholder="3桁の数字で入力してください"></td>
+				</tr>
+			</table>
+			<button>注文を確定する</button>
 		</form>
 	</main>
 	<footer th:replace="footer"></footer>

@@ -36,8 +36,7 @@ public class AccountController {
 			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
 		// セッション情報を全てクリアする
-		// editで情報消えたら困るので↓は非表示のままで
-		//		session.invalidate();
+		session.invalidate();
 		// エラーパラメータのチェック
 		if (error.equals("notLoggedIn")) {
 			model.addAttribute("message", "ログインしてください");
