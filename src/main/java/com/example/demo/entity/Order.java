@@ -28,6 +28,7 @@ public class Order {
 		super();
 	}
 
+	//アクセッサ
 	public Order(Integer accountId, LocalDate orderedOn, Integer totalPrice) {
 		super();
 		this.accountId = accountId;
@@ -35,21 +36,42 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
-	//アクセッサ
+	public Order(Integer accountId, LocalDate orderedOn) {
+		super();
+		this.accountId = accountId;
+		this.orderedOn = orderedOn;
+	}
+
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getAccountId() {
 		return accountId;
 	}
 
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
+	}
+
 	public LocalDate getOrderedOn() {
 		return orderedOn;
 	}
 
+	public void setOrderedOn(LocalDate orderedOn) {
+		this.orderedOn = orderedOn;
+	}
+
 	public Integer getTotalPrice() {
 		return totalPrice;
+	}
+
+	public void setTotalPrice(Integer totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 }
