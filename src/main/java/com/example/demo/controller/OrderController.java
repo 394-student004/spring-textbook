@@ -69,6 +69,12 @@ public class OrderController {
 			@RequestParam(name = "date", defaultValue = "") Integer date,
 			@RequestParam(name = "code", defaultValue = "") Integer code,
 			Model model) {
+		// エラーチェック
+		// 空欄の場合はエラー
+		if (card == null || code == null) {
+			model.addAttribute("message", "入力してください");
+			return "credit";
+		}
 		// 注文情報をDBに格納する
 		Order order = new Order(
 				account.getId(),
