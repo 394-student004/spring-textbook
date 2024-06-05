@@ -70,7 +70,7 @@ public class OrderController {
 							order.getId(),
 							item.getId(),
 							item.getQuantity(),
-							account.getId()));
+							login.getId()));
 		}
 		orderDetailRepository.saveAll(orderDetails);
 
