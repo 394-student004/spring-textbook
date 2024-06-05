@@ -162,8 +162,6 @@ public class AccountController {
 				|| address.length() == 0
 				|| password.length() == 0) {
 			model.addAttribute("error", "全ての項目を入力してください");
-			account = accountRepository.findById(login.getId()).get();
-			model.addAttribute("account", account);
 			return "accountEdit";
 		} else {
 			Account editAccount = accountRepository.findById(login.getId()).get();

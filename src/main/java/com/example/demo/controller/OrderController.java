@@ -96,42 +96,7 @@ public class OrderController {
 		model.addAttribute("totalPrice", order.getTotalPrice());
 		return "purchaseFin";
 	}
-	/*
-		// 注文処理
-		@PostMapping("/credit")
-		public String credit(
-				@RequestParam(name = "card", defaultValue = "") Integer card,
-				@RequestParam(name = "date", defaultValue = "") Integer date,
-				@RequestParam(name = "code", defaultValue = "") Integer code,
-				Model model) {
-			// 注文情報をDBに格納する
-			Order order = new Order(
-					account.getId(),
-					LocalDate.now(),
-					cart.getTotalPrice());
-			orderRepository.save(order);
-	
-			// 注文詳細情報をDBに格納する
-			List<Item> itemList = cart.getItemList();
-			List<OrderDetail> orderDetails = new ArrayList<>();
-			for (Item item : itemList) {
-				orderDetails.add(
-						new OrderDetail(
-								order.getId(),
-								item.getId(),
-								item.getQuantity()));
-			}
-			orderDetailRepository.saveAll(orderDetails);
-	
-			// セッションスコープのカート情報をクリアする
-			cart.clear();
-	
-			// 画面返却用注文番号を設定する
-			model.addAttribute("orderNumber", order.getId());
-			model.addAttribute("totalPrice", order.getTotalPrice());
-			return "purchaseFin";
-		}
-		*/
+
 	/*
 		// 購入履歴を表示
 		@GetMapping("/history")
