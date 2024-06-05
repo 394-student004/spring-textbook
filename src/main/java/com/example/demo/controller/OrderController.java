@@ -65,14 +65,17 @@ public class OrderController {
 			@RequestParam(name = "card", defaultValue = "") Integer card,
 			@RequestParam(name = "date", defaultValue = "") Integer date,
 			@RequestParam(name = "code", defaultValue = "") Integer code,
+			@RequestParam(name = "message2", defaultValue = "") String message2,
 			Model model) {
 		// エラーチェック
 		// 空欄の場合はエラー
-		/*	if (card == null || code == null) {
-				model.addAttribute("message", "入力してください");
-				return "credit";
-			}
-		*/ // 注文情報をDBに格納する
+		if (card == null || code == null) {
+			model.addAttribute("message2", "入力してください");
+			account = accountRepository.findById(login.getId()).get();
+			model.addAttribute("account", account);
+			return "credit";
+		}
+		// 注文情報をDBに格納する
 		Order order = new Order(
 				account.getId(),
 				LocalDate.now(),
