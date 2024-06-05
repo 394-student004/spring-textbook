@@ -103,10 +103,11 @@ public class OrderController {
 		// 前：List<OrderHistory> histories = orderRepository.findByAccountIdOrderById(login.getId());
 		List<Order> histories = orderRepository.findByAccountIdOrderById(login.getId());
 
-		//List<OrderDetailHistory> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
+		// 前：List<OrderDetailHistory> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
+		List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
 
 		model.addAttribute("histories", histories);
-		//model.addAttribute("detailHistories", detailHistories);
+		model.addAttribute("detailHistories", detailHistories);
 
 		return "history";
 	}
