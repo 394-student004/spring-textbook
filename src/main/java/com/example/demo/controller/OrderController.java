@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Account;
 import com.example.demo.entity.Item;
@@ -54,6 +55,9 @@ public class OrderController {
 	// 注文処理
 	@PostMapping("/order")
 	public String order(
+			@RequestParam(name = "card", defaultValue = "") Integer card,
+			@RequestParam(name = "date", defaultValue = "") Integer date,
+			@RequestParam(name = "code", defaultValue = "") Integer code,
 			Model model) {
 		// 注文情報をDBに格納する
 		Order order = new Order(
