@@ -30,7 +30,16 @@
             <td align="right" colspan="5" th:text="'合計額：'+${@cart.totalPrice}"></td>
         </tr>
     </table>
-    <a href="/items">購入を続ける</a>
+    <!--ここから片山の遊び場-->
+    <div class="btn-wrap">
+  <a href="/items" class="btn btn-c"><span>5000円以上で送料無料</span><br>購入を続ける<i class="fas fa-angle-double-right"></i></a>
+</div>
+    <!--ここまで片山の遊び場-->
+    
+    <!--
+    <form action="/items" method="get">
+    <button>購入を続ける</button>
+    </form>-->
      <form action="/order" method="get">
     <button>代金引き換えで購入</button>
     </form>
