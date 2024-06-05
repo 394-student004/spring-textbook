@@ -37,7 +37,7 @@ table, th, td {
 
 table {
     margin: 5px auto;
-    min-width: 800px;
+    min-width:800px;/*お前が悪いヒストリーの原因*/
 }
 
 table th {
@@ -61,6 +61,8 @@ button:hover {
 }
 */
 /*ここから片山の遊び場*/
+
+
 .link {
 	text-align: right;
     padding: 0px 200px 0px 0px;
