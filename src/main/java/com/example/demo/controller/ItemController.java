@@ -77,17 +77,5 @@ public class ItemController {
 		model.addAttribute("items", itemList);
 		return "textbook";
 	}
-	/*
-		@GetMapping("/items/{id}")
-		public String show(
-				@PathVariable("id") Integer id,
-				Model model) {
-	
-			// 主キー検索
-			Item item = itemRepository.findById(id).get();
-			model.addAttribute("item", item);
-	
-			return "itemDetail";
-		}
-	*/
+
 }

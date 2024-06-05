@@ -135,7 +135,7 @@ public class AccountController {
 	// 会員情報変更画面表示
 	@GetMapping("/account/edit")
 	public String edit(Model model) {
-		// ログインしているユーザーの情報を取得
+		// ログインしている会員の情報を取得
 		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
 		return "accountEdit";
@@ -157,12 +157,12 @@ public class AccountController {
 				|| address.length() == 0
 				|| password.length() == 0) {
 			model.addAttribute("error", "全ての項目を入力してください");
-			// ログインしているユーザーの情報を取得して変更画面に戻る
+			// ログインしている会員の情報を取得して変更画面に戻る
 			account = accountRepository.findById(login.getId()).get();
 			model.addAttribute("account", account);
 			return "accountEdit";
 		} else {
-			// ログインしているユーザーのIDの情報を削除する
+			// ログインしている会員のIDの情報を削除する
 			Account editAccount = accountRepository.findById(login.getId()).get();
 			accountRepository.delete(editAccount);
 			// 確認画面に表示する用
