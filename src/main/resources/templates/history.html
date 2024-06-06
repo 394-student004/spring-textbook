@@ -25,7 +25,7 @@
 				<th>教科書ID</th>
 				<th>数量</th>
 			</tr>
-			<tr th:each="detailHistory:${detailHistories}">
+			<tr th:each="detailHistory:${detailHistories}" th:if="${detailHistory.accountId == history.id}">
 				<td th:text="${detailHistory.orderId}"></td>
 				<td th:text="${detailHistory.itemId}"></td>
 			</tr>
