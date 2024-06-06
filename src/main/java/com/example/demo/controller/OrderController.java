@@ -47,7 +47,7 @@ public class OrderController {
 	@GetMapping("/order")
 	public String index(Model model) {
 		// 商品が選択されていない場合は購入に進めない
-		if (cart.getTotalPrice() <= 0) {
+		if (cart.getTotalPrice() == 0) {
 			model.addAttribute("error", "商品が選択されていません");
 			return "cart";
 		}
@@ -93,7 +93,7 @@ public class OrderController {
 	@GetMapping("/credit")
 	public String credit(Model model) {
 		// 商品が選択されていない場合は購入に進めない
-		if (cart.getTotalPrice() <= 0) {
+		if (cart.getTotalPrice() == 0) {
 			model.addAttribute("error", "商品が選択されていません");
 			return "cart";
 		}
