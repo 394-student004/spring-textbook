@@ -104,7 +104,7 @@ public class OrderController {
 			Model model) {
 		// エラーチェック
 		// 空欄の場合はエラー
-		if (card == null || code == null) {
+		if (card.isEmpty() || code == null) {
 			model.addAttribute("error", "入力してください");
 			account = accountRepository.findById(login.getId()).get();
 			model.addAttribute("account", account);

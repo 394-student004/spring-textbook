@@ -54,7 +54,8 @@
 				</tr>
 				<tr>
 					<th>カード番号</th>
-					<td><input type="number" name="card" placeholder="16桁の数字で入力してください"></td>
+					<!--<td><input type="number" name="card" placeholder="16桁の数字で入力してください"></td>-->
+					<td><input name="card" id="card-number" type="text" placeholder="0000 0000 0000 0000"></td>
 				</tr>
 				<tr>
 					<th>有効期限</th>
@@ -90,11 +91,36 @@
 				</tr>
 				<tr>
 					<th>セキュリティコード</th>
-					<td><input type="number" name="code" placeholder="3桁の数字で入力してください"></td>
+					<!--<td><input type="number" name="code"  placeholder="3桁の数字で入力してください"></td>-->
+					<td><input name="code" id="card-code"  type="text" maxlength="3" placeholder="000"></td>
 				</tr>
 			</table>
 			<button>注文を確定する</button>
 		</form>
+		<script>
+    const cardNumberInput = document.getElementById('card-number');
+
+    cardNumberInput.addEventListener('input', function(event) {
+      // 数字以外の文字を除去
+      let trimmedValue = event.target.value.replace(/\D/g, '');
+      // 最大16桁に制限
+      trimmedValue = trimmedValue.substring(0, 16);
+      // 4桁ごとにスペースを追加
+      trimmedValue = trimmedValue.replace(/(\d{4})(?=\d)/g, '$1 ');
+      // フォーマットされた値を入力フィールドに設定
+      event.target.value = trimmedValue;
+    });
+    </script>
+    <script>
+    const cardCodeInput = document.getElementById('card-code');
+
+    cardCodeInput.addEventListener('input', function(event) {
+      // 数字以外の文字を除去
+      let trimmedValue = event.target.value.replace(/\D/g, '');
+      // フォーマットされた値を入力フィールドに設定
+      event.target.value = trimmedValue;
+      });
+  </script>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>
