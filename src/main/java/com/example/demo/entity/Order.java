@@ -23,8 +23,8 @@ public class Order {
 	@Column(name = "total_price")
 	private Integer totalPrice; //合計額
 	//片山
-	@Column(name = "point")
-	private Integer point; //ポイント
+	//	@Column(name = "point")
+	//	private Integer point; //ポイント
 	//片山
 
 	//コンストラクタ
