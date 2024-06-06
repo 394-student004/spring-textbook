@@ -26,8 +26,8 @@
 				<th>数量</th>
 			</tr>
 			<tr th:each="detailHistory:${detailHistories}">
+				<td th:text="${detailHistory.orderId}"></td>
 				<td th:text="${detailHistory.itemId}"></td>
-				<td th:text="${detailHistory.quantity}"></td>
 			</tr>
 		</table>
 </div>

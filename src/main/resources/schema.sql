@@ -19,7 +19,7 @@ CREATE TABLE account
 -- 教科書テーブル
 CREATE TABLE item
 (
-   id SERIAL PRIMARY KEY,
+   id INTEGER PRIMARY KEY,
    name TEXT,
    lecture TEXT,
    professor TEXT,
@@ -43,4 +43,5 @@ CREATE TABLE order_details
    order_id INTEGER,
    item_id INTEGER,
    quantity INTEGER
+   
 );

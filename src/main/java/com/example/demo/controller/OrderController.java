@@ -110,7 +110,7 @@ public class OrderController {
 		}
 		// 注文情報をDBに格納する
 		Order order = new Order(
-				account.getId(),
+				login.getId(),
 				LocalDate.now(),
 				cart.getTotalPrice());
 		orderRepository.save(order);
@@ -121,10 +121,10 @@ public class OrderController {
 		for (Item item : itemList) {
 			orderDetails.add(
 					new OrderDetail(
+							login.getId(),
 							order.getId(),
 							item.getId(),
-							item.getQuantity(),
-							account.getId()));
+							item.getQuantity()));
 		}
 		orderDetailRepository.saveAll(orderDetails);
 
