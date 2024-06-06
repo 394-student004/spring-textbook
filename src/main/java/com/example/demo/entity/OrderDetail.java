@@ -18,6 +18,8 @@ public class OrderDetail {
 	private Integer accountId; //会員ID　追加した
 	@Column(name = "order_id")
 	private Integer orderId; //注文ID
+	@Column(name = "item_id")
+	private Integer itemId; //教科書ID //
 	@Column(name = "item_name")
 	private String itemName; //教科書ID //
 	private Integer quantity; //数量
@@ -30,6 +32,13 @@ public class OrderDetail {
 		this.accountId = accountId;
 		this.orderId = orderId;
 		this.itemName = itemName;
+		this.quantity = quantity;
+	}
+
+	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, Integer quantity) {
+		this.accountId = accountId;
+		this.orderId = orderId;
+		this.itemId = itemId;
 		this.quantity = quantity;
 	}
 
