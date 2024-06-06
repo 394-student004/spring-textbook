@@ -11,7 +11,9 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Intege
 	//前：List<OrderDetailHistory> findAllOrderDetailHistory();
 	//List<OrderDetail> findByAccountIdOrderById(Integer AccountId); //追加した
 
-	List<OrderDetail> findByQuantityOrderById(Integer id);
+	//List<OrderDetail> findByQuantityOrderById(Integer id);
+
+	List<OrderDetail> findByAccountIdOrderById(Integer id);
 
 	//List<OrderDetail> findByQuantityAndAccountId(Integer id, Integer id2);
 

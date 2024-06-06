@@ -76,6 +76,7 @@ public class OrderController {
 					new OrderDetail(
 							login.getId(),
 							order.getId(),
+							item.getId(),
 							item.getName(),
 							item.getQuantity()));
 		}
@@ -135,6 +136,7 @@ public class OrderController {
 					new OrderDetail(
 							login.getId(),
 							order.getId(),
+							item.getId(),
 							item.getName(), //
 							item.getQuantity()));
 		}
@@ -158,7 +160,7 @@ public class OrderController {
 		// 前：List<OrderDetailHistory> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
 		//List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
 
-		List<OrderDetail> detailHistories = orderDetailRepository.findByQuantityOrderById(login.getId());
+		List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
 
 		model.addAttribute("histories", histories);
 		model.addAttribute("detailHistories", detailHistories);

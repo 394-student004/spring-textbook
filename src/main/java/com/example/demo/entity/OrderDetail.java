@@ -28,6 +28,14 @@ public class OrderDetail {
 	public OrderDetail() {
 	}
 
+	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity) {
+		this.accountId = accountId;
+		this.orderId = orderId;
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.quantity = quantity;
+	}
+
 	public OrderDetail(Integer accountId, Integer orderId, String itemName, Integer quantity) {
 		this.accountId = accountId;
 		this.orderId = orderId;
@@ -59,6 +67,10 @@ public class OrderDetail {
 
 	public Integer getOrderId() {
 		return orderId;
+	}
+
+	public Integer getItemId() {
+		return itemId;
 	}
 
 	public String getItemName() { //
