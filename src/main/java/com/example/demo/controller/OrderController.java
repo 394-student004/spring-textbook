@@ -17,6 +17,7 @@ import com.example.demo.entity.Order;
 import com.example.demo.entity.OrderDetail;
 import com.example.demo.model.Cart;
 import com.example.demo.model.Login;
+import com.example.demo.model.OrderHistory;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.OrderDetailRepository;
 import com.example.demo.repository.OrderRepository;
@@ -31,6 +32,9 @@ public class OrderController {
 
 	@Autowired
 	Login login;
+
+	@Autowired
+	OrderHistory orderHistory;
 
 	//Order order = new Order();
 
@@ -169,5 +173,13 @@ public class OrderController {
 		model.addAttribute("detailHistories", detailHistories);
 
 		return "history";
+	}
+
+	// 購入をキャンセルする（削除）
+	@PostMapping("/history/delete")
+	public String delete(Model model) {
+		OrderDetail orderDetails = orderDetailRepository.findById(orderHistory.getOrderId()).get();
+		orderDetailRepository.save(orderDetails);
+		return "redirect:/history";
 	}
 }
