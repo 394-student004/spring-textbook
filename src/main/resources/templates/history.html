@@ -22,12 +22,12 @@
 		<span th:text="'&yen;' + ${history.totalPrice}"></span>
 		<table table="1">
 			<tr>
-				<th>教科書ID</th>
+				<th>教科書</th>
 				<th>数量</th>
 			</tr>
-			<tr th:each="detailHistory:${detailHistories}" th:if="${detailHistory.accountId == history.id}">
-				<td th:text="${detailHistory.orderId}"></td>
-				<td th:text="${detailHistory.itemId}"></td>
+			<tr th:each="detailHistory:${detailHistories}" th:if="${detailHistory.orderId == history.id}">
+				<td th:text="${detailHistory.itemName}"></td>
+				<td th:text="${detailHistory.quantity}"></td>
 			</tr>
 		</table>
 </div>

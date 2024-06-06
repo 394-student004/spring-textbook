@@ -41,7 +41,7 @@ CREATE TABLE order_details
    id SERIAL PRIMARY KEY,
    account_id INTEGER, 
    order_id INTEGER,
-   item_id INTEGER,
+   item_name TEXT, 
    quantity INTEGER
    
 );

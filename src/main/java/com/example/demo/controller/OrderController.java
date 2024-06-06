@@ -74,10 +74,10 @@ public class OrderController {
 		for (Item item : itemList) {
 			orderDetails.add(
 					new OrderDetail(
+							login.getId(),
 							order.getId(),
-							item.getId(),
-							item.getQuantity(),
-							login.getId()));
+							item.getName(),
+							item.getQuantity()));
 		}
 		orderDetailRepository.saveAll(orderDetails);
 
@@ -135,7 +135,7 @@ public class OrderController {
 					new OrderDetail(
 							login.getId(),
 							order.getId(),
-							item.getId(),
+							item.getName(), //
 							item.getQuantity()));
 		}
 		orderDetailRepository.saveAll(orderDetails);
