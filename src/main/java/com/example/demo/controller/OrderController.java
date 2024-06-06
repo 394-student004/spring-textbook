@@ -180,6 +180,12 @@ public class OrderController {
 	public String delete(Model model) {
 		OrderDetail orderDetails = orderDetailRepository.findById(orderHistory.getOrderId()).get();
 		orderDetailRepository.save(orderDetails);
+		List<Order> histories = orderRepository.findByAccountIdOrderById(login.getId());
+
+		List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
+
+		model.addAttribute("histories", histories);
+		model.addAttribute("detailHistories", detailHistories);
 		return "redirect:/history";
 	}
 }
