@@ -22,6 +22,10 @@ public class Order {
 	private LocalDate orderedOn; //注文日
 	@Column(name = "total_price")
 	private Integer totalPrice; //合計額
+	//片山
+	@Column(name = "point")
+	private Integer point; //ポイント
+	//片山
 
 	//コンストラクタ
 	public Order() {
@@ -73,5 +77,25 @@ public class Order {
 	public void setTotalPrice(Integer totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+
+	//ここから片山
+	/*
+	public Order(Integer accountId, LocalDate orderedOn, Integer totalPrice, Integer point) {
+		super();
+		this.accountId = accountId;
+		this.orderedOn = orderedOn;
+		this.totalPrice = totalPrice;
+		this.point = point;
+	}
+	
+	public Integer getPoint() {
+		return point;
+	}
+	
+	public void setPoint(Integer point) {
+		this.point = point;
+	}
+	
+	//ここまで片山*/
 
 }

@@ -148,6 +148,9 @@ public class OrderController {
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
+		/*片山
+		model.addAttribute("point", order.getPoint());
+		 */
 		return "purchaseFin";
 	}
 
