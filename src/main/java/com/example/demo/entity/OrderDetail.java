@@ -19,10 +19,15 @@ public class OrderDetail {
 	@Column(name = "order_id")
 	private Integer orderId; //注文ID
 	@Column(name = "item_id")
-	private Integer itemId; //教科書ID //
+	private Integer itemId; //教科書ID
 	@Column(name = "item_name")
-	private String itemName; //教科書ID //
+	private String itemName; //教科書名
 	private Integer quantity; //数量
+	/*
+		@ManyToOne
+		@JoinColumn(name = "item_id")
+		private Item item;
+	*/
 	//コンストラクタ
 
 	public OrderDetail() {
@@ -42,9 +47,17 @@ public class OrderDetail {
 		this.quantity = quantity;
 	}
 
-	public OrderDetail(Integer orderId, String itemName, Integer quantity) { //
+	/*
+		public OrderDetail(Integer accountId, Integer orderId, Item item, Integer quantity) {
+			this.accountId = accountId;
+			this.orderId = orderId;
+			this.item = item;
+			this.quantity = quantity;
+		}
+	*/
+	public OrderDetail(Integer orderId, String itemName, Integer quantity) {
 		this.orderId = orderId;
-		this.itemName = itemName; //
+		this.itemName = itemName;
 		this.quantity = quantity;
 	}
 
@@ -61,12 +74,20 @@ public class OrderDetail {
 		return orderId;
 	}
 
-	public String getItemName() { //
-		return itemName; //
+	public String getItemName() {
+		return itemName;
 	}
 
 	public Integer getQuantity() {
 		return quantity;
 	}
-
+	/*
+		public Item getItem() {
+			return item;
+		}
+	
+		public void setItem(Item item) {
+			this.item = item;
+		}
+	*/
 }
