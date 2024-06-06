@@ -46,6 +46,11 @@ public class OrderController {
 	// 注文内容確認とお客様情報画面を表示
 	@GetMapping("/order")
 	public String index(Model model) {
+		// 商品が選択されていない場合は購入に進めない
+		if (cart.getTotalPrice() <= 0) {
+			model.addAttribute("error", "商品が選択されていません");
+			return "cart";
+		}
 		// ログインしている会員の情報を取得	
 		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
@@ -87,6 +92,11 @@ public class OrderController {
 
 	@GetMapping("/credit")
 	public String credit(Model model) {
+		// 商品が選択されていない場合は購入に進めない
+		if (cart.getTotalPrice() <= 0) {
+			model.addAttribute("error", "商品が選択されていません");
+			return "cart";
+		}
 		// ログインしている会員の情報を取得	
 		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);

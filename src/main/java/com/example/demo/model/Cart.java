@@ -27,7 +27,9 @@ public class Cart {
 			total += item.getPrice() * item.getQuantity();
 		}
 		// 送料追加計算
-		if (total < 5000) {
+		if (total == 0) {
+			return total;
+		} else if (total < 5000) {
 			Integer fee = 550;
 			total += fee;
 		}
