@@ -41,31 +41,13 @@ table, th, td {
 
 table {
     margin: 5px auto;
-    min-width:800px;/*お前が悪いヒストリーの原因*/
+    min-width:800px;
 }
 
 table th {
     background: rgb(44, 129, 66);
     color: white;
 }
-/*
-button {
-    margin: 2px;
-    padding: 5px 20px;
-    background-color: rgb(112, 112, 112);
-    color: beige;
-    border:none;
-    width: 190px;
-    cursor: pointer;
-}
-
-
-button:hover {
-    background-color: rgb(78, 78, 78);
-}
-*/
-/*ここから片山の遊び場*/
-
 
 .link {
 	text-align: right;
@@ -90,64 +72,30 @@ button:hover {
     background-color: rgb(38, 130, 58);
 }
 /**ここから送料無料ボタン*/
-
-
-*,
-*:before,
-*:after {
-	
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-/*
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 50%;
-}
-*/
 .btn,
 a.btn,
 button.btn {
-  font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
   position: relative;
-  display: inline-block;
-  padding: 1rem 4rem;
- /* cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;*/
-  text-align: center;
-  /*vertical-align: middle;*/
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  color: #212529;
+  display: inline-block;/*吹き出し下の緑の領域*/
+  text-decoration: none;/*購入続けるボタンをボタンっぽくするためにリンクの下線を消す*/
+  letter-spacing: 0.1em;/*文字のちょっとしたサイズ調整*/
+
 }
 
 .btn-wrap {
-  margin: 15px 0;
+  margin: 15px 0;/*購入を続けるボタン周辺余白*/
 }
 
 a.btn-c {
-  font-size: 16px;
-
-  position: relative;
-
-  padding: 1mm 1rem 1rem 2rem;
-
-  color: #fff;
-  background: #4CAF50;
- /* -webkit-box-shadow: 0 5px 0 rgb(46, 105, 50);
-  box-shadow: 0 5px 0 rgb(46, 105, 50);*/
+  padding: 1mm 1rem 1rem 2rem;/*購入続けるボタンサイズ調整*/
+  color: #fff;/*購入を続ける文字色*/
+  background: #4CAF50;/*その背景色*/
 }
 
 a.btn-c span {
-  font-size: 70%;/*吹き出しないフォントサイズ*/
+  font-size: 70%;/*吹き出し内の文字フォントサイズ*/
 
   position: absolute;
   top: -0.3rem;/*吹き出し縦位置*/
@@ -155,55 +103,42 @@ a.btn-c span {
 
   display: block;
 
-  width: 170px;
-  padding: 0.2rem 0;
+  width: 170px;/*吹き出し大きさ*/
+  padding: 0.2rem 0;/*吹き出し立幅*/
 
-  color: rgb(38, 130, 58);
-  border: 2px solid rgb(46, 105, 50);
-  border-radius: 100vh;
-  background: #fff;
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);/*吹き出し内文字色*/
+  border: 2px solid rgb(46, 105, 50);/*吹き出しフチ色*/
+  border-radius: 100vh;/*吹き出しをカーブにしている部分（ないと四角になる）*/
+  background: rgb(255, 255, 255);/*吹き出し背景色*/
 }
 
 a.btn-c span:before,
-a.btn-c span:after {
-  position: absolute;
-  left: calc(50% - 10px);
-
-  content: "";
+a.btn-c span:after {/*beforeはみどり▽アフターは白▽*/
+  position: absolute;/*吹き出しの▽の位置１*/
+  left: calc(50% - 10px);/*吹き出しの▽の位置２*/
+  content: "";/*吹き出しの▽の存在証明*/
 }
 
 a.btn-c span:before {
   bottom: -10px;
 
-  border-width: 10px 10px 0 10px;
-  border-style: solid;
-  border-color: rgb(46, 105, 50) transparent transparent transparent;
+  border-width: 10px 10px 0 10px;/*三角の位置（みどり）*/
+  border-style: solid;/*存在証明*/
+  border-color: rgb(46, 105, 50) transparent transparent transparent;/*三角の色（みどり）*/
 }
 
 a.btn-c span:after {
   bottom: -7px;
 
-  border-width: 10px 10px 0 10px;
-  border-style: solid;
-  border-color: #fff transparent transparent transparent;
+  border-width: 10px 10px 0 10px;/*三角の位置（みどり）*/
+  border-style: solid;/*存在証明*/
+  border-color: #fff transparent transparent transparent;/*三角の色（白）*/
 }
 
 a.btn-c i {
-  margin-right: 0.5rem;
+  margin-right: 0.5rem;/*購入を続けるボタンの横幅サイズ調整*/
 }
 
 a.btn-c:hover {
-	background-color: rgb(38, 130, 58);
- /* -webkit-transform: translate(0, 3px);
-  transform: translate(0, 3px);
-
-  color: #fff;
-  background: rgb(38, 130, 58);
-  -webkit-box-shadow: 0 2px 0 rgb(38, 130, 58);
-  box-shadow: 0 2px 0 rgb(38, 130, 58);*/
+	background-color: rgb(38, 130, 58);/*カーソル重ねた時の色*/
 }
-
-
-/*ここまで片山の遊び場*/
