@@ -28,6 +28,7 @@ public class OrderDetail {
 		@JoinColumn(name = "item_id")
 		private Item item;
 	*/
+	
 	//コンストラクタ
 
 	public OrderDetail() {
@@ -60,6 +61,7 @@ public class OrderDetail {
 		this.itemName = itemName;
 		this.quantity = quantity;
 	}
+	
 
 	//アクセッサ
 	public Integer getId() {
@@ -90,4 +92,9 @@ public class OrderDetail {
 			this.item = item;
 		}
 	*/
+
+	public Integer getItemId() {
+		return itemId;
+	}
+	
 }
