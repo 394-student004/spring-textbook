@@ -32,6 +32,8 @@ public class OrderController {
 	@Autowired
 	Login login;
 
+	//Order order = new Order();
+
 	@Autowired
 	AccountRepository accountRepository;
 
@@ -144,7 +146,9 @@ public class OrderController {
 		List<Order> histories = orderRepository.findByAccountIdOrderById(login.getId());
 
 		// 前：List<OrderDetailHistory> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
-		List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
+		//List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
+
+		List<OrderDetail> detailHistories = orderDetailRepository.findByQuantityOrderById(login.getId());
 
 		model.addAttribute("histories", histories);
 		model.addAttribute("detailHistories", detailHistories);
