@@ -36,6 +36,19 @@ public class Cart {
 		return total;
 	}
 
+	public String message() {
+		if (getTotalPrice() < 5000) {
+			if (getTotalPrice() == 0) {
+				String message = "";
+				return message;
+			}
+			String message = "（送料込み）";
+			return message;
+		}
+		String message = "(送料無料)";
+		return message;
+	}
+
 	//カート追加
 	public void add(Item newItem) {
 		Item existsItem = null;
