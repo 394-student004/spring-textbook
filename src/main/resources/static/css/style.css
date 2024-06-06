@@ -7,9 +7,11 @@ body {
 }
 
 header {
-    /* (背景 単色ver) background-color: rgb(31, 70, 31); */
+    background-color: rgb(31, 70, 31); /* (背景 単色ver) */
+    /* (背景 グラデver) 
     background: -webkit-linear-gradient(to right, rgb(0, 64, 0), rgb(0, 64, 64));
-    background: linear-gradient(to right, rgb(9, 71, 27), #a4faab);
+    background: linear-gradient(to right, rgb(31, 70, 31), #c7fcc0);
+    */
     color:aliceblue;
     padding-top: 5px;
     padding-bottom: 5px;
