@@ -6,13 +6,17 @@
 	<title>教科書一覧</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-
+<style>
+	.front{
+	z-index: 1;
+	}
+</style>
 <body>
 	<header th:replace="header"></header>
 	<main>
 		<h1>教科書一覧</h1>
-		<a href="/items">教科書一覧表示</a>
-		<a href="/cart">カートの中身を見る</a>
+		<a href="/items" class="btn-menu"><span class="front">教科書一覧表示</span></a>
+		<a href="/cart" class="btn-menu"><span class="front">カートの中身を見る</span></a>
 		<form action="/items" method="get">
 			<input type="text" name="keyword" placeholder="教科書名" th:value="${keyword}">
 			|
