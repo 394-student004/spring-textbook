@@ -6,23 +6,7 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 @SessionScope
 public class OrderDetailHistory {
-	//フィールド
-	/*	private List<OrderDetail> orderDetailList = new ArrayList<>();
-	
-		//アクセッサ
-		public List<OrderDetail> getOrderDetail() {
-			return orderDetailList;
-		}
-	
-		public void delete(Integer orderId) {
-			for (OrderDetail orderDetail : orderDetailList) {
-				if (orderDetail.getId() == orderId) {
-					orderId.remove(orderDetail);
-					break;
-				}
-			}
-		}
-	*/
+
 	private Integer orderDetailId; //追加した
 	private Integer orderId;
 	private Integer itemId;

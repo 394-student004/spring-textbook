@@ -24,6 +24,7 @@
 			<span th:text="'&yen;' + ${history.totalPrice}"></span>
 			
 			<form action="/history/delete" method="post">
+				<input type="hidden" name="historyId" th:value="${history.id}">
 				<button>注文キャンセル</button>
 			</form>
 			<table table="1">
