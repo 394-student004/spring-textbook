@@ -2,10 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>キャンセル完了画面</title>
+ <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<h1>削除しました</h1>
-<a href="/history">購入履歴に戻る</a>
+	<header th:replace="header"></header>
+	<main>
+		<h1>キャンセルしました</h1>
+		<a href="/history">購入履歴に戻る</a>
+	</main>
+	<footer th:replace="footer"></footer>
 </body>
 </html>
