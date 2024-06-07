@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>購入確定</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <style>
+		.size{font-size: 200%;}
+	</style>
 </head>
 <body>
  <header th:replace="header"></header>
@@ -12,11 +15,11 @@
     <h3>ご注文ありがとうございました。</h3>
 		お客様の注文番号は
 		<h3>
-	<span th:text="${orderNumber}" style="color: red"></span>
+	<span class="size" th:text="${orderNumber}" style="color: red"></span>
 		</h3>
 		になります。
     <p>お支払い金額：[[${totalPrice}]]円</p>
-    <p style="">[[${point}]]ポイントが付与されました</p>
+    <h2><span class="size" style="color: rgb(162, 130, 0);">[[${point}]]</span>ポイントが付与されました</h2>
     <p>内容確認メールを設定されたメールアドレスに送信しました</p>
     <p>※注文後24時間以内はキャンセル、ご変更いただけます。<br>
     ※返品の場合、未開封7日以内で返品可能です。<br>
