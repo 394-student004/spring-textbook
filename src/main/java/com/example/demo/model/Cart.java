@@ -36,13 +36,13 @@ public class Cart {
 		return total;
 	}
 
-	//合計金額から割る50して1ポイントを付与
-
+	//合計金額から50円につき1ポイントを付与
 	public Integer getPoint() {
 		Integer point = getTotalPrice() / 50;
 		return point;
 	}
 
+	// 送料表示用
 	public String message() {
 		if (getTotalPrice() < 5000) {
 			if (getTotalPrice() == 0) {
@@ -71,10 +71,14 @@ public class Cart {
 		//存在した場合は個数の追加
 		if (existsItem == null) {
 			itemList.add(newItem);
+
 		} else {
 			existsItem.setQuantity(
 					existsItem.getQuantity() + newItem.getQuantity());
+			// カートに商品が追加されると在庫を減らす
+			existsItem.setStock(existsItem.getStock() - 1);
 		}
+
 	}
 
 	//削除

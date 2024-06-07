@@ -16,12 +16,14 @@
 				<th>教科書名</th>
 				<th>価格</th>
 				<th>数量</th>
+				<th>在庫</th>
 				<th>削除</th>
 			</tr>
 			<tr th:each="item:${@cart.itemList}">
 				<td th:text="${item.name}"></td>
 				<td th:text="${item.price}"></td>
 				<td th:text="${item.quantity}"></td>
+				<td th:text="${item.stock}"></td>
 				<td>
 					<form action="/cart/delete" method="post">
 						<input type="hidden" name="itemId" th:value="${item.id}">

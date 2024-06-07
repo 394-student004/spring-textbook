@@ -29,12 +29,16 @@ public class CartController {
 	@PostMapping("/cart/add")
 	public String addCart(
 			@RequestParam("itemId") Integer itemId,
-			@RequestParam(name = "quantity", defaultValue = "1") Integer quantity) {
+			@RequestParam(name = "quantity", defaultValue = "1") Integer quantity,
+			@RequestParam(name = "stock") Integer stock) {
 
 		// 教科書IDで情報を取得
 		Item item = itemRepository.findById(itemId).get();
 		// 個数をセット
 		item.setQuantity(quantity);
+		// 在庫をセット
+		item.setStock(stock);
+		//		itemRepository.save(item);
 		// カートに追加
 		cart.add(item);
 		return "redirect:/cart";

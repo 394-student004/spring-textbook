@@ -16,6 +16,8 @@ public class Item {
 	private String lecture; //講義名
 	private String professor; //教授名
 	private Integer price; //値段
+	private Integer stock; // 数量
+
 	@Transient
 	private Integer quantity;
 
@@ -78,6 +80,14 @@ public class Item {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
 	}
 
 }
