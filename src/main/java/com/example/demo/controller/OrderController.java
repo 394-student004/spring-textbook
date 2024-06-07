@@ -36,7 +36,7 @@ public class OrderController {
 	@Autowired
 	OrderHistory orderHistory;
 
-	//Order order = new Order();
+	//	OrderDetail orderDetail = new OrderDetail();
 
 	@Autowired
 	AccountRepository accountRepository;
@@ -181,14 +181,9 @@ public class OrderController {
 	// 購入をキャンセルする（削除）
 	@PostMapping("/history/delete")
 	public String delete(Model model) {
-		OrderDetail orderDetails = orderDetailRepository.findById(orderHistory.getOrderId()).get();
-		orderDetailRepository.save(orderDetails);
-		List<Order> histories = orderRepository.findByAccountIdOrderById(login.getId());
-
-		List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
-
-		model.addAttribute("histories", histories);
-		model.addAttribute("detailHistories", detailHistories);
-		return "redirect:/history";
+		/*		OrderDetail orderDetails = orderDetailRepository.findByAccountIdAndOrderIdOrderById(login.getId(),
+						orderHistory.getOrderId());
+				orderDetailRepository.delete(orderDetails);
+		*/ return "historyConfirm";
 	}
 }

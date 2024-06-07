@@ -15,7 +15,8 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Intege
 
 	List<OrderDetail> findByAccountIdOrderById(Integer id);
 
-	
+	// 購入キャンセル用
+	OrderDetail findByAccountIdAndOrderIdOrderById(Integer id, Integer orderId);
 
 	//List<OrderDetail> findByQuantityAndAccountId(Integer id, Integer id2);
 
