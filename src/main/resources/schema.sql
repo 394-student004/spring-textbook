@@ -23,7 +23,8 @@ CREATE TABLE item
    name TEXT,
    lecture TEXT,
    professor TEXT,
-   price INTEGER
+   price INTEGER,
+   stock INTEGER
 );
 
 -- 注文テーブル

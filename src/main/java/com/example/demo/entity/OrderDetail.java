@@ -23,14 +23,8 @@ public class OrderDetail {
 	@Column(name = "item_name")
 	private String itemName; //教科書名
 	private Integer quantity; //数量
-	/*
-		@ManyToOne
-		@JoinColumn(name = "item_id")
-		private Item item;
-	*/
 
 	//コンストラクタ
-
 	public OrderDetail() {
 	}
 
