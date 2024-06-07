@@ -48,16 +48,26 @@
 		<p>お支払い金額：[[${totalPrice}]]円</p>
 		<h2><span class="size" style="color: rgb(162, 130, 0);">[[${point}]]</span>ポイントが付与されました</h2>
 		<script>
+			/*
+			ページが読み込まれたときにモーダルウィンドウを出すイベント
+			*/
 			document.addEventListener("DOMContentLoaded", function() {
 				var modal = document.getElementById('myModal');
 				modal.style.display = "block";
 			});
-
+			/*
+			モーダルウィンドウを閉じるため・リロードしたら再度モーダルウィンドウ出すためのイベント
+			*/
 			function closeModal() {
 				var modal = document.getElementById('myModal');
-				modal.style.display = "none";
+				modal.style.display = "none";document.addEventListener("DOMContentLoaded", function() {
+				var modal = document.getElementById('myModal');
+				modal.style.display = "block";
+			});
 			}
-
+			/*
+			ウィンドウ上のどこかをクリックしたときにモーダルウィンドウを閉じるためのイベント
+			*/
 			window.onclick = function(event) {
 				var modal = document.getElementById('myModal');
 				if (event.target == modal) {
