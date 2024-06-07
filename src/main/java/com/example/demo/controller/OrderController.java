@@ -180,13 +180,11 @@ public class OrderController {
 
 	// 購入をキャンセルする（削除）
 	@PostMapping("/history/delete")
-	public String delete(@RequestParam("historyId") Integer historyId,
+	public String delete(
+			@RequestParam("historyId") Integer historyId,
 			Model model) {
-		/*		OrderDetail orderDetails = orderDetailRepository.findByOrderId(
-						orderHistory.getOrderId());
-				orderDetailRepository.delete(orderDetails);
-		 orderDetailHistory.delete(historyId);
-		*/
+		OrderDetail orderDetails = orderDetailRepository.findByOrderId(historyId);
+		orderDetailRepository.delete(orderDetails);
 		return "historyConfirm";
 	}
 }

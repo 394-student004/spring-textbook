@@ -13,9 +13,9 @@
 		<h1>購入履歴</h1>
 
 		<div th:each="history:${histories}">
+			
 			<!--   style=" width: 500px; height: 150px; padding: 10px; margin: 10px; margin: 0 auto; border: 1px solid #333333;"
      -->
-
 			<span>注文日：</span>
 			<span th:text="${history.orderedOn}"></span><br>
 			<span>注文番号：</span>
