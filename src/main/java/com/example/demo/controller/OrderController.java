@@ -163,15 +163,16 @@ public class OrderController {
 		}
 		orderDetailRepository.saveAll(orderDetails);
 
-		// セッションスコープのカート情報をクリアする
-		cart.clear();
+		
+		int point = cart.getPoint();
 
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
-		/*片山
-		model.addAttribute("point", order.getPoint());
-		 */
+		model.addAttribute("point", point);
+		 
+		// セッションスコープのカート情報をクリアする
+		cart.clear();
 		return "purchaseFin";
 	}
 
