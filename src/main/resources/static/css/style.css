@@ -54,6 +54,9 @@ table th {
     padding: 0px 200px 0px 0px;
 }
 
+ul {
+  list-style-type: none;
+}
 
 button {
     background-color: #4CAF50;
@@ -145,23 +148,19 @@ a.btn-c:hover {
 
 /*ファンクションボタン*/
 .btn-menu{
-    /*線の基点とするためrelativeを指定*/
-  position:relative;
-    /*リンクの形状*/ 
-  color:rgb(0, 0, 0);
-    padding: 10px 50px 10px 30px;
-  
+  position:relative;/*線の基点とするためrelativeを指定*/
+  color:rgb(0, 0, 0);/*リンクの形状*/
+  padding: 10px 50px 10px 30px;
   display:inline-block;
-    text-decoration: none;
-    outline: none;
+  text-decoration: none;
+  outline: none;
 }
 
 /*線の設定*/
 .btn-menu::before,
 .btn-menu::after{
   content:'';
-    /*絶対配置で線の位置を決める*/
-  position:absolute;
+  position:absolute;/*絶対配置で線の位置を決める*/
   z-index:1;
   bottom:0;
   left:0;
@@ -205,3 +204,43 @@ a.btn-c:hover {
 .btn-menu:hover span::after {
   right:15px;
 }
+/*フッターのリンク*/
+/*片山の遊び場*/
+.noline {
+  color: #999;/*フッターの文字の色*/
+  text-decoration: none;
+  text-align: left;
+}
+/*
+ul {
+  list-style: none;
+  padding: 0;
+}*/
+
+.footer {
+  padding: 2rem;
+  font-size: 18px;
+  color: #999;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer a:hover {
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .md-flex {
+    display: flex;
+  }
+
+  .md-flex li + li {
+    margin-left: 16px;
+  }
+}
+/*片山の遊び場*/
