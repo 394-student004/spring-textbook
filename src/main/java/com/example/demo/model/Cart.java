@@ -36,16 +36,12 @@ public class Cart {
 		return total;
 	}
 
-	//ここから片山の遊び場
 	//合計金額から割る50して1ポイントを付与
 
 	public Integer getPoint() {
-		//		Integer point =0;
 		Integer point = getTotalPrice() / 50;
 		return point;
 	}
-
-	//ここまで片山の遊び場
 
 	public String message() {
 		if (getTotalPrice() < 5000) {
