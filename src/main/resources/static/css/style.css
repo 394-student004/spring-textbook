@@ -142,3 +142,66 @@ a.btn-c i {
 a.btn-c:hover {
 	background-color: rgb(38, 130, 58);/*カーソル重ねた時の色*/
 }
+
+/*ファンクションボタン*/
+.btn-menu{
+    /*線の基点とするためrelativeを指定*/
+  position:relative;
+    /*リンクの形状*/ 
+  color:rgb(0, 0, 0);
+    padding: 10px 50px 10px 30px;
+  
+  display:inline-block;
+    text-decoration: none;
+    outline: none;
+}
+
+/*線の設定*/
+.btn-menu::before,
+.btn-menu::after{
+  content:'';
+    /*絶対配置で線の位置を決める*/
+  position:absolute;
+  z-index:1;
+  bottom:0;
+  left:0;
+     /*線の形状*/   
+  background:rgb(192, 192, 192);
+  width:100%;
+  height:2px;
+    /*アニメーションの指定*/
+  transition:all 0.3s ease-in-out;
+}
+
+ /*hover時に伸びる線の形状*/   
+.btn-menu::after{
+  width:0;
+  background:rgb(46, 105, 50);
+}
+
+ /*hover時に100%に伸びる*/   
+.btn-menu:hover::after {
+  width:100%;
+}
+
+ /*矢印の設定*/   
+.btn-menu span::after {
+    content: '';
+    /*絶対配置で矢印の位置を決める*/
+    position: absolute;
+    top: 1.3em;
+    right: 20px;
+    /*矢印の形状*/   
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    transform: rotate(45deg);
+    /*アニメーションの指定*/
+    transition: all .3s;
+}
+
+/*hover時に矢印が移動*/   
+.btn-menu:hover span::after {
+  right:15px;
+}
