@@ -183,8 +183,12 @@ public class OrderController {
 	public String delete(
 			@RequestParam("historyId") Integer historyId,
 			Model model) {
+		// 
 		OrderDetail orderDetails = orderDetailRepository.findByOrderId(historyId);
 		orderDetailRepository.delete(orderDetails);
+		// 
+		orderRepository.deleteById(historyId);
+
 		return "historyConfirm";
 	}
 }

@@ -12,4 +12,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 	// 前：List<OrderHistory> findAllOrderHistory();
 	List<Order> findByAccountIdOrderById(Integer AccountId); //追加した
 
+	// 注文キャンセル
+	//	Optional<Order> findById(Integer id);
+
 }
