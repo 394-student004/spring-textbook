@@ -128,6 +128,20 @@ public class OrderController {
 			model.addAttribute("account", account);
 			return "credit";
 		}
+		// カード番号が16桁でない場合はエラー
+	    if (card.length() != 19) {
+	        model.addAttribute("error", "カード番号は16桁で入力してください");
+	        account = accountRepository.findById(login.getId()).get();
+	        model.addAttribute("account", account);
+	        return "credit";
+	    }
+	 // セキュリティコードが3桁でない場合はエラー
+	    if (code.toString().length() != 3) {
+	        model.addAttribute("error", "セキュリティコードは3桁で入力してください");
+	        account = accountRepository.findById(login.getId()).get();
+	        model.addAttribute("account", account);
+	        return "credit";
+	    }
 		// 注文情報をDBに格納する
 		Order order = new Order(
 				login.getId(),
