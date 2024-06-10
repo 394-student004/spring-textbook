@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Account;
 import com.example.demo.entity.Item;
+import com.example.demo.model.Cart;
 import com.example.demo.repository.ItemRepository;
 
 @Controller
 public class ItemController {
 
 	Account account = new Account();
+
+	@Autowired
+	Cart cart;
 
 	@Autowired
 	ItemRepository itemRepository;
@@ -39,13 +44,18 @@ public class ItemController {
 		List<Item> itemList = null;
 		// 教科書一覧
 		if (keyword.length() <= 0 && lecture.length() <= 0 && professor.length() <= 0) {
-			itemList = itemRepository.findAllByOrderById();
-			/*									List<Item> itemListBrows = new ArrayList<>();
-									for (Item item : itemList) {
-										itemListBrows.add(item);
-										model.addAttribute("itemListBrows", itemListBrows);
-									}
-			*/ }
+			itemList = itemRepository.findAll();
+			List<Item> itemListBrows = new ArrayList<>();
+			for (Item item : itemList) {
+				for (Item items : cart.getItemList()) {
+					if (item.getId() == items.getId()) {
+						item.setStock(items.getStock());
+					}
+				}
+				itemListBrows.add(item);
+			}
+			model.addAttribute("itemListBrows", itemListBrows);
+		}
 		// 教科書名で部分一致検索
 		if (keyword.length() > 0) {
 			itemList = itemRepository.findByNameContainingOrderById(keyword);

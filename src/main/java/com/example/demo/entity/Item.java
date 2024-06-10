@@ -25,12 +25,13 @@ public class Item {
 	public Item() {
 	}
 
-	public Item(Integer id, String name, String lecture, String professor, Integer price) {
+	public Item(Integer id, String name, String lecture, String professor, Integer price, Integer stock) {
 		this.id = id;
 		this.name = name;
 		this.lecture = lecture;
 		this.professor = professor;
 		this.price = price;
+		this.stock = stock; //追加した
 	}
 
 	//アクセッサ
