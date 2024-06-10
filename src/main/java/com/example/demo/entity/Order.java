@@ -25,18 +25,15 @@ public class Order {
 	
 	//コンストラクタ
 	public Order() {
-		super();
 	}
 
 	public Order(Integer accountId, LocalDate orderedOn, Integer totalPrice) {
-		super();
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 		this.totalPrice = totalPrice;
 	}
 
 	public Order(Integer accountId, LocalDate orderedOn) {
-		super();
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 	}
