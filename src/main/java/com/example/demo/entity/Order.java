@@ -22,17 +22,12 @@ public class Order {
 	private LocalDate orderedOn; //注文日
 	@Column(name = "total_price")
 	private Integer totalPrice; //合計額
-	//片山
-	//	@Column(name = "point")
-	//	private Integer point; //ポイント
-	//片山
-
+	
 	//コンストラクタ
 	public Order() {
 		super();
 	}
 
-	//アクセッサ
 	public Order(Integer accountId, LocalDate orderedOn, Integer totalPrice) {
 		super();
 		this.accountId = accountId;
@@ -45,7 +40,8 @@ public class Order {
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 	}
-
+	
+	//アクセッサ
 	public Integer getId() {
 		return id;
 	}
