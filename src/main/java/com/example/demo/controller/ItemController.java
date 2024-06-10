@@ -82,7 +82,12 @@ public class ItemController {
 		for (Item item : itemList) {
 			for (Item items : cart.getItemList()) {
 				if (item.getId() == items.getId()) {
-					item.setStock(items.getStock());
+					if (item.getStock() > 0) {
+						item.setStock(items.getStock());
+					} else {
+						model.addAttribute("message", "在庫がありません");
+						return "textbook";
+					}
 				}
 			}
 			itemListBrows.add(item);

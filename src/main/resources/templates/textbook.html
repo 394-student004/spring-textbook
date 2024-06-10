@@ -16,6 +16,7 @@
 	<header th:replace="header"></header>
 	<main>
 		<h1>教科書一覧</h1>
+		<span th:text="${message}" style="color: red"></span>
 		<a href="/items" class="btn-menu"><span class="front">教科書一覧表示</span></a>
 		<a href="/cart" class="btn-menu"><span class="front">カートの中身を見る</span></a>
 		<form action="/items" method="get">
