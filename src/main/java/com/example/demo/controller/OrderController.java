@@ -129,19 +129,19 @@ public class OrderController {
 			return "credit";
 		}
 		// カード番号が16桁でない場合はエラー
-	    if (card.length() != 19) {
-	        model.addAttribute("error", "カード番号は16桁で入力してください");
-	        account = accountRepository.findById(login.getId()).get();
-	        model.addAttribute("account", account);
-	        return "credit";
-	    }
-	 // セキュリティコードが3桁でない場合はエラー
-	    if (code.toString().length() != 3) {
-	        model.addAttribute("error", "セキュリティコードは3桁で入力してください");
-	        account = accountRepository.findById(login.getId()).get();
-	        model.addAttribute("account", account);
-	        return "credit";
-	    }
+		if (card.length() != 19) {
+			model.addAttribute("error", "カード番号は16桁で入力してください");
+			account = accountRepository.findById(login.getId()).get();
+			model.addAttribute("account", account);
+			return "credit";
+		}
+		// セキュリティコードが3桁でない場合はエラー
+		if (code.toString().length() != 3) {
+			model.addAttribute("error", "セキュリティコードは3桁で入力してください");
+			account = accountRepository.findById(login.getId()).get();
+			model.addAttribute("account", account);
+			return "credit";
+		}
 		// 注文情報をDBに格納する
 		Order order = new Order(
 				login.getId(),
@@ -163,14 +163,13 @@ public class OrderController {
 		}
 		orderDetailRepository.saveAll(orderDetails);
 
-		
 		int point = cart.getPoint();
 
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
 		model.addAttribute("point", point);
-		 
+
 		// セッションスコープのカート情報をクリアする
 		cart.clear();
 		return "purchaseFin";

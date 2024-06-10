@@ -36,6 +36,22 @@
 				<th>在庫</th>
 				<th>購入</th>
 			</tr>
+			<tr th:each="item:${itemListBrows}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.lecture}"></td>
+				<td th:text="${item.professor}"></td>
+				<td th:text="${item.price}"></td>
+				<td th:text="${item.stock}"></td>
+				<td>
+					<form action="/cart/add" method="post">
+						<input type="hidden" name="itemId" th:value="${item.id}">
+						<input type="hidden" name="stock" th:value="${item.stock}">
+						<button>カートに追加</button>
+					</form>
+				</td>
+			</tr>
+			<!--
 			<tr th:each="item:${items}">
 				<td th:text="${item.id}"></td>
 				<td th:text="${item.name}"></td>
@@ -51,6 +67,7 @@
 					</form>
 				</td>
 			</tr>
+			-->
 		</table>
 	</main>
 	<footer th:replace="footer"></footer>

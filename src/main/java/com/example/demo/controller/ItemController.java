@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,11 @@ public class ItemController {
 		// 教科書一覧
 		if (keyword.length() <= 0 && lecture.length() <= 0 && professor.length() <= 0) {
 			itemList = itemRepository.findAll();
-			//			List<Item> itemListBrows = new ArrayList<>();
+			List<Item> itemListBrows = new ArrayList<>();
+			for (Item item : itemList) {
+				itemListBrows.add(item);
+				model.addAttribute("itemListBrows", itemListBrows);
+			}
 		}
 		// 教科書名で部分一致検索
 		if (keyword.length() > 0) {

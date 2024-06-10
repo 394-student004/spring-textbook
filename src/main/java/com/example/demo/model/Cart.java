@@ -71,7 +71,7 @@ public class Cart {
 		//存在した場合は個数の追加
 		if (existsItem == null) {
 			itemList.add(newItem);
-
+			newItem.setStock(newItem.getStock() - 1);
 		} else {
 			existsItem.setQuantity(
 					existsItem.getQuantity() + newItem.getQuantity());
