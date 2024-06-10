@@ -6,12 +6,14 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 @SessionScope
 public class OrderDetailHistory {
-
+	
+	//フィールド
 	private Integer orderDetailId; //追加した
-	private Integer orderId;
-	private Integer itemId;
-	private Integer quantity;
-
+	private Integer orderId; //注文ID
+	private Integer itemId; //教科書ID
+	private Integer quantity; //数量
+	
+	//コンストラクタ
 	public OrderDetailHistory() {
 	}
 
@@ -21,7 +23,8 @@ public class OrderDetailHistory {
 		this.itemId = itemId;
 		this.quantity = quantity;
 	}
-
+	
+	//アクセッサ
 	public Integer getOrderDetailId() {
 		return orderDetailId;
 	}
