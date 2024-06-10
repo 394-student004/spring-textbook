@@ -42,19 +42,11 @@ public class ItemController {
 
 		// 教科書一覧、検索結果表示
 		List<Item> itemList = null;
+		List<Item> itemListBrows = new ArrayList<>();
+
 		// 教科書一覧
 		if (keyword.length() <= 0 && lecture.length() <= 0 && professor.length() <= 0) {
 			itemList = itemRepository.findAll();
-			List<Item> itemListBrows = new ArrayList<>();
-			for (Item item : itemList) {
-				for (Item items : cart.getItemList()) {
-					if (item.getId() == items.getId()) {
-						item.setStock(items.getStock());
-					}
-				}
-				itemListBrows.add(item);
-			}
-			model.addAttribute("itemListBrows", itemListBrows);
 		}
 		// 教科書名で部分一致検索
 		if (keyword.length() > 0) {
@@ -82,15 +74,25 @@ public class ItemController {
 		}
 		// 教科書名と講義名と講師名で部分一致検索
 		if (keyword.length() > 0 && lecture.length() > 0 && professor.length() > 0) {
-			itemList = itemRepository.findByNameContainingAndLectureContainingAndProfessorContainingOrderById(keyword,
+			itemList = itemRepository.findByNameContainingAndLectureContainingAndProfessorContainingOrderById(
+					keyword,
 					lecture,
 					professor);
+		}
+		for (Item item : itemList) {
+			for (Item items : cart.getItemList()) {
+				if (item.getId() == items.getId()) {
+					item.setStock(items.getStock());
+				}
+			}
+			itemListBrows.add(item);
 		}
 		// 入力した値の保持用
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("lecture", lecture);
 		model.addAttribute("professor", professor);
 		model.addAttribute("items", itemList);
+		model.addAttribute("itemListBrows", itemListBrows);
 		return "textbook";
 	}
 
