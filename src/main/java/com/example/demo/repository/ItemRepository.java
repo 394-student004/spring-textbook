@@ -7,20 +7,21 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entity.Item;
 
 public interface ItemRepository extends JpaRepository<Item, Integer> {
+	List<Item> findAllByOrderById();
 
-	List<Item> findByNameContaining(String keyword);
+	List<Item> findByNameContainingOrderById(String keyword);
 
-	List<Item> findByLectureContaining(String lecture);
+	List<Item> findByLectureContainingOrderById(String lecture);
 
-	List<Item> findByProfessorContaining(String professor);
+	List<Item> findByProfessorContainingOrderById(String professor);
 
-	List<Item> findByNameContainingAndLectureContaining(String keyword, String lecture);
+	List<Item> findByNameContainingAndLectureContainingOrderById(String keyword, String lecture);
 
-	List<Item> findByLectureContainingAndProfessorContaining(String lecture, String professor);
+	List<Item> findByLectureContainingAndProfessorContainingOrderById(String lecture, String professor);
 
-	List<Item> findByNameContainingAndProfessorContaining(String keyword, String professor);
+	List<Item> findByNameContainingAndProfessorContainingOrderById(String keyword, String professor);
 
-	List<Item> findByNameContainingAndLectureContainingAndProfessorContaining(String keyword, String lecture,
+	List<Item> findByNameContainingAndLectureContainingAndProfessorContainingOrderById(String keyword, String lecture,
 			String professor);
 
 }

@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,40 +39,41 @@ public class ItemController {
 		List<Item> itemList = null;
 		// 教科書一覧
 		if (keyword.length() <= 0 && lecture.length() <= 0 && professor.length() <= 0) {
-			itemList = itemRepository.findAll();
-			List<Item> itemListBrows = new ArrayList<>();
-			for (Item item : itemList) {
-				itemListBrows.add(item);
-				model.addAttribute("itemListBrows", itemListBrows);
-			}
-		}
+			itemList = itemRepository.findAllByOrderById();
+			/*									List<Item> itemListBrows = new ArrayList<>();
+									for (Item item : itemList) {
+										itemListBrows.add(item);
+										model.addAttribute("itemListBrows", itemListBrows);
+									}
+			*/ }
 		// 教科書名で部分一致検索
 		if (keyword.length() > 0) {
-			itemList = itemRepository.findByNameContaining(keyword);
+			itemList = itemRepository.findByNameContainingOrderById(keyword);
 		}
 		// 講義名で部分一致検索
 		if (lecture.length() > 0) {
-			itemList = itemRepository.findByLectureContaining(lecture);
+			itemList = itemRepository.findByLectureContainingOrderById(lecture);
 		}
 		// 講師名で部分一致検索
 		if (professor.length() > 0) {
-			itemList = itemRepository.findByProfessorContaining(professor);
+			itemList = itemRepository.findByProfessorContainingOrderById(professor);
 		}
 		// 教科書名と講義名で部分一致検索
 		if (keyword.length() > 0 && lecture.length() > 0) {
-			itemList = itemRepository.findByNameContainingAndLectureContaining(keyword, lecture);
+			itemList = itemRepository.findByNameContainingAndLectureContainingOrderById(keyword, lecture);
 		}
 		// 教科書名と講師名で部分一致検索
 		if (keyword.length() > 0 && professor.length() > 0) {
-			itemList = itemRepository.findByNameContainingAndProfessorContaining(keyword, professor);
+			itemList = itemRepository.findByNameContainingAndProfessorContainingOrderById(keyword, professor);
 		}
 		// 講義名と講師名で部分一致検索
 		if (lecture.length() > 0 && professor.length() > 0) {
-			itemList = itemRepository.findByLectureContainingAndProfessorContaining(lecture, professor);
+			itemList = itemRepository.findByLectureContainingAndProfessorContainingOrderById(lecture, professor);
 		}
 		// 教科書名と講義名と講師名で部分一致検索
 		if (keyword.length() > 0 && lecture.length() > 0 && professor.length() > 0) {
-			itemList = itemRepository.findByNameContainingAndLectureContainingAndProfessorContaining(keyword, lecture,
+			itemList = itemRepository.findByNameContainingAndLectureContainingAndProfessorContainingOrderById(keyword,
+					lecture,
 					professor);
 		}
 		// 入力した値の保持用
