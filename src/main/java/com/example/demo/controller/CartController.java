@@ -38,7 +38,6 @@ public class CartController {
 		item.setQuantity(quantity);
 		// 在庫をセット
 		item.setStock(stock);
-		//		itemRepository.save(item);
 		// カートに追加
 		cart.add(item);
 		return "redirect:/cart";
