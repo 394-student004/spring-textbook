@@ -191,17 +191,11 @@ public class OrderController {
 	// 購入履歴を表示
 	@GetMapping("/history")
 	public String history(Model model) {
-		// 前：List<OrderHistory> histories = orderRepository.findByAccountIdOrderById(login.getId());
+		// 注文履歴表示
 		List<Order> histories = orderRepository.findByAccountIdOrderById(login.getId());
-
-		// 前：List<OrderDetailHistory> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
-		//List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
-
 		List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
-
 		model.addAttribute("histories", histories);
 		model.addAttribute("detailHistories", detailHistories);
-
 		return "history";
 	}
 
@@ -227,7 +221,6 @@ public class OrderController {
 		List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(historyId);
 		orderDetailRepository.deleteAll(orderDetails);
 		orderRepository.deleteById(historyId);
-
 		return "historyConfirm";
 	}
 }

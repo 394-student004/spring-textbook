@@ -43,7 +43,6 @@ public class ItemController {
 		// 教科書一覧、検索結果表示
 		List<Item> itemList = null;
 		List<Item> itemListBrows = new ArrayList<>();
-
 		// 教科書一覧
 		if (keyword.length() <= 0 && lecture.length() <= 0 && professor.length() <= 0) {
 			itemList = itemRepository.findAllByOrderById();
@@ -90,7 +89,6 @@ public class ItemController {
 						item.setStock(0);
 					}
 				}
-
 			}
 			itemListBrows.add(item);
 		}

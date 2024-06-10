@@ -31,10 +31,8 @@ public class CartController {
 			@RequestParam("itemId") Integer itemId,
 			@RequestParam(name = "quantity", defaultValue = "1") Integer quantity,
 			@RequestParam(name = "stock") Integer stock) {
-
 		// 教科書IDで情報を取得
 		Item item = itemRepository.findById(itemId).get();
-
 		// 個数をセット
 		item.setQuantity(quantity);
 		// 在庫をセット

@@ -14,7 +14,6 @@ public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; //会員ID
-
 	private String name; //会員名
 	private Integer grade; //学年
 	private String department; //学部

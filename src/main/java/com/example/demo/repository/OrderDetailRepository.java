@@ -8,10 +8,6 @@ import com.example.demo.entity.OrderDetail;
 
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, Integer> {
 
-	//前：List<OrderDetailHistory> findAllOrderDetailHistory();
-	//List<OrderDetail> findByAccountIdOrderById(Integer AccountId); //追加した
-
-	//List<OrderDetail> findByQuantityOrderById(Integer id);
 	// 購入履歴表示用
 	List<OrderDetail> findByAccountIdOrderById(Integer id);
 
