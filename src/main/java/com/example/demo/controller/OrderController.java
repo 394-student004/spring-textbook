@@ -88,24 +88,23 @@ public class OrderController {
 							item.getName(),
 							item.getQuantity(),
 							item.getStock()));
-			// DB在庫数の変更処理
+			// DBの在庫数更新
 			editStock.add(item);
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-
+		// ポイント
 		int point = cart.getPoint();
-
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
 		model.addAttribute("point", point);
-
-		// セッションスコープのカート情報をクリアする
+		// カートの情報をクリア
 		cart.clear();
 		return "purchaseFin";
 	}
 
+	// 注文内容確認とお客様情報画面を表示（クレジット）
 	@GetMapping("/credit")
 	public String credit(Model model) {
 		// 商品が選択されていない場合は購入に進めない
@@ -120,7 +119,7 @@ public class OrderController {
 		return "credit";
 	}
 
-	// 注文処理
+	// 注文処理（クレジット）
 	@PostMapping("/order/credit")
 	public String credit(
 			@RequestParam(name = "card", defaultValue = "") String card,
@@ -156,7 +155,6 @@ public class OrderController {
 				LocalDate.now(),
 				cart.getTotalPrice());
 		orderRepository.save(order);
-
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
 		List<OrderDetail> orderDetails = new ArrayList<>();
@@ -175,15 +173,13 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-
+		// ポイント
 		int point = cart.getPoint();
-
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
 		model.addAttribute("point", point);
-
-		// セッションスコープのカート情報をクリアする
+		// カートの情報をクリア
 		cart.clear();
 		return "purchaseFin";
 	}
@@ -204,7 +200,7 @@ public class OrderController {
 	public String delete(
 			@RequestParam("historyId") Integer historyId,
 			Model model) {
-		// 在庫復活用
+		// 在庫復活
 		List<Item> itemList = itemRepository.findAll();
 		List<OrderDetail> orderdetailList = orderDetailRepository.findByOrderId(historyId);
 		List<Item> addStock = new ArrayList<>();

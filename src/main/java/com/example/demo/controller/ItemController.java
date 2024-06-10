@@ -78,6 +78,7 @@ public class ItemController {
 					lecture,
 					professor);
 		}
+		// 表示する在庫の更新
 		for (Item item : itemList) {
 			for (Item items : cart.getItemList()) {
 				if (items.getStock() > 0) {
@@ -96,7 +97,6 @@ public class ItemController {
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("lecture", lecture);
 		model.addAttribute("professor", professor);
-		model.addAttribute("items", itemList);
 		model.addAttribute("itemListBrows", itemListBrows);
 		return "textbook";
 	}
