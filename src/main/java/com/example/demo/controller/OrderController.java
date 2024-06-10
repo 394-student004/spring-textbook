@@ -36,8 +36,6 @@ public class OrderController {
 	@Autowired
 	OrderHistory orderHistory;
 
-	//	OrderDetail orderDetail = new OrderDetail();
-
 	@Autowired
 	AccountRepository accountRepository;
 
@@ -158,7 +156,7 @@ public class OrderController {
 							login.getId(),
 							order.getId(),
 							item.getId(),
-							item.getName(), //
+							item.getName(),
 							item.getQuantity()));
 		}
 		orderDetailRepository.saveAll(orderDetails);
@@ -198,8 +196,8 @@ public class OrderController {
 			@RequestParam("historyId") Integer historyId,
 			Model model) {
 		// 
-		OrderDetail orderDetails = orderDetailRepository.findByOrderId(historyId);
-		orderDetailRepository.delete(orderDetails);
+		//		OrderDetail orderDetails = orderDetailRepository.findByOrderId(historyId);
+		//		orderDetailRepository.delete(orderDetails);
 		// 
 		orderRepository.deleteById(historyId);
 
