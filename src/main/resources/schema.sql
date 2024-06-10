@@ -44,6 +44,7 @@ CREATE TABLE order_details
    order_id INTEGER,
    item_id INTEGER,
    item_name TEXT, 
-   quantity INTEGER
+   quantity INTEGER,
+   item_stock INTEGER
    
 );

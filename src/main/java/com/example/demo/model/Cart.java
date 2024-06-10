@@ -69,13 +69,12 @@ public class Cart {
 
 		//カート内に商品がなかった時は追加
 		//存在した場合は個数の追加
+		// カートに商品が追加されると在庫を減らす
 		if (existsItem == null) {
 			itemList.add(newItem);
 			newItem.setStock(newItem.getStock() - 1);
 		} else {
-			existsItem.setQuantity(
-					existsItem.getQuantity() + newItem.getQuantity());
-			// カートに商品が追加されると在庫を減らす
+			existsItem.setQuantity(existsItem.getQuantity() + newItem.getQuantity());
 			existsItem.setStock(existsItem.getStock() - 1);
 		}
 

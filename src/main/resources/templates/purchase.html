@@ -52,6 +52,7 @@
 					<td th:text="${account.address}"></td>
 				</tr>
 			</table>
+			<input type="hidden" name="itemId" th:each="item:${@cart.itemList}" th:value="${item.id}">
 			<button>注文を確定する</button>
 		</form>
 	</main>

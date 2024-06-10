@@ -19,6 +19,7 @@ import com.example.demo.model.Cart;
 import com.example.demo.model.Login;
 import com.example.demo.model.OrderHistory;
 import com.example.demo.repository.AccountRepository;
+import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.OrderDetailRepository;
 import com.example.demo.repository.OrderRepository;
 
@@ -38,6 +39,9 @@ public class OrderController {
 
 	@Autowired
 	AccountRepository accountRepository;
+
+	@Autowired
+	ItemRepository itemRepository;
 
 	@Autowired
 	OrderRepository orderRepository;
@@ -62,6 +66,7 @@ public class OrderController {
 	// 注文処理
 	@PostMapping("/order")
 	public String order(
+			@RequestParam("itemId") Integer itemId,
 			Model model) {
 		// 注文情報をDBに格納する
 		Order order = new Order(
@@ -73,6 +78,7 @@ public class OrderController {
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
 		List<OrderDetail> orderDetails = new ArrayList<>();
+		List<Item> editStock = new ArrayList<>();
 		for (Item item : itemList) {
 			orderDetails.add(
 					new OrderDetail(
@@ -80,8 +86,12 @@ public class OrderController {
 							order.getId(),
 							item.getId(),
 							item.getName(),
-							item.getQuantity()));
+							item.getQuantity(),
+							item.getStock()));
+			// DB在庫数の変更処理
+			editStock.add(item);
 		}
+		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
 
 		int point = cart.getPoint();
@@ -150,6 +160,7 @@ public class OrderController {
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
 		List<OrderDetail> orderDetails = new ArrayList<>();
+		List<Item> editStock = new ArrayList<>();
 		for (Item item : itemList) {
 			orderDetails.add(
 					new OrderDetail(
@@ -157,8 +168,12 @@ public class OrderController {
 							order.getId(),
 							item.getId(),
 							item.getName(),
-							item.getQuantity()));
+							item.getQuantity(),
+							item.getStock()));
+			// DB在庫数の変更処理
+			editStock.add(item);
 		}
+		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
 
 		int point = cart.getPoint();

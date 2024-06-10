@@ -12,7 +12,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Intege
 	//List<OrderDetail> findByAccountIdOrderById(Integer AccountId); //追加した
 
 	//List<OrderDetail> findByQuantityOrderById(Integer id);
-
+	// 購入履歴表示用
 	List<OrderDetail> findByAccountIdOrderById(Integer id);
 
 	// 購入キャンセル用
