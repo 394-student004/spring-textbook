@@ -81,14 +81,17 @@ public class ItemController {
 		}
 		for (Item item : itemList) {
 			for (Item items : cart.getItemList()) {
-				if (item.getId() == items.getId()) {
-					if (item.getStock() > 0) {
+				if (items.getStock() > 0) {
+					if (item.getId() == items.getId()) {
 						item.setStock(items.getStock());
-					} else {
-						model.addAttribute("message", "在庫がありません");
-						return "textbook";
+					}
+				} else {
+					if (item.getId() == items.getId()) {
+						//model.addAttribute("message", "在庫がありません");
+						item.setStock(0);
 					}
 				}
+
 			}
 			itemListBrows.add(item);
 		}

@@ -16,7 +16,7 @@
 	<header th:replace="header"></header>
 	<main>
 		<h1>教科書一覧</h1>
-		<span th:text="${message}" style="color: red"></span>
+		<span th:text="${message}" style="color: red"></span><br>
 		<a href="/items" class="btn-menu"><span class="front">教科書一覧表示</span></a>
 		<a href="/cart" class="btn-menu"><span class="front">カートの中身を見る</span></a>
 		<form action="/items" method="get">
@@ -45,11 +45,19 @@
 				<td th:text="${item.price}"></td>
 				<td th:text="${item.stock}"></td>
 				<td>
+					<div th:if="${item.stock} > 0">
 					<form action="/cart/add" method="post">
 						<input type="hidden" name="itemId" th:value="${item.id}">
 						<input type="hidden" name="stock" th:value="${item.stock}">
 						<button>カートに追加</button>
 					</form>
+					</div>
+					
+					<div th:if="${item.stock} <= 0">
+					<form action="/items" method="get">
+						<button>カートに追加</button>
+					</form>
+					</div>
 				</td>
 			</tr>
 <!--			<tr th:each="item:${items}">
