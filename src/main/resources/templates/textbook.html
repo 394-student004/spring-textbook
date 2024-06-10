@@ -54,9 +54,7 @@
 					</div>
 					
 					<div th:if="${item.stock} <= 0">
-					<form action="/items" method="get">
-						<button>カートに追加</button>
-					</form>
+						<button style="background-color: gray;">在庫がありません</button>
 					</div>
 				</td>
 			</tr>

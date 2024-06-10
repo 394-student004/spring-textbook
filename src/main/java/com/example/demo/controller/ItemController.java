@@ -87,7 +87,6 @@ public class ItemController {
 					}
 				} else {
 					if (item.getId() == items.getId()) {
-						//model.addAttribute("message", "在庫がありません");
 						item.setStock(0);
 					}
 				}
