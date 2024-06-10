@@ -210,10 +210,24 @@ public class OrderController {
 	public String delete(
 			@RequestParam("historyId") Integer historyId,
 			Model model) {
+		// 在庫復活用
+		List<Item> itemList = itemRepository.findAll();
+		List<OrderDetail> orderdetailList = orderDetailRepository.findByOrderId(historyId);
+		List<Item> addStock = new ArrayList<>();
+		for (OrderDetail item : orderdetailList) {
+			for (Item items : itemList) {
+				if (item.getItemId() == items.getId()) {
+					items.setStock(item.getQuantity() + items.getStock());
+					addStock.add(items);
+				}
+			}
+		}
+		itemRepository.saveAll(addStock);
 		// 注文履歴削除
 		List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(historyId);
 		orderDetailRepository.deleteAll(orderDetails);
 		orderRepository.deleteById(historyId);
+
 		return "historyConfirm";
 	}
 }

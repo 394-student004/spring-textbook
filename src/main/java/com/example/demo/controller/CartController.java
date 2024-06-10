@@ -34,13 +34,13 @@ public class CartController {
 
 		// 教科書IDで情報を取得
 		Item item = itemRepository.findById(itemId).get();
+
 		// 個数をセット
 		item.setQuantity(quantity);
 		// 在庫をセット
 		item.setStock(stock);
 		// カートに追加
 		cart.add(item);
-
 		return "redirect:/cart";
 	}
 
