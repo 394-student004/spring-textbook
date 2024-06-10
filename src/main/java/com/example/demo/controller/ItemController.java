@@ -46,7 +46,7 @@ public class ItemController {
 
 		// 教科書一覧
 		if (keyword.length() <= 0 && lecture.length() <= 0 && professor.length() <= 0) {
-			itemList = itemRepository.findAll();
+			itemList = itemRepository.findAllByOrderById();
 		}
 		// 教科書名で部分一致検索
 		if (keyword.length() > 0) {
