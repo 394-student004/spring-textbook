@@ -20,8 +20,12 @@
             </tr>
             <tr>
                 <th>学年</th>
-                <td>
-					<input type="text" name="grade" th:value="${account.grade}">
+				<td>
+					<select size="1" name="grade" th:value="${account.grade}">
+						<option value="1">1年生</option>
+						<option value="2">2年生</option>
+						<option value="3">3年生</option>
+						<option value="4">4年生</option>
 				</td>
             </tr>
             <tr>
