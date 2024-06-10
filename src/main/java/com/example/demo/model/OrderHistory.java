@@ -8,12 +8,14 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 @SessionScope
 public class OrderHistory {
-
-	private Integer orderId;
-	private Integer accountId;
-	private LocalDate orderedOn;
-	private Integer totalPrice;
-
+	
+	//フィールド
+	private Integer orderId;//注文ID
+	private Integer accountId;//会員ID
+	private LocalDate orderedOn;//注文日
+	private Integer totalPrice;//合計額
+	
+	//コンストラクタ
 	public OrderHistory() {
 	}
 
@@ -31,7 +33,8 @@ public class OrderHistory {
 		this.totalPrice = totalPrice;
 
 	}
-
+	
+	//アクセッサ
 	public Integer getOrderId() {
 		return orderId;
 	}
