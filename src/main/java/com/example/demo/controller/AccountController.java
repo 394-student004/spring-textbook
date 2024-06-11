@@ -115,15 +115,16 @@ public class AccountController {
 			model.addAttribute("address", address);
 			return "join";
 		}
+		// 新規登録成功処理
+		account = new Account(name, grade, department, email, address, password);
+		accountRepository.save(account);
 		// 確認画面に表示する用
+		model.addAttribute("id", account.getId());
 		model.addAttribute("name", name);
 		model.addAttribute("grade", grade);
 		model.addAttribute("department", department);
 		model.addAttribute("email", email);
 		model.addAttribute("address", address);
-		// 新規登録成功処理
-		account = new Account(name, grade, department, email, address, password);
-		accountRepository.save(account);
 		return "loginConfirm";
 	}
 
