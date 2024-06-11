@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -102,4 +102,221 @@
 	<footer th:replace="footerBigFoot"></footer>
 </body>
 
+</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>5-8 紙吹雪が舞う</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+<style>
+  .size {
+			font-size: 200%;
+		}
+
+		.modalFin {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.4);
+			padding-top: 60px;
+		}
+
+		.modal-content {
+			background-color: #ffffff;
+			margin: 5% auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+			position: relative;
+		}
+
+		.close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+			padding: 10px;
+		}
+
+		ul {
+			list-style-type: none;
+		}
+/*========= レイアウトのためのCSS ===============*/
+
+#wrapper{
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+
+a{
+  color: #333;
+}
+
+/*========= particle js を描画するエリア設定 ===============*/
+
+html,body{
+  height: 100%;/*高さを100%にして描画エリアをとる*/
+  margin: 0;
+  padding: 0;
+}
+
+#particles-js{ 
+  position:fixed;/*描画固定*/
+  z-index:1;/*描画を一番下に*/
+  width: 100%;
+  height: 100%;
+}
+
+#wrapper{
+  position: relative;/*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+  z-index: 1;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+  width:100%;
+  height: 100%;
+}
+
+
+</style>
+</head>
+<body>
+  <header>
+    <h1><a href="/function">教科書販売サイト</a></h1>
+    <span th:text="${@login.name}+'さんがログイン中'"></span><br>
+    <a href="/logout">ログアウト</a>
+  </header>
+  <main>
+		
+<div id="particles-js"></div>
+<div id="wrapper">
+  <h1>購入完了</h1>
+		<h3>ご注文ありがとうございました。</h3>
+		<p>お客様の注文番号は</p><br>
+		<h3>
+			<span class="size" th:text="${orderNumber}" style="color: red"></span>
+		</h3>
+		になります。<br>
+		<p>お支払い金額：[[${totalPrice}]]円</p>
+		<h2><span class="size" style="color: rgb(162, 130, 0);">[[${point}]]</span>ポイントが付与されました</h2>
+</div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js",{
+  "particles":{
+    "number":{
+      "value":125,//この数値を変更すると紙吹雪の数が増減できる
+      "density":{
+        "enable":false,
+        "value_area":400
+      }
+    },
+    "color": {
+        "value": ["#EA5532", "#F6AD3C", "#FFF33F", "#00A95F", "#00ADA9", "#00AFEC","#4D4398", "#E85298"]//紙吹雪の色の数を増やすことが出来る
+    },
+    "shape":{
+      "type":"polygon",//形状はpolygonを指定
+      "stroke":{
+        "width":0,
+      },
+      "polygon":{
+        "nb_sides":5//多角形の角の数
+      }
+      },
+      "opacity":{
+        "value":1,
+        "random":false,
+        "anim":{
+          "enable":true,
+          "speed":20,
+          "opacity_min":0,
+          "sync":false
+        }
+      },
+      "size":{
+        "value":5.305992965476349,
+        "random":true,//サイズをランダムに
+        "anim":{
+          "enable":true,
+          "speed":1.345709068776642,
+          "size_min":0.8,
+          "sync":false
+        }
+      },
+      "line_linked":{
+        "enable":false,
+      },
+      "move":{
+        "enable":true,
+      "speed":10,//この数値を小さくするとゆっくりな動きになる
+      "direction":"bottom",//下に向かって落ちる
+      "random":false,//動きはランダムにならないように
+      "straight":false,//動きをとどめない
+      "out_mode":"out",//画面の外に出るように描写
+      "bounce":false,//跳ね返りなし
+        "attract":{
+          "enable":false,
+          "rotateX":600,
+          "rotateY":1200
+        }
+      }
+    },
+    "interactivity":{
+      "detect_on":"canvas",
+      "events":{
+        "onhover":{
+          "enable":false,
+        },
+        "onclick":{
+          "enable":false,
+        },
+        "resize":true
+      },
+    },
+    "retina_detect":true
+  });
+  // ページが読み込まれたときにモーダルウィンドウを出すイベント
+  document.addEventListener("DOMContentLoaded", function () {
+				var modal = document.getElementById('myModal');
+				modal.style.display = "block";
+			});
+			// モーダルウィンドウを閉じるため・リロードしたら再度モーダルウィンドウ出すためのイベント
+			function closeModal() {
+				var modal = document.getElementById('myModal');
+				modal.style.display = "none"; document.addEventListener("DOMContentLoaded", function () {
+					var modal = document.getElementById('myModal');
+					modal.style.display = "block";
+				});
+			}
+			// ウィンドウ上のどこかをクリックしたときにモーダルウィンドウを閉じるためのイベント
+			window.onclick = function (event) {
+				var modal = document.getElementById('myModal');
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+</script>
+<div id="myModal" class="modalFin">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>内容確認メールを設定されたメールアドレスに送信しました</h2>
+    <ul>
+      <li>※注文後24時間以内はキャンセル、ご変更いただけます。</li>
+      <li>※返品の場合、未開封7日以内で返品可能です。</li>
+      <li>※送料は自己負担となります。</li>
+    </ul>
+  </div>
+</div>
+</main>
+<footer th:replace="footerBigFoot"></footer>
+</body>
 </html>
+
