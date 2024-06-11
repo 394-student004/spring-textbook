@@ -9,7 +9,9 @@
 	<header th:replace="header"></header>
 	<main>
 		<h1>キャンセルしました</h1>
-		<a href="/history">購入履歴に戻る</a>
+		<form action="/history">
+			<button>購入履歴に戻る</button>
+		</form>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>
