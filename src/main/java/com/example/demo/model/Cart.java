@@ -11,22 +11,46 @@ import com.example.demo.entity.Item;
 @Component
 @SessionScope
 public class Cart {
-	//フィールド
-	private List<Item> itemList = new ArrayList<>(); //教科書リスト 
 
-	//アクセッサ
+	// フィールド
+	private List<Item> itemList = new ArrayList<>(); // カートの中身リスト 
+
+	// アクセッサ
 	public List<Item> getItemList() {
 		return itemList;
 	}
 
-	//合計金額取得用
+	//　カートの中身追加
+	public void add(Item newItem) {
+		Item existsItem = null;
+		// 現在のカートから同じ教科書を探す
+		for (Item item : itemList) {
+			if (item.getId() == newItem.getId()) {
+				existsItem = item;
+				break;
+			}
+		}
+		// カート内に同じ教科書がなければ追加
+		// 存在した場合は個数の追加
+		// カートに教科書が追加されると在庫を減らす
+		if (existsItem == null) {
+			itemList.add(newItem);
+			newItem.setStock(newItem.getStock() - 1);
+		} else {
+			existsItem.setQuantity(existsItem.getQuantity() + newItem.getQuantity());
+			existsItem.setStock(existsItem.getStock() - 1);
+		}
+	}
+
+	// 合計金額取得用
 	public Integer getTotalPrice() {
-		//合計金額
+		// 合計金額計算
 		Integer total = 0;
 		for (Item item : itemList) {
 			total += item.getPrice() * item.getQuantity();
 		}
 		// 送料追加計算
+		// 合計金額が5000円以上で送料無料
 		if (total == 0) {
 			return total;
 		} else if (total < 5000) {
@@ -36,7 +60,7 @@ public class Cart {
 		return total;
 	}
 
-	//合計金額から50円につき1ポイントを付与
+	// 合計金額から50円につき1ポイントを付与
 	public Integer getPoint() {
 		Integer point = getTotalPrice() / 50;
 		return point;
@@ -56,33 +80,11 @@ public class Cart {
 		return message;
 	}
 
-	//カート追加
-	public void add(Item newItem) {
-		Item existsItem = null;
-		//現在のカートの商品から同一IDの商品を探す
-		for (Item item : itemList) {
-			if (item.getId() == newItem.getId()) {
-				existsItem = item;
-				break;
-			}
-		}
-		//カート内に商品がなかった時は追加
-		//存在した場合は個数の追加
-		// カートに商品が追加されると在庫を減らす
-		if (existsItem == null) {
-			itemList.add(newItem);
-			newItem.setStock(newItem.getStock() - 1);
-		} else {
-			existsItem.setQuantity(existsItem.getQuantity() + newItem.getQuantity());
-			existsItem.setStock(existsItem.getStock() - 1);
-		}
-	}
-
-	//削除
+	// 削除
 	public void delete(Integer itemId) {
-		//現在のカートから同一IDの商品を探す
+		// 現在のカートから同じ教科書を探す
 		for (Item item : itemList) {
-			//対象の商品IDがあった場合は削除
+			// 対象の教科書があった場合は削除
 			if (item.getId() == itemId) {
 				itemList.remove(item);
 				break;
@@ -90,7 +92,7 @@ public class Cart {
 		}
 	}
 
-	//カートの中身をクリア
+	// カートの中身をクリア
 	public void clear() {
 		itemList = new ArrayList<>();
 	}

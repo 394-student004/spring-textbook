@@ -10,21 +10,22 @@ import jakarta.persistence.Table;
 @Table(name = "account")
 public class Account {
 
-	//フィールド
+	//　フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id; //会員ID
-	private String name; //会員名
-	private Integer grade; //学年
-	private String department; //学部
-	private String email; //メールアドレス
-	private String address; //住所
-	private String password; //パスワード
+	private Integer id; // 会員ID
+	private String name; // 会員名
+	private Integer grade; // 学年
+	private String department; // 学部
+	private String email; // メールアドレス
+	private String address; // 住所
+	private String password; // パスワード
 
-	//コンストラクタ
+	//　コンストラクタ
 	public Account() {
 	}
 
+	// 登録用
 	public Account(String name, Integer grade, String department, String email, String address, String password) {
 		this.name = name;
 		this.grade = grade;
@@ -34,6 +35,7 @@ public class Account {
 		this.password = password;
 	}
 
+	// 更新用
 	public Account(Integer id, String name, Integer grade, String department, String email, String address,
 			String password) {
 		this.id = id;
@@ -45,8 +47,8 @@ public class Account {
 		this.password = password;
 	}
 
-	//アクセッサ
-	public int getId() {
+	// アクセッサ
+	public Integer getId() {
 		return id;
 	}
 

@@ -39,7 +39,6 @@ public class ItemController {
 			@RequestParam(name = "lecture", defaultValue = "") String lecture,
 			@RequestParam(name = "professor", defaultValue = "") String professor,
 			Model model) {
-
 		// 教科書一覧、検索結果表示
 		List<Item> itemList = null;
 		List<Item> itemListBrows = new ArrayList<>();

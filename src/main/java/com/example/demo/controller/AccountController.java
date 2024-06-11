@@ -81,7 +81,6 @@ public class AccountController {
 			@RequestParam(name = "address", defaultValue = "") String address,
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
-
 		// エラーチェック
 		List<String> errorList = new ArrayList<>();
 		if (name.length() == 0) {
@@ -102,14 +101,12 @@ public class AccountController {
 		if (password.length() == 0) {
 			errorList.add("パスワードは必須です");
 		}
-
 		// メールアドレス存在チェック
 		List<Account> accountList = accountRepository.findByEmail(email);
 		if (accountList.size() > 0) {
 			// 登録済みのメールアドレスが存在した場合
 			errorList.add("登録済みのメールアドレスです");
 		}
-
 		// エラー時は新規登録画面に戻る
 		if (errorList.size() > 0) {
 			model.addAttribute("errorList", errorList);
@@ -154,8 +151,7 @@ public class AccountController {
 			Model model) {
 		// エラーチェック
 		if (name.length() == 0 || grade == null || department.length() == 0 || email.length() == 0
-				|| address.length() == 0
-				|| password.length() == 0) {
+				|| address.length() == 0 || password.length() == 0) {
 			model.addAttribute("error", "全ての項目を入力してください");
 			// ログインしている会員の情報を取得して変更画面に戻る
 			account = accountRepository.findById(login.getId()).get();
@@ -178,4 +174,5 @@ public class AccountController {
 			return "accountConfirm";
 		}
 	}
+
 }

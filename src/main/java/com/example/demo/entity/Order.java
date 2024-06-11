@@ -12,32 +12,35 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "orders")
 public class Order {
+
 	//フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id; // 注文ID
 	@Column(name = "account_id")
-	private Integer accountId; //会員ID
+	private Integer accountId; // 会員ID
 	@Column(name = "ordered_on")
-	private LocalDate orderedOn; //注文日
+	private LocalDate orderedOn; // 注文日
 	@Column(name = "total_price")
-	private Integer totalPrice; //合計額
-	
+	private Integer totalPrice; // 合計額
+
 	//コンストラクタ
 	public Order() {
 	}
 
+	// 注文情報用
 	public Order(Integer accountId, LocalDate orderedOn, Integer totalPrice) {
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 		this.totalPrice = totalPrice;
 	}
 
+	// 注文履歴表示用
 	public Order(Integer accountId, LocalDate orderedOn) {
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
 	}
-	
+
 	//アクセッサ
 	public Integer getId() {
 		return id;
@@ -70,25 +73,5 @@ public class Order {
 	public void setTotalPrice(Integer totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-
-	//ここから片山
-	/*
-	public Order(Integer accountId, LocalDate orderedOn, Integer totalPrice, Integer point) {
-		super();
-		this.accountId = accountId;
-		this.orderedOn = orderedOn;
-		this.totalPrice = totalPrice;
-		this.point = point;
-	}
-	
-	public Integer getPoint() {
-		return point;
-	}
-	
-	public void setPoint(Integer point) {
-		this.point = point;
-	}
-	
-	//ここまで片山*/
 
 }

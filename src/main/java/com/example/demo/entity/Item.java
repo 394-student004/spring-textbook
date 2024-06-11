@@ -8,18 +8,17 @@ import jakarta.persistence.Transient;
 @Entity
 @Table(name = "item")
 public class Item {
+
 	//フィールド
 	@Id
-	//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id; //教科書ID
-	private String name; //教科書名
-	private String lecture; //講義名
-	private String professor; //教授名
-	private Integer price; //値段
-	private Integer stock; // 数量
-
+	private Integer id; // 教科書ID
+	private String name; // 教科書名
+	private String lecture; // 講義名
+	private String professor; // 教授名
+	private Integer price; // 値段
+	private Integer stock; // 在庫
 	@Transient
-	private Integer quantity;
+	private Integer quantity; // 数量
 
 	//コンストラクタ
 	public Item() {
@@ -31,7 +30,7 @@ public class Item {
 		this.lecture = lecture;
 		this.professor = professor;
 		this.price = price;
-		this.stock = stock; //追加した
+		this.stock = stock;
 	}
 
 	//アクセッサ
@@ -75,20 +74,20 @@ public class Item {
 		this.price = price;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
 	public Integer getStock() {
 		return stock;
 	}
 
 	public void setStock(Integer stock) {
 		this.stock = stock;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 }

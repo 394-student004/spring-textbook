@@ -6,19 +6,24 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 @SessionScope
 public class Login {
-	private String name;
-	private String email;
-	private Integer id;
 
+	// フィールド
+	private String name; // 会員名
+	private String email; // メールアドレス
+	private Integer id; // 会員ID
+
+	// コンストラクタ
 	public Login() {
 	}
 
+	// ログインしているユーザーの情報取得用
 	public Login(String name, String email, Integer id) {
 		this.name = name;
 		this.email = email;
 		this.id = id;
 	}
 
+	// アクセッサ
 	public String getName() {
 		return name;
 	}

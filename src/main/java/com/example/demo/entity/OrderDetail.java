@@ -10,12 +10,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "order_details")
 public class OrderDetail {
-	//フィールド
+
+	// フィールド
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id; // 注文明細ID
 	@Column(name = "account_id")
-	private Integer accountId; // 会員ID　追加した
+	private Integer accountId; // 会員ID
 	@Column(name = "order_id")
 	private Integer orderId; // 注文ID
 	@Column(name = "item_id")
@@ -26,39 +27,11 @@ public class OrderDetail {
 	@Column(name = "item_stock")
 	private Integer itemStock; // 在庫
 
-	//コンストラクタ
+	// コンストラクタ
 	public OrderDetail() {
 	}
 
-	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity) {
-		this.accountId = accountId;
-		this.orderId = orderId;
-		this.itemId = itemId;
-		this.itemName = itemName;
-		this.quantity = quantity;
-	}
-
-	public OrderDetail(Integer accountId, Integer orderId, String itemName, Integer quantity) {
-		this.accountId = accountId;
-		this.orderId = orderId;
-		this.itemName = itemName;
-		this.quantity = quantity;
-	}
-
-	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, Integer quantity) {
-		this.accountId = accountId;
-		this.orderId = orderId;
-		this.itemId = itemId;
-		this.quantity = quantity;
-	}
-
-	public OrderDetail(Integer orderId, String itemName, Integer quantity) {
-		this.orderId = orderId;
-		this.itemName = itemName;
-		this.quantity = quantity;
-	}
-
-	// ストック追加
+	// 注文の注文詳細情報用
 	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity,
 			Integer itemStock) {
 		this.accountId = accountId;
@@ -74,25 +47,48 @@ public class OrderDetail {
 		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Integer getAccountId() {
 		return accountId;
+	}
+
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
 	}
 
 	public Integer getOrderId() {
 		return orderId;
 	}
 
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+
 	public Integer getItemId() {
 		return itemId;
 	}
 
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
+	}
+
 	public String getItemName() {
 		return itemName;
+	}
 
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public Integer getQuantity() {
 		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 	public Integer getItemStock() {

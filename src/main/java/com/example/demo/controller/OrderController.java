@@ -17,7 +17,6 @@ import com.example.demo.entity.Order;
 import com.example.demo.entity.OrderDetail;
 import com.example.demo.model.Cart;
 import com.example.demo.model.Login;
-import com.example.demo.model.OrderHistory;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.OrderDetailRepository;
@@ -33,9 +32,6 @@ public class OrderController {
 
 	@Autowired
 	Login login;
-
-	@Autowired
-	OrderHistory orderHistory;
 
 	@Autowired
 	AccountRepository accountRepository;
@@ -74,7 +70,6 @@ public class OrderController {
 				LocalDate.now(),
 				cart.getTotalPrice());
 		orderRepository.save(order);
-
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
 		List<OrderDetail> orderDetails = new ArrayList<>();
@@ -115,7 +110,6 @@ public class OrderController {
 		// ログインしている会員の情報を取得	
 		account = accountRepository.findById(login.getId()).get();
 		model.addAttribute("account", account);
-
 		return "credit";
 	}
 
@@ -219,4 +213,5 @@ public class OrderController {
 		orderRepository.deleteById(historyId);
 		return "historyConfirm";
 	}
+
 }
