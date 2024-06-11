@@ -1,114 +1,9 @@
-<!--<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-	<meta charset="UTF-8">
-	<title>購入確定</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<style>
-		.size {
-			font-size: 200%;
-		}
-
-		.modalFin {
-			display: none;
-			position: fixed;
-			z-index: 1;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-			background-color: rgba(0, 0, 0, 0.4);
-			padding-top: 60px;
-		}
-
-		.modal-content {
-			background-color: #fefefe;
-			margin: 5% auto;
-			padding: 20px;
-			border: 1px solid #888;
-			width: 80%;
-			position: relative;
-		}
-
-		.close {
-			position: absolute;
-			top: 0;
-			right: 0;
-			cursor: pointer;
-			padding: 10px;
-		}
-
-		ul {
-			list-style-type: none;
-		}
-	</style>
-</head>
-
-<body>
-	<header th:replace="header"></header>
-	<main>
-		<h1>購入完了</h1>
-		<h3>ご注文ありがとうございました。</h3>
-		お客様の注文番号は
-		<h3>
-			<span class="size" th:text="${orderNumber}" style="color: red"></span>
-		</h3>
-		になります。
-		<p>お支払い金額：[[${totalPrice}]]円</p>
-		<h2><span class="size" style="color: rgb(162, 130, 0);">[[${point}]]</span>ポイントが付与されました</h2>
-
-		<script>
-			// ページが読み込まれたときにモーダルウィンドウを出すイベント
-			document.addEventListener("DOMContentLoaded", function () {
-				var modal = document.getElementById('myModal');
-				modal.style.display = "block";
-			});
-			// モーダルウィンドウを閉じるため・リロードしたら再度モーダルウィンドウ出すためのイベント
-			function closeModal() {
-				var modal = document.getElementById('myModal');
-				modal.style.display = "none"; document.addEventListener("DOMContentLoaded", function () {
-					var modal = document.getElementById('myModal');
-					modal.style.display = "block";
-				});
-			}
-			// ウィンドウ上のどこかをクリックしたときにモーダルウィンドウを閉じるためのイベント
-			window.onclick = function (event) {
-				var modal = document.getElementById('myModal');
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			}
-		</script>
-
-		<div id="myModal" class="modalFin">
-			<div class="modal-content">
-				<span class="close" onclick="closeModal()">&times;</span>
-				<h2>内容確認メールを設定されたメールアドレスに送信しました</h2>
-				<ul>
-					<li>※注文後24時間以内はキャンセル、ご変更いただけます。</li>
-					<li>※返品の場合、未開封7日以内で返品可能です。</li>
-					<li>※送料は自己負担となります。</li>
-				</ul>
-			</div>
-		</div>
-
-		<a class="pagetop" href="#">
-			<div class="pagetop__arrow"></div>
-		</a>
-
-	</main>
-	<footer th:replace="footerBigFoot"></footer>
-</body>
-
-</html>-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"></html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>5-8 紙吹雪が舞う</title>
+<title>購入完了</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
@@ -200,11 +95,7 @@ html,body{
 <div id="wrapper">
   <h1>購入完了</h1>
 		<h3>ご注文ありがとうございました。</h3>
-		<p>お客様の注文番号は</p><br>
-		<h3>
-			<span class="size" th:text="${orderNumber}" style="color: red"></span>
-		</h3>
-		になります。<br>
+		<p>注文番号：[[${orderNumber}]]</p>
 		<p>お支払い金額：[[${totalPrice}]]円</p>
 		<h2><span class="size" style="color: rgb(162, 130, 0);">[[${point}]]</span>ポイントが付与されました</h2>
 </div>
