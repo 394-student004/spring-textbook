@@ -31,7 +31,9 @@
 				<td th:text="${address}"></td>
 			</tr>
 		</table>
-		<a href="/login">ログインページへ</a>
+		<form action="/login">
+			<button>ログインページへ</button>
+		</form>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>
