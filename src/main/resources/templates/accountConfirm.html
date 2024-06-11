@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<h1>教科書販売サイト</h1>
-   <span th:text="${@login.name}+'さんがログイン中'"></span><br>
+		<span th:text="${@login.name}+'さんがログイン中'"></span><br>
 	</header>
 	<main>
 		<h1>会員情報変更確認</h1>
@@ -31,7 +31,9 @@
 				<td th:text="${address}"></td>
 			</tr>
 		</table>
-		<a href="/login" >ログインページへ</a>
+		<form action="/login">
+			<button>ログインページへ</button>
+		</form>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>
