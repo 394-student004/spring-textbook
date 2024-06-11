@@ -150,6 +150,23 @@ public class AccountController {
 			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
 		// エラーチェック
+		// ログインしているユーザーの情報を取得
+		Account editAccount = accountRepository.findById(login.getId()).get();
+		// メールアドレス存在チェック
+		List<Account> accountList = accountRepository.findByEmail(email);
+		for (Account account : accountList) {
+			if (accountList.size() > 0) {
+				if (account.getEmail() != editAccount.getEmail()) {
+					// 登録済みのメールアドレスが存在した場合
+					model.addAttribute("message", "登録済みのメールアドレスです");
+					// ログインしている会員の情報を取得して変更画面に戻る
+					account = accountRepository.findById(login.getId()).get();
+					model.addAttribute("account", account);
+					return "accountEdit";
+				}
+			}
+		}
+		// 空の場合はエラー
 		if (name.length() == 0 || grade == null || department.length() == 0 || email.length() == 0
 				|| address.length() == 0 || password.length() == 0) {
 			model.addAttribute("error", "全ての項目を入力してください");
@@ -159,7 +176,6 @@ public class AccountController {
 			return "accountEdit";
 		} else {
 			// ログインしている会員のIDの情報を削除する
-			Account editAccount = accountRepository.findById(login.getId()).get();
 			accountRepository.delete(editAccount);
 			// 確認画面に表示する用
 			model.addAttribute("name", name);
@@ -168,8 +184,7 @@ public class AccountController {
 			model.addAttribute("email", email);
 			model.addAttribute("address", address);
 			// 変更内容を登録
-			account = new Account(name, grade, department, email, address, password);
-			account.setId(login.getId());
+			account = new Account(login.getId(), name, grade, department, email, address, password);
 			accountRepository.save(account);
 			return "accountConfirm";
 		}
