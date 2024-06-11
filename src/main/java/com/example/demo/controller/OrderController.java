@@ -119,26 +119,26 @@ public class OrderController {
 			@RequestParam(name = "card", defaultValue = "") String card,
 			@RequestParam(name = "date", defaultValue = "") Integer date,
 			@RequestParam(name = "code", defaultValue = "") Integer code,
-			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
 		// エラーチェック
+		List<String> errorList = new ArrayList<>();
 		// 空欄の場合はエラー
 		if (card.isEmpty() || code == null) {
-			model.addAttribute("error", "入力してください");
-			account = accountRepository.findById(login.getId()).get();
-			model.addAttribute("account", account);
-			return "credit";
+			errorList.add("入力してください");
+		} else {
+			// カード番号が16桁でない場合はエラー
+			if (card.length() != 19) {
+				errorList.add("カード番号は16桁で入力してください");
+			}
+			// セキュリティコードが3桁でない場合はエラー
+			if (code.toString().length() != 3) {
+				errorList.add("セキュリティコードは3桁で入力してください");
+			}
 		}
-		// カード番号が16桁でない場合はエラー
-		if (card.length() != 19) {
-			model.addAttribute("error", "カード番号は16桁で入力してください");
-			account = accountRepository.findById(login.getId()).get();
-			model.addAttribute("account", account);
-			return "credit";
-		}
-		// セキュリティコードが3桁でない場合はエラー
-		if (code.toString().length() != 3) {
-			model.addAttribute("error", "セキュリティコードは3桁で入力してください");
+		// エラー時は注文確認画面に戻る
+		if (errorList.size() > 0) {
+			model.addAttribute("errorList", errorList);
+			// ログインしている会員の情報を取得	
 			account = accountRepository.findById(login.getId()).get();
 			model.addAttribute("account", account);
 			return "credit";
@@ -211,7 +211,7 @@ public class OrderController {
 		List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(historyId);
 		orderDetailRepository.deleteAll(orderDetails);
 		orderRepository.deleteById(historyId);
-		return "historyConfirm";
+		return "redirect:/history";
 	}
 
 }

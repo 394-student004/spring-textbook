@@ -58,7 +58,7 @@
 		になります。
 		<p>お支払い金額：[[${totalPrice}]]円</p>
 		<h2><span class="size" style="color: rgb(162, 130, 0);">[[${point}]]</span>ポイントが付与されました</h2>
-		
+
 		<script>
 			// ページが読み込まれたときにモーダルウィンドウを出すイベント
 			document.addEventListener("DOMContentLoaded", function () {
@@ -81,7 +81,7 @@
 				}
 			}
 		</script>
-		
+
 		<div id="myModal" class="modal">
 			<div class="modal-content">
 				<span class="close" onclick="closeModal()">&times;</span>
@@ -93,6 +93,11 @@
 				</ul>
 			</div>
 		</div>
+
+		<a class="pagetop" href="#">
+			<div class="pagetop__arrow"></div>
+		</a>
+
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
 </body>

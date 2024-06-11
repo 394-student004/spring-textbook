@@ -11,7 +11,7 @@
 	<header th:replace="header"></header>
 	<main>
 		<h1>会員情報変更</h1>
-		
+
 		<form action="/account/edit" method="post">
 			<span th:text="${error}" style="color: red"></span>
 			<span th:text="${message}" style="color: red"></span>
@@ -61,6 +61,13 @@
 
 			<button>変更</button>
 		</form>
+		<div class="link">
+			<a href="/function">会員情報変更をやめる</a>
+		</div>
+
+		<a class="pagetop" href="#">
+			<div class="pagetop__arrow"></div>
+		</a>
 
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
