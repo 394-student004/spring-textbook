@@ -32,7 +32,7 @@
 
 		<h3>会員情報</h3>
 		<form action="/order/credit" method="post">
-<div th:if="${errorList}" class="error" th:each="error:${errorList}" th:text="${error}" style="color: red">
+			<div th:if="${errorList}" class="error" th:each="error:${errorList}" th:text="${error}" style="color: red">
 			</div>
 			<table border="1">
 				<tr>
@@ -125,6 +125,10 @@
 				event.target.value = trimmedValue;
 			});
 		</script>
+
+		<a class="pagetop" href="#">
+			<div class="pagetop__arrow"></div>
+		</a>
 
 	</main>
 	<footer th:replace="footerBigFoot"></footer>

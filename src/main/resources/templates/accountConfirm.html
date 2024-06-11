@@ -15,7 +15,7 @@
 	<main>
 		<h1>会員情報変更確認</h1>
 		<p>以下の内容で変更しました</p>
-		
+
 		<table border="1">
 			<tr>
 				<th>名前</th>
@@ -32,10 +32,14 @@
 				<td th:text="${address}"></td>
 			</tr>
 		</table>
-		
+
 		<form action="/login">
 			<button>ログインページへ</button>
 		</form>
+		
+		<a class="pagetop" href="#">
+			<div class="pagetop__arrow"></div>
+		</a>
 		
 	</main>
 	<footer th:replace="footer"></footer>
