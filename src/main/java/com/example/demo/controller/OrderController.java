@@ -211,7 +211,7 @@ public class OrderController {
 		List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(historyId);
 		orderDetailRepository.deleteAll(orderDetails);
 		orderRepository.deleteById(historyId);
-		return "historyConfirm";
+		return "redirect:/history";
 	}
 
 }
