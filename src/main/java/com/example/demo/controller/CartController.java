@@ -39,7 +39,8 @@ public class CartController {
 		item.setStock(stock);
 		// カートに追加
 		cart.add(item);
-		return "redirect:/cart";
+		return "textbook";
+		// "redirect:/cart";
 	}
 
 	// 商品をカートから削除
