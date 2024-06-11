@@ -32,9 +32,7 @@ public class AccountController {
 
 	// ログイン画面表示
 	@GetMapping({ "/", "/login", "/logout" })
-	public String index(
-			@RequestParam(name = "error", defaultValue = "") String error,
-			Model model) {
+	public String index() {
 		// セッション情報を全てクリアする
 		session.invalidate();
 		return "login";
@@ -101,7 +99,7 @@ public class AccountController {
 		if (password.length() == 0) {
 			errorList.add("パスワードは必須です");
 		}
-		// メールアドレス存在チェック
+		// 既存のメールアドレス存在チェック
 		List<Account> accountList = accountRepository.findByEmail(email);
 		if (accountList.size() > 0) {
 			// 登録済みのメールアドレスが存在した場合
@@ -147,12 +145,11 @@ public class AccountController {
 			@RequestParam(name = "email", defaultValue = "") String email,
 			@RequestParam(name = "address", defaultValue = "") String address,
 			@RequestParam(name = "password", defaultValue = "") String password,
-			@RequestParam(name = "error", defaultValue = "") String error,
 			Model model) {
 		// エラーチェック
 		// ログインしているユーザーの情報を取得
 		Account editAccount = accountRepository.findById(login.getId()).get();
-		// メールアドレス存在チェック
+		// 既存のメールアドレス存在チェック
 		List<Account> accountList = accountRepository.findByEmail(email);
 		for (Account account : accountList) {
 			if (accountList.size() > 0) {
@@ -175,8 +172,6 @@ public class AccountController {
 			model.addAttribute("account", account);
 			return "accountEdit";
 		} else {
-			// ログインしている会員のIDの情報を削除する
-			accountRepository.delete(editAccount);
 			// 確認画面に表示する用
 			model.addAttribute("name", name);
 			model.addAttribute("grade", grade);
