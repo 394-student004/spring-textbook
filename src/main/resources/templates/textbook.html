@@ -27,6 +27,9 @@
 			<input type="text" name="professor" placeholder="講師名" th:value="${professor}">
 			<button>検索</button>
 		</form>
+		 <p th:if="${keyword != '' || lecture != '' || professor != '' && itemCount > 0}"
+            th:text="'検索結果：' + ${itemCount} + '件'"></p>
+        <p th:if="${itemCount == 0}">検索結果はありません</p>
 		<table border="1">
 			<tr>
 				<th>教科書ID</th>
