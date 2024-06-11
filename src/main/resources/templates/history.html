@@ -13,18 +13,20 @@
 		<h1>購入履歴</h1>
 
 		<div th:each="history:${histories}">
+			
+			<!--   style=" width: 500px; height: 150px; padding: 10px; margin: 10px; margin: 0 auto; border: 1px solid #333333;"
+     -->
 			<span>注文日：</span>
 			<span th:text="${history.orderedOn}"></span><br>
 			<span>注文番号：</span>
 			<span th:text="${history.id}"></span><br>
 			<span>支払金額：</span>
 			<span th:text="'&yen;' + ${history.totalPrice}"></span>
-
+			<!-- 非表示にしておきます
 			<form action="/history/delete" method="post">
 				<input type="hidden" name="historyId" th:value="${history.id}">
 				<button>注文キャンセル</button>
-			</form>
-
+			</form> -->
 			<table table="1">
 				<tr>
 					<th>教科書</th>
@@ -35,10 +37,84 @@
 					<td th:text="${detailHistory.quantity}"></td>
 				</tr>
 			</table>
-
+			
+			<!-- 注文キャンセルボタン実装-->
+			
+			<!-- モーダルを開くボタン -->
+			<button class="modal-open js-modal-open" th:data-target="'#modal' + ${history.id}">注文をキャンセルする</button>
+        
+			<!-- モーダル本体 -->
+			<div th:id="'modal' + ${history.id}" class="modal js-modal">
+			  <div class="modal-container">
+				<!-- モーダルを閉じるボタン 
+				<div class="modal-close js-modal-close">×</div> -->
+				<!-- モーダル内部のコンテンツ -->
+				<div class="modal-content">
+				  <h2 class="modal-header">ご注文のキャンセル</h2>
+				  <p>こちらのご注文をキャンセルいたしますがよろしかったですか？</p>
+				  <!-- 注文テーブル表示 -->
+				  <table class="modal-table" table="1">
+					<tr >
+						<th>教科書</th>
+						<th>数量</th>
+					</tr>
+					<tr th:each="detailHistory:${detailHistories}" th:if="${detailHistory.orderId == history.id}">
+						<td th:text="${detailHistory.itemName}"></td>
+						<td th:text="${detailHistory.quantity}"></td>
+					</tr>
+				</table>
+				
+				<p>※一度キャンセルを行うと取り消しはできません</p>
+				
+				<div class="cancelbtns">
+				<!-- キャンセル確定ボタン -->
+				<form action="/history/delete" method="post">
+					<input type="hidden" name="historyId" th:value="${history.id}">
+					<button class="cancel">キャンセルを確定する</button>
+				</form>
+				<!-- キャンセルやめるボタン -->
+				<form>
+				<button class="modal-close js-modal-close">やめる</button>
+				</form>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
+	</div>
+
 	</main>
-	<footer th:replace="footerBigFoot"></footer>
+	<footer th:replace="footer"></footer>
+	
+	<!-- 注文キャンセル用JavaScript-->
+	<script>
+    //要素を取得
+    const openButtons = document.querySelectorAll('.js-modal-open');
+    const closeButtons = document.querySelectorAll('.js-modal-close');
+
+    // 「注文をキャンセルするボタン」をクリックしてモーダルを開く
+    openButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // data-target属性からモーダルのIDを取得
+            const modalId = button.getAttribute('data-target');
+            // 対応するモーダルを取得して表示する
+            const modal = document.querySelector(modalId);
+            modal.classList.add('is-active');
+        });
+    });
+
+    // 「やめるボタン」をクリックしてモーダルを閉じる
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // data-target属性からモーダルのIDを取得
+            const modalId = button.getAttribute('data-target');
+            // 対応するモーダルを取得して非表示にする
+            const modal = document.querySelector(modalId);
+            modal.classList.remove('is-active');
+        });
+    });
+</script>
+	
 </body>
 
 </html>
