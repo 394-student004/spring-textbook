@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>購入確定</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <style>
-		.size { font-size: 200%; }
+	<meta charset="UTF-8">
+	<title>購入確定</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<style>
+		.size {
+			font-size: 200%;
+		}
+
 		.modal {
 			display: none;
 			position: fixed;
@@ -15,9 +19,10 @@
 			width: 100%;
 			height: 100%;
 			overflow: auto;
-			background-color: rgba(0,0,0,0.4);
+			background-color: rgba(0, 0, 0, 0.4);
 			padding-top: 60px;
 		}
+
 		.modal-content {
 			background-color: #fefefe;
 			margin: 5% auto;
@@ -26,6 +31,7 @@
 			width: 80%;
 			position: relative;
 		}
+
 		.close {
 			position: absolute;
 			top: 0;
@@ -33,11 +39,13 @@
 			cursor: pointer;
 			padding: 10px;
 		}
+
 		ul {
-  			list-style-type: none;
+			list-style-type: none;
 		}
-    </style>
+	</style>
 </head>
+
 <body>
 	<header th:replace="header"></header>
 	<main>
@@ -50,46 +58,43 @@
 		になります。
 		<p>お支払い金額：[[${totalPrice}]]円</p>
 		<h2><span class="size" style="color: rgb(162, 130, 0);">[[${point}]]</span>ポイントが付与されました</h2>
+		
 		<script>
-			/*
-			ページが読み込まれたときにモーダルウィンドウを出すイベント
-			*/
-			document.addEventListener("DOMContentLoaded", function() {
+			// ページが読み込まれたときにモーダルウィンドウを出すイベント
+			document.addEventListener("DOMContentLoaded", function () {
 				var modal = document.getElementById('myModal');
 				modal.style.display = "block";
 			});
-			/*
-			モーダルウィンドウを閉じるため・リロードしたら再度モーダルウィンドウ出すためのイベント
-			*/
+			// モーダルウィンドウを閉じるため・リロードしたら再度モーダルウィンドウ出すためのイベント
 			function closeModal() {
 				var modal = document.getElementById('myModal');
-				modal.style.display = "none";document.addEventListener("DOMContentLoaded", function() {
-				var modal = document.getElementById('myModal');
-				modal.style.display = "block";
-			});
+				modal.style.display = "none"; document.addEventListener("DOMContentLoaded", function () {
+					var modal = document.getElementById('myModal');
+					modal.style.display = "block";
+				});
 			}
-			/*
-			ウィンドウ上のどこかをクリックしたときにモーダルウィンドウを閉じるためのイベント
-			*/
-			window.onclick = function(event) {
+			// ウィンドウ上のどこかをクリックしたときにモーダルウィンドウを閉じるためのイベント
+			window.onclick = function (event) {
 				var modal = document.getElementById('myModal');
 				if (event.target == modal) {
 					modal.style.display = "none";
 				}
 			}
 		</script>
+		
 		<div id="myModal" class="modal">
 			<div class="modal-content">
 				<span class="close" onclick="closeModal()">&times;</span>
 				<h2>内容確認メールを設定されたメールアドレスに送信しました</h2>
 				<ul>
-				<li>※注文後24時間以内はキャンセル、ご変更いただけます。</li>
-				<li>※返品の場合、未開封7日以内で返品可能です。</li>
-				<li>※送料は自己負担となります。</li>
+					<li>※注文後24時間以内はキャンセル、ご変更いただけます。</li>
+					<li>※返品の場合、未開封7日以内で返品可能です。</li>
+					<li>※送料は自己負担となります。</li>
 				</ul>
 			</div>
 		</div>
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
 </body>
+
 </html>

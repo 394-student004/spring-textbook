@@ -11,6 +11,7 @@
 	<header th:replace="header"></header>
 	<main>
 		<span th:text="${error}" style="color: red"></span>
+		
 		<table border="1">
 			<tr>
 				<th>教科書名</th>
@@ -35,17 +36,19 @@
 				<td align="right" colspan="5" th:text="'合計額：'+${@cart.totalPrice}+'円'+${@cart.message}"></td>
 			</tr>
 		</table>
+		
 		<div class="btn-wrap">
 			<a href="/items" class="btn btn-c"><span>5000円以上で送料無料</span><br>購入を続ける
-			<i class="fas fa-angle-double-right"></i></a>
+				<i class="fas fa-angle-double-right"></i></a>
 		</div>
-	
+
 		<form action="/order" method="get">
 			<button>代金引き換えで購入</button>
 		</form>
 		<form action="/credit" method="get">
 			<button>クレジットカードで購入</button>
 		</form>
+		
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
 </body>

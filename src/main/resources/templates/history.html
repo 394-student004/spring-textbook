@@ -13,20 +13,18 @@
 		<h1>購入履歴</h1>
 
 		<div th:each="history:${histories}">
-			
-			<!--   style=" width: 500px; height: 150px; padding: 10px; margin: 10px; margin: 0 auto; border: 1px solid #333333;"
-     -->
 			<span>注文日：</span>
 			<span th:text="${history.orderedOn}"></span><br>
 			<span>注文番号：</span>
 			<span th:text="${history.id}"></span><br>
 			<span>支払金額：</span>
 			<span th:text="'&yen;' + ${history.totalPrice}"></span>
-			
+
 			<form action="/history/delete" method="post">
 				<input type="hidden" name="historyId" th:value="${history.id}">
 				<button>注文キャンセル</button>
 			</form>
+
 			<table table="1">
 				<tr>
 					<th>教科書</th>
@@ -37,8 +35,8 @@
 					<td th:text="${detailHistory.quantity}"></td>
 				</tr>
 			</table>
-		</div>
 
+		</div>
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
 </body>

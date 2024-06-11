@@ -8,10 +8,14 @@
 </head>
 
 <body>
-	<header><h1>新規会員登録</h1></header>
+	<header>
+		<h1>新規会員登録</h1>
+	</header>
 	<main>
 		<form action="/account/add" method="post">
-			<div th:if="${errorList}" class="error" th:each="error:${errorList}" th:text="${error}" style="color: red"></div>
+			<div th:if="${errorList}" class="error" th:each="error:${errorList}" th:text="${error}" style="color: red">
+			</div>
+
 			<table>
 				<tr>
 					<th>名前</th>
@@ -46,6 +50,7 @@
 					<td><input type="text" name="password" placeholder="パスワード"></td>
 				</tr>
 			</table>
+
 			<button>登録</button>
 		</form>
 		<div class="link">

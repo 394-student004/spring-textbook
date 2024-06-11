@@ -11,8 +11,10 @@
 	<header th:replace="header"></header>
 	<main>
 		<h1>会員情報変更</h1>
+		
 		<form action="/account/edit" method="post">
 			<span th:text="${error}" style="color: red"></span>
+
 			<table border="1">
 				<tr>
 					<th>名前</th>
@@ -55,8 +57,10 @@
 					</td>
 				</tr>
 			</table>
+
 			<button>変更</button>
 		</form>
+
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
 </body>

@@ -13,6 +13,7 @@
 		<h1>購入確認</h1>
 		<h3>以下の内容でよろしいでしょうか</h3>
 		<h3>ご注文内容</h3>
+
 		<table border="1">
 			<tr>
 				<th>教科書名</th>
@@ -28,8 +29,10 @@
 				<td align="right" colspan="5" th:text="'合計額：'+${@cart.totalPrice}+${@cart.message}"></td>
 			</tr>
 		</table>
+
 		<h3>会員情報</h3>
 		<form action="/order" method="post">
+
 			<table border="1">
 				<tr>
 					<th>名前</th>
@@ -52,6 +55,7 @@
 					<td th:text="${account.address}"></td>
 				</tr>
 			</table>
+
 			<input type="hidden" name="itemId" th:each="item:${@cart.itemList}" th:value="${item.id}">
 			<button>注文を確定する</button>
 		</form>
