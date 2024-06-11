@@ -32,8 +32,8 @@
 
 		<h3>会員情報</h3>
 		<form action="/order/credit" method="post">
-			<span th:text="${error}" style="color: red"></span>
-
+<div th:if="${errorList}" class="error" th:each="error:${errorList}" th:text="${error}" style="color: red">
+			</div>
 			<table border="1">
 				<tr>
 					<th>名前</th>
