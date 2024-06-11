@@ -12,7 +12,6 @@
 		z-index: 1;
 	}
 </style>
-
 <body>
 	<header th:replace="header"></header>
 	<main>
@@ -31,8 +30,7 @@
 		 <p th:if="${keyword != '' || lecture != '' || professor != '' && itemCount > 0}"
             th:text="'検索結果：' + ${itemCount} + '件'"></p>
         <p th:if="${itemCount == 0}">検索結果はありません</p>
-        
-		<table border="1">
+		<table border="1" class="table table-bordered">
 			<tr>
 				<th>教科書ID</th>
 				<th>教科書名</th>
