@@ -14,6 +14,20 @@
 	<main>
 		<p>以下の内容で登録しました</p>
 
+		<div style="width: 380px;
+  height: 200%;
+  background-color: rgb(103, 213, 91);
+  border-radius: 10px;">
+			<span>Kyoukasho Selling University</span><br>
+			<span>MEMBER'S CARD CO-OP</span><br>
+			<span>組合員No.[[${id}]]</span><br>
+			<span>氏名：[[${name}]]</span><br>
+			<span>学年：[[${grade}]]</span><br>
+			<span>学部：[[${department}]]</span><br>
+			<span>メールアドレス：[[${email}]]</span><br>
+			<span>住所：[[${address}]]</span><br>
+		</div>
+<!--
 		<table border="1">
 			<tr>
 				<th>名前</th>
@@ -30,14 +44,9 @@
 				<td th:text="${address}"></td>
 			</tr>
 		</table>
-
+-->
 		<a href="/login">ログインページへ</a>
 	</main>
-
-	<a class="pagetop" href="#">
-		<div class="pagetop__arrow"></div>
-	</a>
-
 </body>
 
 </html>
