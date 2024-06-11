@@ -1,61 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>会員情報変更</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>会員情報変更</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body>
-    <header th:replace="header"></header>
-    <main>
-    <h1>会員情報変更</h1>
-    <form action="/account/edit" method="post">
-		<span th:text="${error}" style="color: red"></span>
-        <table border="1">
-            <tr>
-                <th>名前</th>
-                <td>
-					<input type="text" name="name" th:value="${account.name}">
-				</td>
-            </tr>
-            <tr>
-                <th>学年</th>
-				<td>
-					<select size="1" name="grade" th:value="${account.grade}">
-						<option value="1">1年生</option>
-						<option value="2">2年生</option>
-						<option value="3">3年生</option>
-						<option value="4">4年生</option>
-				</td>
-            </tr>
-            <tr>
-                <th>学部</th>
-                <td>
-					<input type="text" name="department" th:value="${account.department}">
-				</td>
-            </tr>
-            <tr>
-                <th>メールアドレス</th>
-                <td>
-					<input type="text" name="email" th:value="${account.email}">
-				</td>
-            </tr>
-            <tr>
-                <th>住所</th>
-                <td>
-					<input type="text" name="address" th:value="${account.address}">
-				</td>
-            </tr>
-            <tr>
-                <th>パスワード</th>
-                <td>
-					<input type="text" name="password">
-				</td>
-            </tr>
-        </table>
-        <button>変更</button>
-    </form>
-</main>
-<footer th:replace="footerBigFoot"></footer>
+	<header th:replace="header"></header>
+	<main>
+		<h1>会員情報変更</h1>
+		<form action="/account/edit" method="post">
+			<span th:text="${error}" style="color: red"></span>
+			<table border="1">
+				<tr>
+					<th>名前</th>
+					<td>
+						<input type="text" name="name" th:value="${account.name}">
+					</td>
+				</tr>
+				<tr>
+					<th>学年</th>
+					<td>
+						<select size="1" name="grade" th:value="${account.grade}">
+							<option value="1">1年生</option>
+							<option value="2">2年生</option>
+							<option value="3">3年生</option>
+							<option value="4">4年生</option>
+					</td>
+				</tr>
+				<tr>
+					<th>学部</th>
+					<td>
+						<input type="text" name="department" th:value="${account.department}">
+					</td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td>
+						<input type="text" name="email" th:value="${account.email}">
+					</td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td>
+						<input type="text" name="address" th:value="${account.address}">
+					</td>
+				</tr>
+				<tr>
+					<th>パスワード</th>
+					<td>
+						<input type="text" name="password">
+					</td>
+				</tr>
+			</table>
+			<button>変更</button>
+		</form>
+	</main>
+	<footer th:replace="footerBigFoot"></footer>
 </body>
+
 </html>
