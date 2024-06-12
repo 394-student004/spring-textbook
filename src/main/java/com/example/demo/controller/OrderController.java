@@ -94,7 +94,7 @@ public class OrderController {
 		List<Account> editPoint = new ArrayList<>();
 		for (Account account : accountList) {
 			for (OrderDetail orderDetail : orderDetails) {
-				if (account.getId() == login.getId()) {
+				if (orderDetail.getId() == login.getId()) {
 					account.setPoint(orderDetail.getAccountPoint());
 					editPoint.add(account);
 				}
@@ -183,7 +183,7 @@ public class OrderController {
 		List<Account> editPoint = new ArrayList<>();
 		for (Account account : accountList) {
 			for (OrderDetail orderDetail : orderDetails) {
-				if (account.getId() == login.getId()) {
+				if (orderDetail.getId() == login.getId()) {
 					account.setPoint(orderDetail.getAccountPoint());
 					editPoint.add(account);
 				}

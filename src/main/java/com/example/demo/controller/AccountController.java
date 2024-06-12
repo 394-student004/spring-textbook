@@ -125,6 +125,7 @@ public class AccountController {
 		model.addAttribute("department", department);
 		model.addAttribute("email", email);
 		model.addAttribute("address", address);
+		model.addAttribute("point", account.getPoint());
 		return "loginConfirm";
 	}
 
