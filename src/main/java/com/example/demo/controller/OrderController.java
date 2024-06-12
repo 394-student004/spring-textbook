@@ -90,15 +90,9 @@ public class OrderController {
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
 		// DBのポイント加算
-		account = accountRepository.findById(login.getId()).get();
-		List<Account> editPoint = new ArrayList<>();
-		for (OrderDetail orderDetail : orderDetails) {
-			if (orderDetail.getId() == login.getId()) {
-				account.setPoint(orderDetail.getAccountPoint());
-				editPoint.add(account);
-			}
-		}
-		accountRepository.saveAll(editPoint);
+		//		account = accountRepository.findById(login.getId()).get();
+		account.setPoint(cart.getPoint());
+		accountRepository.save(account);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
@@ -178,14 +172,8 @@ public class OrderController {
 		orderDetailRepository.saveAll(orderDetails);
 		// DBのポイント加算
 		account = accountRepository.findById(login.getId()).get();
-		List<Account> editPoint = new ArrayList<>();
-		for (OrderDetail orderDetail : orderDetails) {
-			if (orderDetail.getId() == login.getId()) {
-				account.setPoint(orderDetail.getAccountPoint());
-				editPoint.add(account);
-			}
-		}
-		accountRepository.saveAll(editPoint);
+		account.setPoint(cart.getPoint());
+		accountRepository.save(account);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
