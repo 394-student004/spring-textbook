@@ -5,6 +5,16 @@
 	<meta charset="UTF-8">
 	<title>会員情報変更</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	 <style>
+     
+     
+      #fieldPassword {
+        border-width: thin;
+        border-style: solid;
+        width: 200px;
+      }
+    </style>
 </head>
 
 <body>
@@ -54,7 +64,8 @@
 				<tr>
 					<th>パスワード</th>
 					<td>
-						<input type="text" name="password">
+							<input type="password" name="password" id="textPassword" placeholder="パスワード">
+							<span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span>
 					</td>
 				</tr>
 			</table>
@@ -71,6 +82,19 @@
 
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
+	<script language="javascript">
+		function pushHideButton() {
+		  var txtPass = document.getElementById("textPassword");
+		  var btnEye = document.getElementById("buttonEye");
+		  if (txtPass.type === "text") {
+			txtPass.type = "password";
+			btnEye.className = "fa fa-eye";
+		  } else {
+			txtPass.type = "text";
+			btnEye.className = "fa fa-eye-slash";
+		  }
+		}
+	  </script>
 </body>
 
 </html>
