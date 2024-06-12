@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ポイント確認</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+	<header th:replace="header"></header>
+	<main>
+		<h1>ポイント確認</h1>
+		
+		<p>あなたのポイントは　ポイントです</p>
+
+		<form action="/account/edit" method="post">
+			
+		<div class="link">
+			<a href="/account/form">会員情報確認に戻る</a>
+		</div>
+
+		<a class="pagetop" href="#">
+			<div class="pagetop__arrow"></div>
+		</a>
+
+	</main>
+	<footer th:replace="footerBigFoot"></footer>
+</body>
+
+</html>
