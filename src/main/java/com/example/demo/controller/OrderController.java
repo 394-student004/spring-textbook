@@ -213,6 +213,22 @@ public class OrderController {
 			}
 		}
 		itemRepository.saveAll(addStock);
+		// 付与されたポイント削除
+		List<Account> accountList = accountRepository.findAll();
+		List<Account> editPoint = new ArrayList<>();
+		for (Account account : accountList) {
+			for (OrderDetail accounts : orderdetailList) {
+				if (accounts.getAccountId() == login.getId()) {
+					if (account.getPoint() - accounts.getAccountPoint() >= 0) {
+						account.setPoint(account.getPoint() - accounts.getAccountPoint());
+					} else {
+						account.setPoint(0);
+					}
+					editPoint.add(account);
+				}
+			}
+		}
+		accountRepository.saveAll(editPoint);
 		// 注文履歴削除
 		List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(historyId);
 		orderDetailRepository.deleteAll(orderDetails);
