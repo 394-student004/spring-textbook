@@ -27,21 +27,10 @@ public class OrderDetail {
 	@Column(name = "item_stock")
 	private Integer itemStock; // 在庫
 	@Column(name = "account_point")
-	private Integer accountPoint; // ポイント
+	private Integer accountPoint; // 所有ポイント数
 
 	// コンストラクタ
 	public OrderDetail() {
-	}
-
-	// 注文の注文詳細情報用
-	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity,
-			Integer itemStock) {
-		this.accountId = accountId;
-		this.orderId = orderId;
-		this.itemId = itemId;
-		this.itemName = itemName;
-		this.quantity = quantity;
-		this.itemStock = itemStock;
 	}
 
 	// 注文の注文詳細情報用

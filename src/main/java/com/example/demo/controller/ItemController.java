@@ -42,8 +42,8 @@ public class ItemController {
 		// 教科書一覧、検索結果表示
 		List<Item> itemList = null;
 		List<Item> itemListBrows = new ArrayList<>();
-		 // 検索結果のリストのサイズを取得
-	    int itemCount = 0;
+		// 検索結果のリストのサイズを取得
+		int itemCount = 0;
 		// 教科書一覧
 		if (keyword.length() <= 0 && lecture.length() <= 0 && professor.length() <= 0) {
 			itemList = itemRepository.findAllByOrderById();
@@ -79,10 +79,10 @@ public class ItemController {
 					lecture,
 					professor);
 		}
-		 // itemListがnullでない場合、検索結果の件数を取得
-	    if (itemList != null) {
-	        itemCount = itemList.size();
-	    }
+		// 検索結果の件数を取得
+		if (itemList != null) {
+			itemCount = itemList.size();
+		}
 		// 表示する在庫の更新
 		for (Item item : itemList) {
 			for (Item items : cart.getItemList()) {

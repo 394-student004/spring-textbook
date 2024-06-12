@@ -22,7 +22,7 @@ public class Order {
 	@Column(name = "ordered_on")
 	private LocalDate orderedOn; // 注文日
 	@Column(name = "point_price")
-	private Integer pointPrice; // 合計額
+	private Integer pointPrice; // ポイント使用後の合計額
 
 	//コンストラクタ
 	public Order() {

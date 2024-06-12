@@ -161,6 +161,7 @@ public class AccountController {
 			@RequestParam(name = "email", defaultValue = "") String email,
 			@RequestParam(name = "address", defaultValue = "") String address,
 			@RequestParam(name = "password", defaultValue = "") String password,
+			@RequestParam(name = "point") Integer point,
 			Model model) {
 		// エラーチェック
 		// ログインしているユーザーの情報を取得
@@ -195,13 +196,13 @@ public class AccountController {
 			model.addAttribute("email", email);
 			model.addAttribute("address", address);
 			// 変更内容を登録
-			account = new Account(login.getId(), name, grade, department, email, address, password);
+			account = new Account(login.getId(), name, grade, department, email, address, password, point);
 			accountRepository.save(account);
 			return "accountConfirm";
 		}
 	}
 
-	//ポイント確認画面表示
+	// ポイント詳細画面表示
 	@GetMapping("/point")
 	public String point(Model model) {
 		// ログインしている会員の情報を取得

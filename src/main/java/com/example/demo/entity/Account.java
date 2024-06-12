@@ -20,7 +20,7 @@ public class Account {
 	private String email; // メールアドレス
 	private String address; // 住所
 	private String password; // パスワード
-	private Integer point; // ポイント
+	private Integer point; // 所有ポイント数
 
 	//　コンストラクタ
 	public Account() {
@@ -39,18 +39,6 @@ public class Account {
 	}
 
 	// 更新用
-	public Account(Integer id, String name, Integer grade, String department, String email, String address,
-			String password) {
-		this.id = id;
-		this.name = name;
-		this.grade = grade;
-		this.department = department;
-		this.email = email;
-		this.address = address;
-		this.password = password;
-	}
-
-	// ポイント用
 	public Account(Integer id, String name, Integer grade, String department, String email, String address,
 			String password, Integer point) {
 		this.id = id;
