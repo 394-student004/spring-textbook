@@ -26,6 +26,8 @@ public class OrderDetail {
 	private Integer quantity; // 数量
 	@Column(name = "item_stock")
 	private Integer itemStock; // 在庫
+	@Column(name = "accountPoint")
+	private Integer accountPoint; // ポイント
 
 	// コンストラクタ
 	public OrderDetail() {
@@ -40,6 +42,18 @@ public class OrderDetail {
 		this.itemName = itemName;
 		this.quantity = quantity;
 		this.itemStock = itemStock;
+	}
+
+	// 注文の注文詳細情報用　多分こっちだけ
+	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity,
+			Integer itemStock, Integer accountPoint) {
+		this.accountId = accountId;
+		this.orderId = orderId;
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.quantity = quantity;
+		this.itemStock = itemStock;
+		this.accountPoint = accountPoint;
 	}
 
 	//アクセッサ
@@ -97,6 +111,14 @@ public class OrderDetail {
 
 	public void setItemStock(Integer itemStock) {
 		this.itemStock = itemStock;
+	}
+
+	public Integer getAccountPoint() {
+		return accountPoint;
+	}
+
+	public void setAccountPoint(Integer accountPoint) {
+		this.accountPoint = accountPoint;
 	}
 
 }

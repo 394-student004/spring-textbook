@@ -14,7 +14,8 @@ CREATE TABLE account
    department TEXT,
    email TEXT,
    address TEXT,
-   password TEXT
+   password TEXT,
+   point INTEGER
 );
 -- 教科書テーブル
 CREATE TABLE item
@@ -34,7 +35,6 @@ CREATE TABLE orders
    account_id INTEGER,
    ordered_on DATE,
    total_price INTEGER
-   
 );
 -- 注文明細テーブル
 CREATE TABLE order_details
@@ -45,6 +45,6 @@ CREATE TABLE order_details
    item_id INTEGER,
    item_name TEXT, 
    quantity INTEGER,
-   item_stock INTEGER
-   
+   item_stock INTEGER,
+   account_point INTEGER
 );

@@ -20,6 +20,7 @@ public class Account {
 	private String email; // メールアドレス
 	private String address; // 住所
 	private String password; // パスワード
+	private Integer point; // ポイント
 
 	//　コンストラクタ
 	public Account() {
@@ -45,6 +46,19 @@ public class Account {
 		this.email = email;
 		this.address = address;
 		this.password = password;
+	}
+
+	// ポイント用
+	public Account(Integer id, String name, Integer grade, String department, String email, String address,
+			String password, Integer point) {
+		this.id = id;
+		this.name = name;
+		this.grade = grade;
+		this.department = department;
+		this.email = email;
+		this.address = address;
+		this.password = password;
+		this.point = point;
 	}
 
 	// アクセッサ
@@ -102,6 +116,14 @@ public class Account {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Integer getPoint() {
+		return point;
+	}
+
+	public void setPoint(Integer point) {
+		this.point = point;
 	}
 
 }

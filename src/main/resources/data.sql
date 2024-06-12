@@ -1,5 +1,5 @@
-INSERT INTO account(name, grade, department, email, address, password) VALUES('片山ヒロキ', 1, '人間科学学部', 'aa@aaa', 'ドーミーイン', '111');
-INSERT INTO account(name, grade, department, email, address, password) VALUES('川村ハルカ', 2, '行動心理学部', 'bb@bbb', 'センチュリーパークタワー', '222');
+INSERT INTO account(name, grade, department, email, address, password, point) VALUES('片山ヒロキ', 1, '人間科学学部', 'aa@aaa', 'ドーミーイン', '111', 0);
+INSERT INTO account(name, grade, department, email, address, password, point) VALUES('川村ハルカ', 2, '行動心理学部', 'bb@bbb', 'センチュリーパークタワー', '222',0);
 
 INSERT INTO item(id, name, lecture, professor, price, stock) VALUES(1, 'よくわかる心理学', '心理学', '小林雅也', 1800, 2);
 INSERT INTO item(id, name, lecture, professor, price, stock) VALUES(2, '歴史の探求', '歴史学', '渡辺俊', 3900, 3);

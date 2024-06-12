@@ -82,18 +82,31 @@ public class OrderController {
 							item.getId(),
 							item.getName(),
 							item.getQuantity(),
-							item.getStock()));
+							item.getStock(),
+							cart.getPoint()));
 			// DBの在庫数更新
 			editStock.add(item);
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		// ポイント
-		int point = cart.getPoint();
+
+		List<Account> accountList = accountRepository.findAll();
+		List<Account> editPoint = new ArrayList<>();
+		for (Account account : accountList) {
+			for (OrderDetail orderDetail : orderDetails) {
+				if (account.getId() == login.getId()) {
+					account.setPoint(account.getPoint() + orderDetail.getAccountPoint());
+					// DBのポイント追加
+					editPoint.add(account);
+				}
+			}
+		}
+		accountRepository.saveAll(editPoint);
+
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
-		model.addAttribute("point", point);
+		model.addAttribute("point", cart.getPoint());
 		// カートの情報をクリア
 		cart.clear();
 		return "purchaseFin";
@@ -161,18 +174,31 @@ public class OrderController {
 							item.getId(),
 							item.getName(),
 							item.getQuantity(),
-							item.getStock()));
-			// DB在庫数の変更処理
+							item.getStock(),
+							cart.getPoint()));
+			// DBの在庫数更新
 			editStock.add(item);
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		// ポイント
-		int point = cart.getPoint();
+
+		List<Account> accountList = accountRepository.findAll();
+		List<Account> editPoint = new ArrayList<>();
+		for (Account account : accountList) {
+			for (OrderDetail orderDetail : orderDetails) {
+				if (account.getId() == login.getId()) {
+					account.setPoint(account.getPoint() + orderDetail.getAccountPoint());
+					// DBのポイント追加
+					editPoint.add(account);
+				}
+			}
+		}
+		accountRepository.saveAll(editPoint);
+
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
-		model.addAttribute("point", point);
+		model.addAttribute("point", cart.getPoint());
 		// カートの情報をクリア
 		cart.clear();
 		return "purchaseFin";
