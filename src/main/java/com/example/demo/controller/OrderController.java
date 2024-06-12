@@ -90,14 +90,12 @@ public class OrderController {
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
 		// DBのポイント加算
-		List<Account> accountList = accountRepository.findAll();
+		account = accountRepository.findById(login.getId()).get();
 		List<Account> editPoint = new ArrayList<>();
-		for (Account account : accountList) {
-			for (OrderDetail orderDetail : orderDetails) {
-				if (orderDetail.getId() == login.getId()) {
-					account.setPoint(orderDetail.getAccountPoint());
-					editPoint.add(account);
-				}
+		for (OrderDetail orderDetail : orderDetails) {
+			if (orderDetail.getId() == login.getId()) {
+				account.setPoint(orderDetail.getAccountPoint());
+				editPoint.add(account);
 			}
 		}
 		accountRepository.saveAll(editPoint);
@@ -179,14 +177,12 @@ public class OrderController {
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
 		// DBのポイント加算
-		List<Account> accountList = accountRepository.findAll();
+		account = accountRepository.findById(login.getId()).get();
 		List<Account> editPoint = new ArrayList<>();
-		for (Account account : accountList) {
-			for (OrderDetail orderDetail : orderDetails) {
-				if (orderDetail.getId() == login.getId()) {
-					account.setPoint(orderDetail.getAccountPoint());
-					editPoint.add(account);
-				}
+		for (OrderDetail orderDetail : orderDetails) {
+			if (orderDetail.getId() == login.getId()) {
+				account.setPoint(orderDetail.getAccountPoint());
+				editPoint.add(account);
 			}
 		}
 		accountRepository.saveAll(editPoint);
