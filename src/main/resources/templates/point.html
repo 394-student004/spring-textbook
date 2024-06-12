@@ -12,17 +12,15 @@
 	<main>
 		<h1>ポイント確認</h1>
 		
-		<p>あなたのポイントは　ポイントです</p>
+		<h3>あなたの保有ポイントは
+			<span th:text="${account.point}" style="font-size: 45px; color: rgb(162, 130, 0);"></span>
+			pt(円)です</h3>
 
 		<form action="/account/edit" method="post">
 			
 		<div class="link">
 			<a href="/account/form">会員情報確認に戻る</a>
 		</div>
-
-		<a class="pagetop" href="#">
-			<div class="pagetop__arrow"></div>
-		</a>
 
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
