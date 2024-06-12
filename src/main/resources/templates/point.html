@@ -3,27 +3,53 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>ポイント確認</title>
+	<title>ポイント詳細</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+<style>
+	.torisetu{
+		text-align: left;
+		padding-left:200px;
+	}
+</style>
 
 <body>
 	<header th:replace="header"></header>
 	<main>
-		<h1>ポイント確認</h1>
+		<h1>ポイント詳細</h1>
 		
 		<h3>あなたの保有ポイントは
 			<span th:text="${account.point}" style="font-size: 45px; color: rgb(162, 130, 0);"></span>
 			pt(円)です</h3>
+			<p class="torisetu">
+			ポイントプログラムについて
+当社のポイントプログラムは、お客様が商品を購入するたびにポイントを獲得できる特典制度です。
+<br>ポイントは、次回の購入時に割引として利用できます。<br><br>
 
-		<form action="/account/edit" method="post">
-			
+ポイントの獲得方法<br>
+
+・商品を購入すると、50円ごとに1ポイントが付与されます。例えば、商品を5000円で購入すると、100ポイントが付与されます。<br>
+・ポイントは購入金額に応じて自動的に加算されます。会計時には、獲得したポイントが表示されます。<br><br>
+ポイントの利用方法<br>
+
+・ポイントは次回の購入時に割引として利用できます。購入金額からポイントを引いた金額が請求額となります。<br>
+・ポイントの有効期限はございません。<br><br>
+注意事項<br>
+
+・ポイントは商品の購入時にのみ獲得でき、現金との交換はできません。<br>
+・ポイントは他の特典と併用することはできません。<br></p>
+
+		<form action="/account/edit" method="post">	
 		<div class="link">
 			<a href="/account/form">会員情報確認に戻る</a>
 		</div>
+		</form>
 
 	</main>
 	<footer th:replace="footerBigFoot"></footer>
+	<a class="pagetop" href="#">
+		<div class="pagetop__arrow"></div>
+	</a>
 </body>
 
 </html>
