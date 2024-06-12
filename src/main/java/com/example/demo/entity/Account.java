@@ -38,7 +38,7 @@ public class Account {
 		this.point = point;
 	}
 
-	// 更新用
+	// 更新用（idつき）
 	public Account(Integer id, String name, Integer grade, String department, String email, String address,
 			String password, Integer point) {
 		this.id = id;

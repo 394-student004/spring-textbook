@@ -85,7 +85,7 @@ public class OrderController {
 							item.getName(),
 							item.getQuantity(),
 							item.getStock(),
-							cart.getPointPrice()));
+							cart.getPoint()));
 			// DBの在庫数更新
 			editStock.add(item);
 		}
@@ -166,7 +166,7 @@ public class OrderController {
 							item.getName(),
 							item.getQuantity(),
 							item.getStock(),
-							cart.getPointPrice()));
+							cart.getPoint()));
 			// DBの在庫数更新
 			editStock.add(item);
 		}
@@ -224,9 +224,9 @@ public class OrderController {
 					} else {
 						account.setPoint(0);
 					}
-					editPoint.add(account);
 				}
 			}
+			editPoint.add(account);
 		}
 		accountRepository.saveAll(editPoint);
 		// 注文履歴削除

@@ -71,7 +71,7 @@ public class Cart {
 		return total;
 	}
 
-	// ポイント引いた後の合計金額
+	// ポイントを引いた後の合計金額
 	public Integer getPointPrice() {
 		Integer total = 0;
 		List<Account> accountList = accountRepository.findAll();
@@ -105,7 +105,7 @@ public class Cart {
 		return message;
 	}
 
-	// ポイント表示用
+	// 現在の所持ポイント表示用
 	public String message2() {
 		List<Account> accountList = accountRepository.findAll();
 		for (Account account : accountList) {

@@ -14,7 +14,4 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Intege
 	// 注文キャンセル用
 	List<OrderDetail> findByOrderId(Integer id);
 
-	// ポイント計算用
-	OrderDetail findByAccountId(Integer id);
-
 }
