@@ -71,20 +71,6 @@ public class Cart {
 		return total;
 	}
 
-	// ポイントを引いた後の合計金額
-	public Integer getPointPrice() {
-		Integer total = 0;
-		List<Account> accountList = accountRepository.findAll();
-		for (Account account : accountList) {
-			if (getTotalPrice() - account.getPoint() >= 0) {
-				total = getTotalPrice() - account.getPoint();
-			} else {
-				total = 0;
-			}
-		}
-		return total;
-	}
-
 	// 合計金額から50円につき1ポイントを付与
 	public Integer getPoint() {
 		Integer point = getTotalPrice() / 50;

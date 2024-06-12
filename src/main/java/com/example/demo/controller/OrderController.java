@@ -69,8 +69,12 @@ public class OrderController {
 		// 注文情報をDBに格納する
 		Order order = new Order(
 				login.getId(),
-				LocalDate.now(),
-				cart.getPointPrice());
+				LocalDate.now());
+		if (cart.getTotalPrice() - account.getPoint() >= 0) {
+			order.setPointPrice(cart.getTotalPrice() - account.getPoint());
+		} else {
+			order.setPointPrice(0);
+		}
 		orderRepository.save(order);
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
@@ -96,7 +100,7 @@ public class OrderController {
 		accountRepository.save(account);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
-		model.addAttribute("totalPrice", order.getPointPrice());
+		model.addAttribute("pointPrice", order.getPointPrice());
 		model.addAttribute("point", cart.getPoint());
 		// カートの情報をクリア
 		cart.clear();
@@ -150,8 +154,12 @@ public class OrderController {
 		// 注文情報をDBに格納する
 		Order order = new Order(
 				login.getId(),
-				LocalDate.now(),
-				cart.getPointPrice());
+				LocalDate.now());
+		if (cart.getTotalPrice() - account.getPoint() >= 0) {
+			order.setPointPrice(cart.getTotalPrice() - account.getPoint());
+		} else {
+			order.setPointPrice(0);
+		}
 		orderRepository.save(order);
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
@@ -177,7 +185,7 @@ public class OrderController {
 		accountRepository.save(account);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
-		model.addAttribute("totalPrice", order.getPointPrice());
+		model.addAttribute("pointPrice", order.getPointPrice());
 		model.addAttribute("point", cart.getPoint());
 		// カートの情報をクリア
 		cart.clear();
