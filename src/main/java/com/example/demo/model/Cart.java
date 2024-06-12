@@ -55,7 +55,6 @@ public class Cart {
 	public Integer getTotalPrice() {
 		// 合計金額計算
 		Integer total = 0;
-		List<Account> accountList = accountRepository.findAll();
 		for (Item item : itemList) {
 			total += item.getPrice() * item.getQuantity();
 		}
@@ -66,9 +65,6 @@ public class Cart {
 		} else if (total < 5000) {
 			Integer fee = 550;
 			total += fee;
-		} // 保有しているポイントを使用
-		for (Account account : accountList) {
-			total -= account.getPoint();
 		}
 		return total;
 	}
