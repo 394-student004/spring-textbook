@@ -131,7 +131,15 @@ public class AccountController {
 
 	//会員情報確認画面用
 	@GetMapping("/account/form")
-	public String form() {
+	public String form(Model model) {
+		account = accountRepository.findById(login.getId()).get();
+		model.addAttribute("id", account.getId());
+		model.addAttribute("name", account.getName());
+		model.addAttribute("grade", account.getGrade());
+		model.addAttribute("department", account.getDepartment());
+		model.addAttribute("email", account.getEmail());
+		model.addAttribute("address", account.getAddress());
+		model.addAttribute("point", account.getPoint());
 		return "accountForm";
 	}
 
