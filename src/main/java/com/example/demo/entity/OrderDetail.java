@@ -35,6 +35,17 @@ public class OrderDetail {
 
 	// 注文の注文詳細情報用
 	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity,
+			Integer itemStock) {
+		this.accountId = accountId;
+		this.orderId = orderId;
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.quantity = quantity;
+		this.itemStock = itemStock;
+	}
+
+	// 注文の注文詳細情報用
+	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity,
 			Integer itemStock, Integer accountPoint) {
 		this.accountId = accountId;
 		this.orderId = orderId;

@@ -68,7 +68,7 @@ public class OrderController {
 		Order order = new Order(
 				login.getId(),
 				LocalDate.now(),
-				cart.getTotalPrice());
+				cart.getTotalPrice() - account.getPoint());
 		orderRepository.save(order);
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
@@ -95,13 +95,12 @@ public class OrderController {
 		for (Account account : accountList) {
 			for (OrderDetail orderDetail : orderDetails) {
 				if (account.getId() == login.getId()) {
-					account.setPoint(account.getPoint() + orderDetail.getAccountPoint());
+					account.setPoint(orderDetail.getAccountPoint());
 					editPoint.add(account);
 				}
 			}
 		}
 		accountRepository.saveAll(editPoint);
-
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
@@ -159,7 +158,7 @@ public class OrderController {
 		Order order = new Order(
 				login.getId(),
 				LocalDate.now(),
-				cart.getTotalPrice());
+				cart.getTotalPrice() - account.getPoint());
 		orderRepository.save(order);
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
@@ -173,8 +172,7 @@ public class OrderController {
 							item.getId(),
 							item.getName(),
 							item.getQuantity(),
-							item.getStock(),
-							cart.getPoint()));
+							item.getStock()));
 			// DBの在庫数更新
 			editStock.add(item);
 		}
@@ -186,7 +184,7 @@ public class OrderController {
 		for (Account account : accountList) {
 			for (OrderDetail orderDetail : orderDetails) {
 				if (account.getId() == login.getId()) {
-					account.setPoint(account.getPoint() + orderDetail.getAccountPoint());
+					account.setPoint(orderDetail.getAccountPoint());
 					editPoint.add(account);
 				}
 			}

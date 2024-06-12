@@ -26,7 +26,7 @@
 				<td th:text="${item.quantity}"></td>
 			</tr>
 			<tr>
-				<td align="right" colspan="5" th:text="'合計額：'+${@cart.totalPrice}+${@cart.message}"></td>
+				<td align="right" colspan="5" th:text="${@cart.message2}+'合計額：'+${@cart.totalPrice}+${@cart.message}"></td>
 			</tr>
 		</table>
 
