@@ -128,6 +128,12 @@ public class AccountController {
 		return "loginConfirm";
 	}
 
+	//会員情報確認画面用
+	@GetMapping("/account/form")
+	public String form() {
+		return "accountForm";
+	}
+
 	// 会員情報変更画面表示
 	@GetMapping("/account/edit")
 	public String edit(Model model) {
@@ -184,6 +190,12 @@ public class AccountController {
 			accountRepository.save(account);
 			return "accountConfirm";
 		}
+	}
+
+	//ポイント確認画面表示
+	@GetMapping("/point")
+	public String point() {
+		return "point";
 	}
 
 }
