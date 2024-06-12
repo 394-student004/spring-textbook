@@ -1,215 +1,253 @@
 @charset "utf-8";
 
 body {
-   	background-color: white;
-    text-align: center;
-    min-width: 900px;
-    font-family: "游明朝 Demibold";
+	background-color: white;
+	text-align: center;
+	min-width: 900px;
+	font-family: "游明朝 Demibold";
 }
 
 header {
-    background-color: rgb(31, 70, 31); /* (背景 単色ver) */
-    /* (背景 グラデver) 
+	background-color: rgb(31, 70, 31);
+	/* (背景 単色ver) */
+	/* (背景 グラデver) 
     background: -webkit-linear-gradient(to right, rgb(0, 64, 0), rgb(0, 64, 64));
     background: linear-gradient(to right, rgb(31, 70, 31), #c7fcc0);
     */
-    color:aliceblue;
-    padding-top: 5px;
-    padding-bottom: 5px;
+	color: aliceblue;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 header a {
-    color:white;
+	color: white;
 }
 
 header h1 {
-    font-size: 20pt;
-    margin: 10px auto;
+	font-size: 20pt;
+	margin: 10px auto;
 }
 
 main {
-    background-color: white;
-    min-height: 50px;
-    padding: 20px;
+	background-color: white;
+	min-height: 50px;
+	padding: 20px;
 }
 
-table, th, td {
-    border-collapse: collapse;
-    border: 1px solid rgb(124, 122, 122)
+table,
+th,
+td {
+	border-collapse: collapse;
+	border: 1px solid rgb(124, 122, 122)
 }
 
 table {
-    margin: 5px auto;
-    min-width:800px;
+	margin: 5px auto;
+	min-width: 800px;
 }
 
 table th {
-    background: rgb(44, 129, 66);
-    color: white;
+	background: rgb(44, 129, 66);
+	color: white;
 }
 
 .link {
 	text-align: right;
-    padding: 0px 200px 0px 0px;
+	padding: 0px 200px 0px 0px;
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 button {
-    background-color: #4CAF50;
-    border: #4CAF50;
-    color: white;
-    padding: 5px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+	background-color: #4CAF50;
+	border: #4CAF50;
+	color: white;
+	padding: 5px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
 }
 
 button:hover {
-    background-color: rgb(38, 130, 58);
+	background-color: rgb(38, 130, 58);
 }
+
 /**ここから送料無料ボタン*/
 .btn,
 a.btn,
 button.btn {
-  font-weight: 700;
-  line-height: 1.5;
-  position: relative;
-  display: inline-block;/*吹き出し下の緑の領域*/
-  text-decoration: none;/*購入続けるボタンをボタンっぽくするためにリンクの下線を消す*/
-  letter-spacing: 0.1em;/*文字のちょっとしたサイズ調整*/
+	font-weight: 700;
+	line-height: 1.5;
+	position: relative;
+	display: inline-block;
+	/*吹き出し下の緑の領域*/
+	text-decoration: none;
+	/*購入続けるボタンをボタンっぽくするためにリンクの下線を消す*/
+	letter-spacing: 0.1em;
+	/*文字のちょっとしたサイズ調整*/
 
 }
 
 .btn-wrap {
-  margin: 15px 0;/*購入を続けるボタン周辺余白*/
+	margin: 15px 0;
+	/*購入を続けるボタン周辺余白*/
 }
 
 a.btn-c {
-  padding: 1mm 1rem 1rem 2rem;/*購入続けるボタンサイズ調整*/
-  color: #fff;/*購入を続ける文字色*/
-  background: #4CAF50;/*その背景色*/
+	padding: 1mm 1rem 1rem 2rem;
+	/*購入続けるボタンサイズ調整*/
+	color: #fff;
+	/*購入を続ける文字色*/
+	background: #4CAF50;
+	/*その背景色*/
 }
 
 a.btn-c span {
-  font-size: 70%;/*吹き出し内の文字フォントサイズ*/
+	font-size: 70%;
+	/*吹き出し内の文字フォントサイズ*/
 
-  position: absolute;
-  top: -0.3rem;/*吹き出し縦位置*/
-  left: calc(89% - 150px);/*吹き出し横位置*/
+	position: absolute;
+	top: -0.3rem;
+	/*吹き出し縦位置*/
+	left: calc(89% - 150px);
+	/*吹き出し横位置*/
 
-  display: block;
+	display: block;
 
-  width: 170px;/*吹き出し大きさ*/
-  padding: 0.2rem 0;/*吹き出し立幅*/
+	width: 170px;
+	/*吹き出し大きさ*/
+	padding: 0.2rem 0;
+	/*吹き出し立幅*/
 
-  color: rgb(0, 0, 0);/*吹き出し内文字色*/
-  border: 2px solid rgb(46, 105, 50);/*吹き出しフチ色*/
-  border-radius: 100vh;/*吹き出しをカーブにしている部分（ないと四角になる）*/
-  background: rgb(255, 255, 255);/*吹き出し背景色*/
+	color: rgb(0, 0, 0);
+	/*吹き出し内文字色*/
+	border: 2px solid rgb(46, 105, 50);
+	/*吹き出しフチ色*/
+	border-radius: 100vh;
+	/*吹き出しをカーブにしている部分（ないと四角になる）*/
+	background: rgb(255, 255, 255);
+	/*吹き出し背景色*/
 }
 
 a.btn-c span:before,
-a.btn-c span:after {/*beforeはみどり▽アフターは白▽*/
-  position: absolute;/*吹き出しの▽の位置１*/
-  left: calc(50% - 10px);/*吹き出しの▽の位置２*/
-  content: "";/*吹き出しの▽の存在証明*/
+a.btn-c span:after {
+	/*beforeはみどり▽アフターは白▽*/
+	position: absolute;
+	/*吹き出しの▽の位置１*/
+	left: calc(50% - 10px);
+	/*吹き出しの▽の位置２*/
+	content: "";
+	/*吹き出しの▽の存在証明*/
 }
 
 a.btn-c span:before {
-  bottom: -10px;
+	bottom: -10px;
 
-  border-width: 10px 10px 0 10px;/*三角の位置（みどり）*/
-  border-style: solid;/*存在証明*/
-  border-color: rgb(46, 105, 50) transparent transparent transparent;/*三角の色（みどり）*/
+	border-width: 10px 10px 0 10px;
+	/*三角の位置（みどり）*/
+	border-style: solid;
+	/*存在証明*/
+	border-color: rgb(46, 105, 50) transparent transparent transparent;
+	/*三角の色（みどり）*/
 }
 
 a.btn-c span:after {
-  bottom: -7px;
+	bottom: -7px;
 
-  border-width: 10px 10px 0 10px;/*三角の位置（みどり）*/
-  border-style: solid;/*存在証明*/
-  border-color: #fff transparent transparent transparent;/*三角の色（白）*/
+	border-width: 10px 10px 0 10px;
+	/*三角の位置（みどり）*/
+	border-style: solid;
+	/*存在証明*/
+	border-color: #fff transparent transparent transparent;
+	/*三角の色（白）*/
 }
 
 a.btn-c i {
-  margin-right: 0.5rem;/*購入を続けるボタンの横幅サイズ調整*/
+	margin-right: 0.5rem;
+	/*購入を続けるボタンの横幅サイズ調整*/
 }
 
 a.btn-c:hover {
-	background-color: rgb(38, 130, 58);/*カーソル重ねた時の色*/
+	background-color: rgb(38, 130, 58);
+	/*カーソル重ねた時の色*/
 }
 
 /*ファンクションボタン*/
-.btn-menu{
-  position:relative;/*線の基点とするためrelativeを指定*/
-  color:rgb(0, 0, 0);/*リンクの形状*/
-  padding: 10px 50px 10px 30px;
-  display:inline-block;
-  text-decoration: none;
-  outline: none;
+.btn-menu {
+	position: relative;
+	/*線の基点とするためrelativeを指定*/
+	color: rgb(0, 0, 0);
+	/*リンクの形状*/
+	padding: 10px 50px 10px 30px;
+	display: inline-block;
+	text-decoration: none;
+	outline: none;
 }
 
 /*線の設定*/
 .btn-menu::before,
-.btn-menu::after{
-  content:'';
-  position:absolute;/*絶対配置で線の位置を決める*/
-  z-index:1;
-  bottom:0;
-  left:0;
-     /*線の形状*/   
-  background:rgb(192, 192, 192);
-  width:100%;
-  height:2px;
-    /*アニメーションの指定*/
-  transition:all 0.3s ease-in-out;
+.btn-menu::after {
+	content: '';
+	position: absolute;
+	/*絶対配置で線の位置を決める*/
+	z-index: 1;
+	bottom: 0;
+	left: 0;
+	/*線の形状*/
+	background: rgb(192, 192, 192);
+	width: 100%;
+	height: 2px;
+	/*アニメーションの指定*/
+	transition: all 0.3s ease-in-out;
 }
 
- /*hover時に伸びる線の形状*/   
-.btn-menu::after{
-  width:0;
-  background:rgb(46, 105, 50);
+/*hover時に伸びる線の形状*/
+.btn-menu::after {
+	width: 0;
+	background: rgb(46, 105, 50);
 }
 
- /*hover時に100%に伸びる*/   
+/*hover時に100%に伸びる*/
 .btn-menu:hover::after {
-  width:100%;
+	width: 100%;
 }
 
- /*矢印の設定*/   
+/*矢印の設定*/
 .btn-menu span::after {
-    content: '';
-    /*絶対配置で矢印の位置を決める*/
-    position: absolute;
-    top: 1.3em;
-    right: 20px;
-    /*矢印の形状*/   
-    width: 5px;
-    height: 5px;
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
-    transform: rotate(45deg);
-    /*アニメーションの指定*/
-    transition: all .3s;
+	content: '';
+	/*絶対配置で矢印の位置を決める*/
+	position: absolute;
+	top: 1.3em;
+	right: 20px;
+	/*矢印の形状*/
+	width: 5px;
+	height: 5px;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+	transform: rotate(45deg);
+	/*アニメーションの指定*/
+	transition: all .3s;
 }
 
-/*hover時に矢印が移動*/   
+/*hover時に矢印が移動*/
 .btn-menu:hover span::after {
-  right:15px;
+	right: 15px;
 }
+
 /*フッターのリンク*/
 /*片山の遊び場*/
 .noline {
-  color: #999;/*フッターの文字の色*/
-  text-decoration: none;
-  text-align: left;
+	color: #999;
+	/*フッターの文字の色*/
+	text-decoration: none;
+	text-align: left;
 }
+
 /*
 ul {
   list-style: none;
@@ -217,212 +255,216 @@ ul {
 }*/
 
 .footer {
-  padding: 2rem;
-  font-size: 18px;
-  color: #999;
-  background: #fff;
-  border-top: 1px solid #e5e7eb;
+	padding: 2rem;
+	font-size: 18px;
+	color: #999;
+	background: #fff;
+	border-top: 1px solid #e5e7eb;
 }
 
 .footer a:hover {
-  color: #000;
+	color: #000;
 }
 
 @media (min-width: 768px) {
-  .footer {
-    display: flex;
-    justify-content: space-between;
-  }
+	.footer {
+		display: flex;
+		justify-content: space-between;
+	}
 
-  .md-flex {
-    display: flex;
-  }
+	.md-flex {
+		display: flex;
+	}
 
-  .md-flex li + li {
-    margin-left: 16px;
-  }
+	.md-flex li+li {
+		margin-left: 16px;
+	}
 }
 
 /*片山の遊び場*/
 
 /* 注文キャンセル実装*/
 /* モーダルを開くボタン */
-.modal-open{
-  font-size: 70%;
-  font-weight: normal;
-  height: 40px;
-  color: #fff;
-  background: #000;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  margin: auto;
-  display:block;
+.modal-open {
+	font-size: 70%;
+	font-weight: normal;
+	height: 40px;
+	color: #fff;
+	background: #000;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	margin: auto;
+	display: block;
 }
 
 /* モーダルを開くボタンに触れた時の指定 */
 .modal-open:hover {
-	color:black;
-    background-color: rgb(192, 192, 192);
-    border: grey;
+	color: black;
+	background-color: rgb(192, 192, 192);
+	border: grey;
 }
 
 /* モーダルと背景の指定 */
-.modal{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background: rgba(0,0,0,50%);
-  overflow: auto;
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
-  box-sizing: border-box;
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: rgba(0, 0, 0, 50%);
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
+	box-sizing: border-box;
 }
 
 /* モーダルの擬似要素の指定 */
-.modal:before{
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-  margin-left: -0.2em;
+.modal:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	margin-left: -0.2em;
 }
 
 /* クラスが追加された時の指定 */
-.modal.is-active{
-  opacity: 1;
-  visibility: visible;
+.modal.is-active {
+	opacity: 1;
+	visibility: visible;
 }
 
 /* モーダル内側の指定 */
-.modal-container{
+.modal-container {
 
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  max-width: 600px;
-  width: 90%;
-  
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 600px;
+	width: 90%;
+
 }
 
 /* モーダルのコンテンツ部分の指定 */
-.modal-content{
-  background: #fff;
-  line-height: 1.8;
+.modal-content {
+	background: #fff;
+	line-height: 1.8;
 
 }
 
 /* モーダルのコンテンツ部分のテキストの指定 */
-.modal-content p{
-  margin: 1em 0;
+.modal-content p {
+	margin: 1em 0;
 }
 
 /* モーダル内ヘッダー部分の指定 */
-.modal-header{
-  background: rgb(0, 25, 61);
-  color:rgb(255, 255, 255);
-  padding-top: 5px;
-  padding-bottom: 5px;
+.modal-header {
+	background: rgb(0, 25, 61);
+	color: rgb(255, 255, 255);
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 /* モーダル内テーブルの指定 */
-table.modal-table, th.modal-table {
-  color: rgb(0, 0, 0);
-  border-collapse: collapse;
-  border: 1px solid rgb(172, 169, 169);
-  width: 500px;
+table.modal-table,
+th.modal-table {
+	color: rgb(0, 0, 0);
+	border-collapse: collapse;
+	border: 1px solid rgb(172, 169, 169);
+	width: 500px;
 }
 
 table.modal-table th {
-  background: rgb(202, 245, 216);
-  color: rgb(0, 0, 0);
+	background: rgb(202, 245, 216);
+	color: rgb(0, 0, 0);
 }
 
 table.modal-table {
-  width: 500px;
-  min-width: 500px;
+	width: 500px;
+	min-width: 500px;
 }
 
 /* モーダル内キャンセルボタンの指定 */
-.cancel{
-  top: 70%;
-  left: 70%;
-  font-size: 90%;
-  font-weight: normal;
-  width: 200px;
-  height: 40px;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  background: linear-gradient(to bottom, #f72e4f , #f5778c );
-  box-shadow: inset 1px 1px 1px #f887a9;
+.cancel {
+	top: 70%;
+	left: 70%;
+	font-size: 90%;
+	font-weight: normal;
+	width: 200px;
+	height: 40px;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	padding: 5px;
+	background: linear-gradient(to bottom, #f72e4f, #f5778c);
+	box-shadow: inset 1px 1px 1px #f887a9;
 }
 
 
 /* モーダル内キャンセルボタン触った後の色の指定 */
 .cancel:hover {
-  background: linear-gradient(to bottom, #d8677a , #fc002a);
+	background: linear-gradient(to bottom, #d8677a, #fc002a);
 }
 
 
 /* モーダルを閉じる(やめる）ボタンの指定 */
-.modal-close{
-  top: 70%;
-  left: 70%;
-  font-size: 90%;
-  font-weight: normal;
-  width: 200px;
-  height: 40px;
-  color: #fff;
-  background: #9c9c9c;
-  background: linear-gradient(to bottom, #777777 , #afaeae );
-  border: none;
-  cursor: pointer;
-  padding: 5px;
+.modal-close {
+	top: 70%;
+	left: 70%;
+	font-size: 90%;
+	font-weight: normal;
+	width: 200px;
+	height: 40px;
+	color: #fff;
+	background: #9c9c9c;
+	background: linear-gradient(to bottom, #777777, #afaeae);
+	border: none;
+	cursor: pointer;
+	padding: 5px;
 }
 
 /* モーダル内やめるボタン触った後の色の指定 */
 .modal-close:hover {
-  background: linear-gradient(to bottom, #707070 , #4e4e4e);
+	background: linear-gradient(to bottom, #707070, #4e4e4e);
 }
 
 .cancelbtns form {
 	display: inline-block;
 	margin: 10px 0;
 }
+
 /* ~~ ここまで注文キャンセル用モーダル実装 */
 
 /*ページトップに戻るボタン*/
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
+
 .pagetop {
-    height: 50px;
-    width: 50px;
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    border: solid 2px #000;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	border: solid 2px #000;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
 }
 
 .pagetop__arrow {
-    height: 10px;
-    width: 10px;
-    border-top: 3px solid #000;
-    border-right: 3px solid #000;
-    transform: translateY(20%) rotate(-45deg);
+	height: 10px;
+	width: 10px;
+	border-top: 3px solid #000;
+	border-right: 3px solid #000;
+	transform: translateY(20%) rotate(-45deg);
 }
+
 /*ここまでページトップに戻るボタン*/
 
 /*カードデザインもどき
@@ -450,69 +492,76 @@ html {
 
 
 .center {
-  position: absolute;
-  padding-top: 3%;
-  top: 70%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
+	position: absolute;
+	padding-top: 3%;
+	top: 70%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
 }
+
 .inlog {
-  position: absolute;
-  top: 100%;
-  left: 44%;
-  -webkit-transform: translate(-50%, -50%);
+	position: absolute;
+	top: 100%;
+	left: 44%;
+	-webkit-transform: translate(-50%, -50%);
 }
+
 .inlog {
-  width: 400px;
-  height: 200px;
-  background-color: #fff;
- /* background: linear-gradient(#f8f8f8, #fff);*/
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;/*ここはもともとリレイティブ*/
-  margin: 1.5rem;
+	width: 400px;
+	height: 200px;
+	background-color: #fff;
+	/* background: linear-gradient(#f8f8f8, #fff);*/
+	box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+	border-radius: 6px;
+	overflow: hidden;
+	position: relative;
+	/*ここはもともとリレイティブ*/
+	margin: 1.5rem;
 }
 
 .card {
-  width: 400px;
-  height: 200px;
-  background-color: #fff;
- /* background: linear-gradient(#f8f8f8, #fff);*/
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;/*ここはもともとリレイティブ*/
-  margin: 1.5rem;
+	width: 400px;
+	height: 200px;
+	background-color: #fff;
+	/* background: linear-gradient(#f8f8f8, #fff);*/
+	box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+	border-radius: 6px;
+	overflow: hidden;
+	position: relative;
+	/*ここはもともとリレイティブ*/
+	margin: 1.5rem;
 }
 
 .card h1 {
-  text-align: center;
+	text-align: center;
 }
+
 .inlog h1 {
-  text-align: center;
+	text-align: center;
 }
 
 .card .additional {
-  position: absolute;
-  width: 150px;
-  height: 100%;
- /* background: linear-gradient(#dE685E, #EE786E);*/
- background-color: rgb(52, 179, 239);
-  transition: width 0.4s;
-  overflow: hidden;
-  z-index: 2;
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	/* background: linear-gradient(#dE685E, #EE786E);*/
+	background-color: rgb(52, 179, 239);
+	transition: width 0.4s;
+	overflow: hidden;
+	z-index: 2;
 }
+
 .inlog .additional {
-  position: absolute;
-  width: 150px;
-  height: 100%;
- /* background: linear-gradient(#dE685E, #EE786E);*/
- background-color: rgb(52, 179, 239);
-  transition: width 0.4s;
-  overflow: hidden;
-  z-index: 2;
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	/* background: linear-gradient(#dE685E, #EE786E);*/
+	background-color: rgb(52, 179, 239);
+	transition: width 0.4s;
+	overflow: hidden;
+	z-index: 2;
 }
+
 /*
 .card.green .additional {
   background: linear-gradient(#92bCa6, #A2CCB6);
@@ -521,85 +570,94 @@ html {
 
 
 .card:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
+	width: 100%;
+	border-radius: 0 5px 5px 0;
 }
+
 .inlog:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
+	width: 100%;
+	border-radius: 0 5px 5px 0;
 }
 
 
 .card .additional .user-card {
-  width: 150px;
-  height: 100%;
-  position: relative;/*ここは元からリレイティブ*/
-  float: left;
+	width: 150px;
+	height: 100%;
+	position: relative;
+	/*ここは元からリレイティブ*/
+	float: left;
 }
+
 .inlog .additional .user-card {
-  width: 150px;
-  height: 100%;
-  position: relative;/*ここは元からリレイティブ*/
-  float: left;
+	width: 150px;
+	height: 100%;
+	position: relative;
+	/*ここは元からリレイティブ*/
+	float: left;
 }
 
 .card .additional .user-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: -2px;
-  height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);
+	content: "";
+	display: block;
+	position: absolute;
+	top: 10%;
+	right: -2px;
+	height: 80%;
+	border-left: 2px solid rgba(0, 0, 0, 0.025);
 }
+
 .inlog .additional .user-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: -2px;
-  height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);
+	content: "";
+	display: block;
+	position: absolute;
+	top: 10%;
+	right: -2px;
+	height: 80%;
+	border-left: 2px solid rgba(0, 0, 0, 0.025);
 }
 
 .card .additional .user-card .level,
 .card .additional .user-card .points {
-  top: 15%;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 0.75em;
-  font-weight: bold;
-  background: rgba(0,0,0,0.15);
-  padding: 0.125rem 0.75rem;
-  border-radius: 100px;
-  white-space: nowrap;
+	top: 15%;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 0.75em;
+	font-weight: bold;
+	background: rgba(0, 0, 0, 0.15);
+	padding: 0.125rem 0.75rem;
+	border-radius: 100px;
+	white-space: nowrap;
 }
+
 .inlog .additional .user-card .level,
 .inlog .additional .user-card .points {
-  top: 15%;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 0.75em;
-  font-weight: bold;
-  background: rgba(0,0,0,0.15);
-  padding: 0.125rem 0.75rem;
-  border-radius: 100px;
-  white-space: nowrap;
+	top: 15%;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 0.75em;
+	font-weight: bold;
+	background: rgba(0, 0, 0, 0.15);
+	padding: 0.125rem 0.75rem;
+	border-radius: 100px;
+	white-space: nowrap;
 }
 
 .card .additional .user-card .points {
-  top: 85%;
+	top: 85%;
 }
+
 .inlog .additional .user-card .points {
-  top: 85%;
+	top: 85%;
 }
 
 .card .additional .user-card svg {
-  top: 50%;
+	top: 50%;
 }
+
 .inlog .additional .user-card svg {
-  top: 50%;
+	top: 50%;
 }
+
 /*
 .card .additional .more-info {
   width: 300px;
@@ -610,158 +668,172 @@ html {
 }*/
 
 .card .additional .more-info h1 {
-  color: #fff;
-  margin-bottom: 0;
+	color: #fff;
+	margin-bottom: 0;
 }
+
 .inlog .additional .more-info h1 {
-  color: #fff;
-  margin-bottom: 0;
+	color: #fff;
+	margin-bottom: 0;
 }
 
 .card.green .additional .more-info h1 {
-  /*color: #224C36;*/
-  color:aqua;
+	/*color: #224C36;*/
+	color: aqua;
 }
+
 .inlog.green .additional .more-info h1 {
-  /*color: #224C36;*/
-  color:aqua;
+	/*color: #224C36;*/
+	color: aqua;
 }
 
 .card .additional .coords {
-  margin: 0 1rem;
-  color: #fff;
-  font-size: 1rem;
+	margin: 0 1rem;
+	color: #fff;
+	font-size: 1rem;
 }
+
 .inlog .additional .coords {
-  margin: 0 1rem;
-  color: #fff;
-  font-size: 1rem;
+	margin: 0 1rem;
+	color: #fff;
+	font-size: 1rem;
 }
 
 .card.green .additional .coords {
-  /*color: #325C46;*/
-  color: blue;
-}
-.inlog.green .additional .coords {
-  /*color: #325C46;*/
-  color: blue;
+	/*color: #325C46;*/
+	color: blue;
 }
 
-.card .additional .coords span + span {
-  float: right;
+.inlog.green .additional .coords {
+	/*color: #325C46;*/
+	color: blue;
 }
-.inlog .additional .coords span + span {
-  float: right;
+
+.card .additional .coords span+span {
+	float: right;
+}
+
+.inlog .additional .coords span+span {
+	float: right;
 }
 
 
 .card .additional .stats {
-  font-size: 2rem;
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  top: auto;
-  color: #fff;
+	font-size: 2rem;
+	display: flex;
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	right: 1rem;
+	top: auto;
+	color: #fff;
 }
+
 .inlog .additional .stats {
-  font-size: 2rem;
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  top: auto;
-  color: #fff;
+	font-size: 2rem;
+	display: flex;
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	right: 1rem;
+	top: auto;
+	color: #fff;
 }
 
 .card.green .additional .stats {
-/*  color: #325C46;*/
-  color: #999;
-}
-.inlog.green .additional .stats {
-/*  color: #325C46;*/
-  color: #999;
+	/*  color: #325C46;*/
+	color: #999;
 }
 
-.card .additional .stats > div {
-  flex: 1;
-  text-align: center;
+.inlog.green .additional .stats {
+	/*  color: #325C46;*/
+	color: #999;
 }
-.inlog .additional .stats > div {
-  flex: 1;
-  text-align: center;
+
+.card .additional .stats>div {
+	flex: 1;
+	text-align: center;
+}
+
+.inlog .additional .stats>div {
+	flex: 1;
+	text-align: center;
 }
 
 .card .additional .stats i {
-  display: block;
+	display: block;
 }
+
 .inlog .additional .stats i {
-  display: block;
+	display: block;
 }
 
 .card .additional .stats div.title {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
+	font-size: 0.75rem;
+	font-weight: bold;
+	text-transform: uppercase;
 }
+
 .inlog .additional .stats div.title {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
+	font-size: 0.75rem;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .card .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 1.5rem;
 }
+
 .inlog .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 1.5rem;
 }
 
 .card .additional .stats div.value.infinity {
-  font-size: 2.5rem;
+	font-size: 2.5rem;
 }
+
 .inlog .additional .stats div.value.infinity {
-  font-size: 2.5rem;
+	font-size: 2.5rem;
 }
 
 .card .general {
-  width: 300px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  box-sizing: border-box;
-  padding: 1rem;
-  padding-top: 0;
+	width: 300px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	box-sizing: border-box;
+	padding: 1rem;
+	padding-top: 0;
 }
+
 .inlog .general {
-  width: 300px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  box-sizing: border-box;
-  padding: 1rem;
-  padding-top: 0;
+	width: 300px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	box-sizing: border-box;
+	padding: 1rem;
+	padding-top: 0;
 }
 
 .card .general .more {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 0.9em;
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	font-size: 0.9em;
 }
+
 .inlog .general .more {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 0.9em;
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	font-size: 0.9em;
 }
