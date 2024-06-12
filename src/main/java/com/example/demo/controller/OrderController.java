@@ -89,14 +89,13 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-
+		// DBのポイント加算
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> editPoint = new ArrayList<>();
 		for (Account account : accountList) {
 			for (OrderDetail orderDetail : orderDetails) {
 				if (account.getId() == login.getId()) {
 					account.setPoint(account.getPoint() + orderDetail.getAccountPoint());
-					// DBのポイント追加
 					editPoint.add(account);
 				}
 			}
@@ -181,20 +180,18 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-
+		// DBのポイント加算
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> editPoint = new ArrayList<>();
 		for (Account account : accountList) {
 			for (OrderDetail orderDetail : orderDetails) {
 				if (account.getId() == login.getId()) {
 					account.setPoint(account.getPoint() + orderDetail.getAccountPoint());
-					// DBのポイント追加
 					editPoint.add(account);
 				}
 			}
 		}
 		accountRepository.saveAll(editPoint);
-
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("totalPrice", order.getTotalPrice());
@@ -220,9 +217,9 @@ public class OrderController {
 	public String delete(
 			@RequestParam("historyId") Integer historyId,
 			Model model) {
+		List<OrderDetail> orderdetailList = orderDetailRepository.findByOrderId(historyId);
 		// 在庫復活
 		List<Item> itemList = itemRepository.findAll();
-		List<OrderDetail> orderdetailList = orderDetailRepository.findByOrderId(historyId);
 		List<Item> addStock = new ArrayList<>();
 		for (OrderDetail item : orderdetailList) {
 			for (Item items : itemList) {
@@ -233,6 +230,18 @@ public class OrderController {
 			}
 		}
 		itemRepository.saveAll(addStock);
+		// 付与されたポイント削除
+		List<Account> accountList = accountRepository.findAll();
+		List<Account> editPoint = new ArrayList<>();
+		for (OrderDetail accounts : orderdetailList) {
+			for (Account account : accountList) {
+				if (account.getId() == login.getId()) {
+					account.setPoint(account.getPoint() - accounts.getAccountPoint());
+					editPoint.add(account);
+				}
+			}
+		}
+		accountRepository.saveAll(editPoint);
 		// 注文履歴削除
 		List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(historyId);
 		orderDetailRepository.deleteAll(orderDetails);
