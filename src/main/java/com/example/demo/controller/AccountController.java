@@ -116,7 +116,7 @@ public class AccountController {
 			return "join";
 		}
 		// 新規登録成功処理
-		account = new Account(name, grade, department, email, address, password);
+		account = new Account(name, grade, department, email, address, password, 0);
 		accountRepository.save(account);
 		// 確認画面に表示する用
 		model.addAttribute("id", account.getId());

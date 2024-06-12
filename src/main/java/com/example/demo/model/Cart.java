@@ -3,17 +3,26 @@ package com.example.demo.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.example.demo.entity.Account;
 import com.example.demo.entity.Item;
+import com.example.demo.repository.AccountRepository;
 
 @Component
 @SessionScope
 public class Cart {
 
+	@Autowired
+	Login login;
+
+	@Autowired
+	AccountRepository accountRepository;
+
 	// フィールド
-	private List<Item> itemList = new ArrayList<>(); // カートの中身リスト 
+	private List<Item> itemList = new ArrayList<>(); // カートの中身リスト
 
 	// アクセッサ
 	public List<Item> getItemList() {
@@ -46,6 +55,7 @@ public class Cart {
 	public Integer getTotalPrice() {
 		// 合計金額計算
 		Integer total = 0;
+		List<Account> accountList = accountRepository.findAll();
 		for (Item item : itemList) {
 			total += item.getPrice() * item.getQuantity();
 		}
@@ -56,6 +66,9 @@ public class Cart {
 		} else if (total < 5000) {
 			Integer fee = 550;
 			total += fee;
+		} // 保有しているポイントを使用
+		for (Account account : accountList) {
+			total -= account.getPoint();
 		}
 		return total;
 	}
@@ -78,6 +91,19 @@ public class Cart {
 		}
 		String message = "(送料無料)";
 		return message;
+	}
+
+	// ポイント表示用
+	public String message2() {
+		List<Account> accountList = accountRepository.findAll();
+		for (Account account : accountList) {
+			if (account.getPoint() != 0) {
+				String message2 = "現在の保有ポイント：" + account.getPoint() + "   ";
+				return message2;
+			}
+		}
+		String message2 = "";
+		return message2;
 	}
 
 	// 削除

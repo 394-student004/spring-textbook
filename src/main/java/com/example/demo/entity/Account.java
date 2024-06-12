@@ -27,13 +27,15 @@ public class Account {
 	}
 
 	// 登録用
-	public Account(String name, Integer grade, String department, String email, String address, String password) {
+	public Account(String name, Integer grade, String department, String email, String address, String password,
+			Integer point) {
 		this.name = name;
 		this.grade = grade;
 		this.department = department;
 		this.email = email;
 		this.address = address;
 		this.password = password;
+		this.point = point;
 	}
 
 	// 更新用
