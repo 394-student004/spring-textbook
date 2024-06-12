@@ -76,7 +76,11 @@ public class Cart {
 		Integer total = 0;
 		List<Account> accountList = accountRepository.findAll();
 		for (Account account : accountList) {
-			total = getTotalPrice() - account.getPoint();
+			if (getTotalPrice() - account.getPoint() >= 0) {
+				total = getTotalPrice() - account.getPoint();
+			} else {
+				total = 0;
+			}
 		}
 		return total;
 	}

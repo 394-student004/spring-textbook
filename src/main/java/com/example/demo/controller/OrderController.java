@@ -148,20 +148,6 @@ public class OrderController {
 			return "credit";
 		}
 		// 注文情報をDBに格納する
-		if (cart.getTotalPrice() - account.getPoint() >= 0) {
-			Order order = new Order(
-					login.getId(),
-					LocalDate.now(),
-					cart.getTotalPrice() - account.getPoint());
-			orderRepository.save(order);
-		} else {
-			Order order = new Order(
-					login.getId(),
-					LocalDate.now(),
-					0);
-			orderRepository.save(order);
-		}
-		// 注文情報をDBに格納する
 		Order order = new Order(
 				login.getId(),
 				LocalDate.now(),
