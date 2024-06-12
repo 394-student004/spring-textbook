@@ -194,7 +194,10 @@ public class AccountController {
 
 	//ポイント確認画面表示
 	@GetMapping("/point")
-	public String point() {
+	public String point(Model model) {
+		// ログインしている会員の情報を取得
+		account = accountRepository.findById(login.getId()).get();
+		model.addAttribute("account", account);
 		return "point";
 	}
 
