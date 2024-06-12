@@ -21,18 +21,18 @@ public class Order {
 	private Integer accountId; // 会員ID
 	@Column(name = "ordered_on")
 	private LocalDate orderedOn; // 注文日
-	@Column(name = "total_price")
-	private Integer totalPrice; // 合計額
+	@Column(name = "point_price")
+	private Integer pointPrice; // 合計額
 
 	//コンストラクタ
 	public Order() {
 	}
 
 	// 注文情報用
-	public Order(Integer accountId, LocalDate orderedOn, Integer totalPrice) {
+	public Order(Integer accountId, LocalDate orderedOn, Integer pointPrice) {
 		this.accountId = accountId;
 		this.orderedOn = orderedOn;
-		this.totalPrice = totalPrice;
+		this.pointPrice = pointPrice;
 	}
 
 	// 注文履歴表示用
@@ -66,12 +66,12 @@ public class Order {
 		this.orderedOn = orderedOn;
 	}
 
-	public Integer getTotalPrice() {
-		return totalPrice;
+	public Integer getPointPrice() {
+		return pointPrice;
 	}
 
-	public void setTotalPrice(Integer totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setPointPrice(Integer pointPrice) {
+		this.pointPrice = pointPrice;
 	}
 
 }

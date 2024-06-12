@@ -33,6 +33,8 @@ public class OrderController {
 	@Autowired
 	Login login;
 
+	Order order = new Order();
+
 	@Autowired
 	AccountRepository accountRepository;
 
@@ -68,7 +70,7 @@ public class OrderController {
 		Order order = new Order(
 				login.getId(),
 				LocalDate.now(),
-				cart.getTotalPrice() - account.getPoint());
+				cart.getPointPrice());
 		orderRepository.save(order);
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
@@ -83,19 +85,18 @@ public class OrderController {
 							item.getName(),
 							item.getQuantity(),
 							item.getStock(),
-							cart.getPoint()));
+							cart.getPointPrice()));
 			// DBの在庫数更新
 			editStock.add(item);
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
 		// DBのポイント加算
-		//		account = accountRepository.findById(login.getId()).get();
 		account.setPoint(cart.getPoint());
 		accountRepository.save(account);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
-		model.addAttribute("totalPrice", order.getTotalPrice());
+		model.addAttribute("totalPrice", order.getPointPrice());
 		model.addAttribute("point", cart.getPoint());
 		// カートの情報をクリア
 		cart.clear();
@@ -147,10 +148,24 @@ public class OrderController {
 			return "credit";
 		}
 		// 注文情報をDBに格納する
+		if (cart.getTotalPrice() - account.getPoint() >= 0) {
+			Order order = new Order(
+					login.getId(),
+					LocalDate.now(),
+					cart.getTotalPrice() - account.getPoint());
+			orderRepository.save(order);
+		} else {
+			Order order = new Order(
+					login.getId(),
+					LocalDate.now(),
+					0);
+			orderRepository.save(order);
+		}
+		// 注文情報をDBに格納する
 		Order order = new Order(
 				login.getId(),
 				LocalDate.now(),
-				cart.getTotalPrice() - account.getPoint());
+				cart.getPointPrice());
 		orderRepository.save(order);
 		// 注文詳細情報をDBに格納する
 		List<Item> itemList = cart.getItemList();
@@ -164,19 +179,19 @@ public class OrderController {
 							item.getId(),
 							item.getName(),
 							item.getQuantity(),
-							item.getStock()));
+							item.getStock(),
+							cart.getPointPrice()));
 			// DBの在庫数更新
 			editStock.add(item);
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
 		// DBのポイント加算
-		account = accountRepository.findById(login.getId()).get();
 		account.setPoint(cart.getPoint());
 		accountRepository.save(account);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
-		model.addAttribute("totalPrice", order.getTotalPrice());
+		model.addAttribute("totalPrice", order.getPointPrice());
 		model.addAttribute("point", cart.getPoint());
 		// カートの情報をクリア
 		cart.clear();

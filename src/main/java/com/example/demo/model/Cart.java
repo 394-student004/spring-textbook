@@ -18,6 +18,8 @@ public class Cart {
 	@Autowired
 	Login login;
 
+	Account account = new Account();
+
 	@Autowired
 	AccountRepository accountRepository;
 
@@ -65,6 +67,16 @@ public class Cart {
 		} else if (total < 5000) {
 			Integer fee = 550;
 			total += fee;
+		}
+		return total;
+	}
+
+	// ポイント引いた後の合計金額
+	public Integer getPointPrice() {
+		Integer total = 0;
+		List<Account> accountList = accountRepository.findAll();
+		for (Account account : accountList) {
+			total = getTotalPrice() - account.getPoint();
 		}
 		return total;
 	}
