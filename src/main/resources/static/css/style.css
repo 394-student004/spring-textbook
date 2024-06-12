@@ -477,15 +477,17 @@ html {
   position: absolute;
   width: 150px;
   height: 100%;
-  background: linear-gradient(#dE685E, #EE786E);
+ /* background: linear-gradient(#dE685E, #EE786E);*/
+ background-color: rgb(52, 179, 239);
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
 }
-
+/*
 .card.green .additional {
   background: linear-gradient(#92bCa6, #A2CCB6);
-}
+  background-color: rgb(255, 0, 0);
+}*/
 
 
 .card:hover .additional {
@@ -507,7 +509,7 @@ html {
   top: 10%;
   right: -2px;
   height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);*/
+  border-left: 2px solid rgba(0,0,0,0.025);
 }
 
 .card .additional .user-card .level,
@@ -545,7 +547,8 @@ html {
 }
 
 .card.green .additional .more-info h1 {
-  color: #224C36;
+  /*color: #224C36;*/
+  color:aqua;
 }
 
 .card .additional .coords {
@@ -555,7 +558,8 @@ html {
 }
 
 .card.green .additional .coords {
-  color: #325C46;
+  /*color: #325C46;*/
+  color: blue;
 }
 
 .card .additional .coords span + span {
@@ -574,7 +578,8 @@ html {
 }
 
 .card.green .additional .stats {
-  color: #325C46;
+/*  color: #325C46;*/
+  color: #999;
 }
 
 .card .additional .stats > div {
