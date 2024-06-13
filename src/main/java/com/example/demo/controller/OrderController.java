@@ -95,10 +95,6 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		/*		// DBのポイント加算 保有ポイントリセット
-				account.setPoint(cart.getPoint());
-				accountRepository.save(account);
-				*/
 		// DBのポイント加算 ポイント引継ぎ
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> addPoint = new ArrayList<>();
@@ -197,10 +193,6 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		/*		// DBのポイント加算 保有ポイントリセット
-		account.setPoint(cart.getPoint());
-		accountRepository.save(account);
-		*/
 		// DBのポイント加算 ポイント引継ぎ
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> addPoint = new ArrayList<>();
@@ -255,7 +247,7 @@ public class OrderController {
 			}
 		}
 		itemRepository.saveAll(addStock);
-		// 付与されたポイント削除
+		// 付与されたポイント削除・使用したポイント返却
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> editPoint = new ArrayList<>();
 		for (Account account : accountList) {
