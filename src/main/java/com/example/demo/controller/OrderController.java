@@ -95,7 +95,8 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		// DBのポイント加算 ポイント引継ぎ
+		// DBのポイント数更新
+		// 使用したポイント分減・今回獲得したポイント付与
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> addPoint = new ArrayList<>();
 		for (Account account : accountList) {
@@ -193,7 +194,8 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		// DBのポイント加算 ポイント引継ぎ
+		// DBのポイント数更新
+		// 使用したポイント分減・今回獲得したポイント付与
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> addPoint = new ArrayList<>();
 		for (Account account : accountList) {
@@ -247,7 +249,7 @@ public class OrderController {
 			}
 		}
 		itemRepository.saveAll(addStock);
-		// 付与されたポイント削除・使用したポイント返却
+		// 購入時に付与されたポイント削除
 		List<Account> accountList = accountRepository.findAll();
 		List<Account> editPoint = new ArrayList<>();
 		for (Account account : accountList) {

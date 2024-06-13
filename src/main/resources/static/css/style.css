@@ -8,15 +8,19 @@ body {
 }
 
 header {
-	background-color: rgb(31, 70, 31);
-	/* (背景 単色ver) */
-	/* (背景 グラデver) 
-    background: -webkit-linear-gradient(to right, rgb(0, 64, 0), rgb(0, 64, 64));
-    background: linear-gradient(to right, rgb(31, 70, 31), #c7fcc0);
-    */
+	/*(背景 グラデver) */
+	background: -webkit-linear-gradient(to right, rgb(0, 64, 0), rgb(0, 64, 64));
+	background: linear-gradient(to right, rgb(31, 70, 31), #c7fcc0);
 	color: aliceblue;
 	padding-top: 5px;
 	padding-bottom: 5px;
+
+	/* (背景 単色ver) 
+	background-color: rgb(31, 70, 31);
+	color: aliceblue;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	*/
 }
 
 header a {
@@ -81,57 +85,52 @@ button:hover {
 .btn,
 a.btn,
 button.btn {
+	/*吹き出し下の緑の領域*/
 	font-weight: 700;
 	line-height: 1.5;
 	position: relative;
 	display: inline-block;
-	/*吹き出し下の緑の領域*/
-	text-decoration: none;
 	/*購入続けるボタンをボタンっぽくするためにリンクの下線を消す*/
-	letter-spacing: 0.1em;
+	text-decoration: none;
 	/*文字のちょっとしたサイズ調整*/
-
+	letter-spacing: 0.1em;
 }
 
 .btn-wrap {
-	margin: 15px 0;
 	/*購入を続けるボタン周辺余白*/
+	margin: 15px 0;
 }
 
 a.btn-c {
-	padding: 1mm 1rem 1rem 2rem;
 	/*購入続けるボタンサイズ調整*/
-	color: #fff;
+	padding: 1mm 1rem 1rem 2rem;
 	/*購入を続ける文字色*/
-	background: #4CAF50;
+	color: #fff;
 	/*その背景色*/
+	background: #4CAF50;
 }
 
 a.btn-c span {
-	font-size: 70%;
+	display: block;
 	/*吹き出し内の文字フォントサイズ*/
-
+	font-size: 70%;
+	/*吹き出し縦位置*/
 	position: absolute;
 	top: -0.3rem;
-	/*吹き出し縦位置*/
-	left: calc(89% - 150px);
 	/*吹き出し横位置*/
-
-	display: block;
-
-	width: 170px;
+	left: calc(89% - 150px);
 	/*吹き出し大きさ*/
-	padding: 0.2rem 0;
+	width: 170px;
 	/*吹き出し立幅*/
-
-	color: rgb(0, 0, 0);
+	padding: 0.2rem 0;
 	/*吹き出し内文字色*/
-	border: 2px solid rgb(46, 105, 50);
+	color: rgb(0, 0, 0);
 	/*吹き出しフチ色*/
-	border-radius: 100vh;
+	border: 2px solid rgb(46, 105, 50);
 	/*吹き出しをカーブにしている部分（ないと四角になる）*/
-	background: rgb(255, 255, 255);
+	border-radius: 100vh;
 	/*吹き出し背景色*/
+	background: rgb(255, 255, 255);
 }
 
 a.btn-c span:before,
@@ -147,41 +146,39 @@ a.btn-c span:after {
 
 a.btn-c span:before {
 	bottom: -10px;
-
-	border-width: 10px 10px 0 10px;
 	/*三角の位置（みどり）*/
-	border-style: solid;
+	border-width: 10px 10px 0 10px;
 	/*存在証明*/
-	border-color: rgb(46, 105, 50) transparent transparent transparent;
+	border-style: solid;
 	/*三角の色（みどり）*/
+	border-color: rgb(46, 105, 50) transparent transparent transparent;
 }
 
 a.btn-c span:after {
 	bottom: -7px;
-
-	border-width: 10px 10px 0 10px;
 	/*三角の位置（みどり）*/
-	border-style: solid;
+	border-width: 10px 10px 0 10px;
 	/*存在証明*/
-	border-color: #fff transparent transparent transparent;
+	border-style: solid;
 	/*三角の色（白）*/
+	border-color: #fff transparent transparent transparent;
 }
 
 a.btn-c i {
-	margin-right: 0.5rem;
 	/*購入を続けるボタンの横幅サイズ調整*/
+	margin-right: 0.5rem;
 }
 
 a.btn-c:hover {
-	background-color: rgb(38, 130, 58);
 	/*カーソル重ねた時の色*/
+	background-color: rgb(38, 130, 58);
 }
 
 /*ファンクションボタン*/
 .btn-menu {
-	position: relative;
-	/*線の基点とするためrelativeを指定*/
 	color: rgb(0, 0, 0);
+	/*線の基点とするためrelativeを指定*/
+	position: relative;
 	/*リンクの形状*/
 	padding: 10px 50px 10px 30px;
 	display: inline-block;
@@ -240,19 +237,12 @@ a.btn-c:hover {
 }
 
 /*フッターのリンク*/
-/*片山の遊び場*/
 .noline {
 	color: #999;
 	/*フッターの文字の色*/
 	text-decoration: none;
 	text-align: left;
 }
-
-/*
-ul {
-  list-style: none;
-  padding: 0;
-}*/
 
 .footer {
 	padding: 2rem;
@@ -280,8 +270,6 @@ ul {
 		margin-left: 16px;
 	}
 }
-
-/*片山の遊び場*/
 
 /* 注文キャンセル実装*/
 /* モーダルを開くボタン */
@@ -338,7 +326,6 @@ ul {
 
 /* モーダル内側の指定 */
 .modal-container {
-
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -402,12 +389,10 @@ table.modal-table {
 	box-shadow: inset 1px 1px 1px #f887a9;
 }
 
-
 /* モーダル内キャンセルボタン触った後の色の指定 */
 .cancel:hover {
 	background: linear-gradient(to bottom, #d8677a, #fc002a);
 }
-
 
 /* モーダルを閉じる(やめる）ボタンの指定 */
 .modal-close {
@@ -434,7 +419,6 @@ table.modal-table {
 	display: inline-block;
 	margin: 10px 0;
 }
-
 /* ~~ ここまで注文キャンセル用モーダル実装 */
 
 /*ページトップに戻るボタン*/
@@ -464,32 +448,10 @@ html {
 	border-right: 3px solid #000;
 	transform: translateY(20%) rotate(-45deg);
 }
-
 /*ここまでページトップに戻るボタン*/
-
-/*カードデザインもどき
-.cardCover{
-	top: 20;
-  width: 420px;
-  height: 250px;
-  background-color:rgb(99, 231, 88) ;
-  border-radius: 10px;
-}
-.card{
-	width: 320px;
-	height: 200px;
-	background-color: #e5e7eb;
-	border-radius: 10px;
-}*/
 
 /*かーどでざいん*/
 @import url('https://fonts.googleapis.com/css?family=Abel');
-
-/*html, body {
-  background: #FCEEB5;
-  font-family: Abel, Arial, Verdana, sans-serif;
-}*/
-
 
 .center {
 	position: absolute;
@@ -544,7 +506,6 @@ html {
 	position: absolute;
 	width: 150px;
 	height: 100%;
-	/* background: linear-gradient(#dE685E, #EE786E);*/
 	background-color: rgb(52, 179, 239);
 	transition: width 0.4s;
 	overflow: hidden;
@@ -555,19 +516,11 @@ html {
 	position: absolute;
 	width: 150px;
 	height: 100%;
-	/* background: linear-gradient(#dE685E, #EE786E);*/
 	background-color: rgb(52, 179, 239);
 	transition: width 0.4s;
 	overflow: hidden;
 	z-index: 2;
 }
-
-/*
-.card.green .additional {
-  background: linear-gradient(#92bCa6, #A2CCB6);
-  background-color: rgb(255, 0, 0);
-}*/
-
 
 .card:hover .additional {
 	width: 100%;
@@ -578,7 +531,6 @@ html {
 	width: 100%;
 	border-radius: 0 5px 5px 0;
 }
-
 
 .card .additional .user-card {
 	width: 150px;
@@ -658,15 +610,6 @@ html {
 	top: 50%;
 }
 
-/*
-.card .additional .more-info {
-  width: 300px;
-  float: left;
-  position: absolute;
-  left: 150px;
-  height: 100%;
-}*/
-
 .card .additional .more-info h1 {
 	color: #fff;
 	margin-bottom: 0;
@@ -678,12 +621,10 @@ html {
 }
 
 .card.green .additional .more-info h1 {
-	/*color: #224C36;*/
 	color: aqua;
 }
 
 .inlog.green .additional .more-info h1 {
-	/*color: #224C36;*/
 	color: aqua;
 }
 
@@ -700,12 +641,10 @@ html {
 }
 
 .card.green .additional .coords {
-	/*color: #325C46;*/
 	color: blue;
 }
 
 .inlog.green .additional .coords {
-	/*color: #325C46;*/
 	color: blue;
 }
 
@@ -716,7 +655,6 @@ html {
 .inlog .additional .coords span+span {
 	float: right;
 }
-
 
 .card .additional .stats {
 	font-size: 2rem;
@@ -741,12 +679,10 @@ html {
 }
 
 .card.green .additional .stats {
-	/*  color: #325C46;*/
 	color: #999;
 }
 
 .inlog.green .additional .stats {
-	/*  color: #325C46;*/
 	color: #999;
 }
 
