@@ -10,7 +10,8 @@ body {
 header {
 	/*(背景 グラデver) */
 	background: -webkit-linear-gradient(to right, rgb(0, 64, 0), rgb(0, 64, 64));
-	background: linear-gradient(to right, rgb(31, 70, 31), #c7fcc0);
+	background: linear-gradient(to right, rgb(31, 70, 31), rgb(166, 250, 154));
+/* #c7fcc0 */
 	color: aliceblue;
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -75,6 +76,7 @@ button {
 	font-size: 16px;
 	margin: 4px 2px;
 	cursor: pointer;
+	font-family: "游明朝 Demibold";
 }
 
 button:hover {
