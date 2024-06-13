@@ -95,9 +95,26 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		// DBのポイント加算
-		account.setPoint(cart.getPoint());
-		accountRepository.save(account);
+		/*		// DBのポイント加算 保有ポイントリセット
+				account.setPoint(cart.getPoint());
+				accountRepository.save(account);
+				*/
+		// DBのポイント加算 ポイント引継ぎ
+		List<Account> accountList = accountRepository.findAll();
+		List<Account> addPoint = new ArrayList<>();
+		for (Account account : accountList) {
+			for (OrderDetail orderDetail : orderDetails) {
+				if (orderDetail.getAccountId() == account.getId()) {
+					if (order.getPointPrice() == 0) {
+						account.setPoint(account.getPoint() - cart.getTotalPrice() + cart.getPoint());
+					} else {
+						account.setPoint(cart.getPoint());
+					}
+				}
+			}
+			addPoint.add(account);
+		}
+		accountRepository.saveAll(addPoint);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("pointPrice", order.getPointPrice());
@@ -180,9 +197,26 @@ public class OrderController {
 		}
 		itemRepository.saveAll(editStock);
 		orderDetailRepository.saveAll(orderDetails);
-		// DBのポイント加算
+		/*		// DBのポイント加算 保有ポイントリセット
 		account.setPoint(cart.getPoint());
 		accountRepository.save(account);
+		*/
+		// DBのポイント加算 ポイント引継ぎ
+		List<Account> accountList = accountRepository.findAll();
+		List<Account> addPoint = new ArrayList<>();
+		for (Account account : accountList) {
+			for (OrderDetail orderDetail : orderDetails) {
+				if (orderDetail.getAccountId() == account.getId()) {
+					if (order.getPointPrice() == 0) {
+						account.setPoint(account.getPoint() - cart.getTotalPrice() + cart.getPoint());
+					} else {
+						account.setPoint(cart.getPoint());
+					}
+				}
+			}
+			addPoint.add(account);
+		}
+		accountRepository.saveAll(addPoint);
 		// 画面返却用注文番号を設定する
 		model.addAttribute("orderNumber", order.getId());
 		model.addAttribute("pointPrice", order.getPointPrice());
@@ -227,8 +261,8 @@ public class OrderController {
 		for (Account account : accountList) {
 			for (OrderDetail accounts : orderdetailList) {
 				if (accounts.getAccountId() == login.getId()) {
-					if (account.getPoint() - accounts.getAccountPoint() >= 0) {
-						account.setPoint(account.getPoint() - accounts.getAccountPoint());
+					if (account.getPoint() - accounts.getAddPoint() >= 0) {
+						account.setPoint(account.getPoint() - accounts.getAddPoint());
 					} else {
 						account.setPoint(0);
 					}

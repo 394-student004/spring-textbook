@@ -95,9 +95,11 @@ public class Cart {
 	public String message2() {
 		List<Account> accountList = accountRepository.findAll();
 		for (Account account : accountList) {
-			if (account.getPoint() != 0) {
-				String message2 = "現在の保有ポイント：" + account.getPoint() + "   ";
-				return message2;
+			if (account.getId() == login.getId()) {
+				if (account.getPoint() != 0) {
+					String message2 = "現在の保有ポイント：" + account.getPoint() + "   ";
+					return message2;
+				}
 			}
 		}
 		String message2 = "";

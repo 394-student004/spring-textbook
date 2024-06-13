@@ -26,8 +26,7 @@ public class OrderDetail {
 	private Integer quantity; // 数量
 	@Column(name = "item_stock")
 	private Integer itemStock; // 在庫
-	@Column(name = "account_point")
-	private Integer accountPoint; // 所有ポイント数
+	private Integer addPoint; // 付与されたポイント数
 
 	// コンストラクタ
 	public OrderDetail() {
@@ -35,14 +34,14 @@ public class OrderDetail {
 
 	// 注文の注文詳細情報用
 	public OrderDetail(Integer accountId, Integer orderId, Integer itemId, String itemName, Integer quantity,
-			Integer itemStock, Integer accountPoint) {
+			Integer itemStock, Integer addPoint) {
 		this.accountId = accountId;
 		this.orderId = orderId;
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.quantity = quantity;
 		this.itemStock = itemStock;
-		this.accountPoint = accountPoint;
+		this.addPoint = addPoint;
 	}
 
 	//アクセッサ
@@ -102,12 +101,12 @@ public class OrderDetail {
 		this.itemStock = itemStock;
 	}
 
-	public Integer getAccountPoint() {
-		return accountPoint;
+	public Integer getAddPoint() {
+		return addPoint;
 	}
 
-	public void setAccountPoint(Integer accountPoint) {
-		this.accountPoint = accountPoint;
+	public void setAddPoint(Integer addPoint) {
+		this.addPoint = addPoint;
 	}
 
 }

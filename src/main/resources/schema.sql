@@ -46,5 +46,5 @@ CREATE TABLE order_details
    item_name TEXT, 
    quantity INTEGER,
    item_stock INTEGER,
-   account_point INTEGER
+   add_point INTEGER
 );
