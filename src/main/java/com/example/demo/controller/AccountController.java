@@ -132,7 +132,9 @@ public class AccountController {
 	//会員情報確認画面用
 	@GetMapping("/account/form")
 	public String form(Model model) {
+		// ログインしている会員の情報を取得
 		account = accountRepository.findById(login.getId()).get();
+		// 確認画面に表示する用
 		model.addAttribute("id", account.getId());
 		model.addAttribute("name", account.getName());
 		model.addAttribute("grade", account.getGrade());
