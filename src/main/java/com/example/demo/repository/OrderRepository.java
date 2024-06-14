@@ -9,6 +9,6 @@ import com.example.demo.entity.Order;
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
 	// 注文履歴表示用
-	List<Order> findByAccountIdOrderById(Integer AccountId);
+	List<Order> findByAccountIdOrderByIdDesc(Integer AccountId);
 
 }

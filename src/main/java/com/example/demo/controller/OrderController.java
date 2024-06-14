@@ -224,7 +224,7 @@ public class OrderController {
 	@GetMapping("/history")
 	public String history(Model model) {
 		// 注文履歴表示
-		List<Order> histories = orderRepository.findByAccountIdOrderById(login.getId());
+		List<Order> histories = orderRepository.findByAccountIdOrderByIdDesc(login.getId());
 		List<OrderDetail> detailHistories = orderDetailRepository.findByAccountIdOrderById(login.getId());
 		model.addAttribute("histories", histories);
 		model.addAttribute("detailHistories", detailHistories);
