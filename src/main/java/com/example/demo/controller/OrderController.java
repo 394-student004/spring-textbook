@@ -254,7 +254,7 @@ public class OrderController {
 		List<Account> editPoint = new ArrayList<>();
 		for (Account account : accountList) {
 			for (OrderDetail accounts : orderdetailList) {
-				if (accounts.getAccountId() == login.getId()) {
+				if (accounts.getAccountId() == account.getId()) {
 					if (account.getPoint() - accounts.getAddPoint() >= 0) {
 						account.setPoint(account.getPoint() - accounts.getAddPoint());
 					} else {
